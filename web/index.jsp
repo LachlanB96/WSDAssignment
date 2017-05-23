@@ -9,12 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="styles.css">
         <title>Flight Center - Home</title>
     </head>
     <% if (session.getAttribute("user") == null) { %>
     <body>
         <center><h1>Flight Center</h1></center>
-        <div style="background: #eee; border: solid 1px #333; text-align: right; width: 100%;">You are not logged in</div>
+        <div class="banner"><p class="alignright">You are not logged in</p><div style="clear: both;"></div></div>
         <div style="text-align: right;"><a href="javascript:history.go(-1)">Back</a> | <a href="index.jsp">Main</a> | <a href="login.jsp">Login</a> | <a href="register.jsp">Register</a></div>
         <% } else { %>
         <%
