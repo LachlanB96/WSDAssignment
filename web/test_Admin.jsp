@@ -25,10 +25,11 @@
         String userName = user.getName();
         String email = user.getEmail();
         String privilege = user.getPrivilege();
+        System.out.println(privilege);
 
     %>
     <center><h1>Flight Center</h1></center>
-        <% if (privilege == "admin") {%>        
+        <% if (privilege.equals("admin")) {%>        
     <div style="background: #eee; border: solid 1px #333; text-align: right; width: 100%;">You are logged in as Administrator - <%= userName%> &lt;<%=email%>&gt; </div>
     <div style="text-align: right;"><a href="admin.jsp">Administrator</a> | <a href="logout.jsp">Logout</a></div>
     <p>Click <a href="index.jsp">here</a> to proceed to the main page.</p>

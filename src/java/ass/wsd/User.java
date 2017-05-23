@@ -35,7 +35,7 @@ public class User implements Serializable {
         this.email = email;
         this.password = password;
         this.dob = dob;
-        this.privilege = privilege;
+        this.privilege = "user";
         this.ID = ID;
     }
 
