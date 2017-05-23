@@ -1,0 +1,14 @@
+.alignleft {
+        float: left;
+    }
+    .alignright {
+        float: right;
+    }
+    .banner {
+        background: #eee;
+        border: solid 1px #333;
+        width: 100%;
+    }
+    .menu {
+        text-align: right;
+    }
