@@ -34,7 +34,7 @@
                     if (users.getUser(email) == null) {%> 
                 <center><h1>Flight Center</h1></center>
                 <div style="background: #eee; border: solid 1px #333; text-align: right; width: 100%;">You are logged in as <%= name%> &lt;<%=email%>&gt; </div>
-                <div style="text-align: right;"><a href="logout.jsp">Logout</a></div>
+                <div style="text-align: right;"><a href="javascript:history.go(-1)">Back</a> | <a href="index.jsp">Main</a> | <a href="booking.jsp">Bookings</a> | <a href="logout.jsp">Logout</a></div>
                 <h2>Welcome <%=name%>!</h2>
                 <p>You have now been registered. Click <a href="index.jsp">here</a> to go back.</p>
                 <p>Your name is: <%=name%>.</p>

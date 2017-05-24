@@ -31,7 +31,7 @@
     
     <xs:simpleType name="privilegeFormat">
         <xs:restriction base="xs:string">
-            <xs:pattern value="customer|administrator"/>
+            <xs:pattern value="customer|admin"/>
         </xs:restriction>
     </xs:simpleType>
     
