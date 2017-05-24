@@ -13,6 +13,7 @@
     </head>
     <body>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <center><h1>Flight Center</h1></center>
 
     <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
@@ -59,6 +60,8 @@
         </li>
     </ul>
 =======
+=======
+>>>>>>> 9190affa96e5b41aecf11f5667fd41cb54f727f7
         <%
             if (session.getAttribute("user") == null) { %> 
     <center><h1>Flight Center</h1></center>
@@ -83,6 +86,9 @@
     %>
     <% }
     %> 
+<<<<<<< HEAD
+>>>>>>> 9190affa96e5b41aecf11f5667fd41cb54f727f7
+=======
 >>>>>>> 9190affa96e5b41aecf11f5667fd41cb54f727f7
 
     <form action="login.jsp" method="post">

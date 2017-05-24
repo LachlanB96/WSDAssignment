@@ -12,6 +12,7 @@
         <title>Register</title>
     </head>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <body>
         <center><h1>Flight Center</h1></center>
         
@@ -91,6 +92,8 @@
         </form>
     </body>
 =======
+=======
+>>>>>>> 9190affa96e5b41aecf11f5667fd41cb54f727f7
     <%
     if (session.getAttribute("user") == null) { %> 
     <center><h1>Flight Center</h1></center>
@@ -147,5 +150,8 @@
         </fieldset>
     </form>
 </body>
+<<<<<<< HEAD
+>>>>>>> 9190affa96e5b41aecf11f5667fd41cb54f727f7
+=======
 >>>>>>> 9190affa96e5b41aecf11f5667fd41cb54f727f7
 </html>
