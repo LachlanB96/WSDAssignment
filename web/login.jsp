@@ -12,8 +12,6 @@
         <title>Flight Center - Login</title>
     </head>
     <body>
-<<<<<<< HEAD
-<<<<<<< HEAD
     <center><h1>Flight Center</h1></center>
 
     <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
@@ -45,10 +43,46 @@
 
         if (user != null) {
                 session.setAttribute("user", user);
+                response.sendRedirect("index.html");
         }
-        response.sendRedirect("index.html");
+        %>
+        <ul>
+        <li><a href="index.jsp">Home</a></li>
+        <li><a href="bookings.jsp">Bookings</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn">You are not logged in</a>
+            <div class="dropdown-content">
+                <a href="login.jsp">Login</a>
+                <a href="register.jsp">Register</a>
+            </div>
+        </li>
+    </ul>
+    <h2>No user found, please try again</h2>
+    <form action="login.jsp" method="post">
+        <fieldset>
+            <h2>Login</h2>
+            <table>
+                <tr>
+                    <td><label class="field" for="Email">Email</label></td>
+                    <td><input type="email" name="email"></td>
+                </tr>
+                <tr>
+                    <td><label class="field" for="password">Password</label></td>
+                    <td><input type="password" name="password"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Login">  
+                        <input type="hidden" name="submitted" value="yes">
+                    </td>
+                </tr>
+            </table>
 
-    } else { %>
+        </fieldset>
+    </form>
+
+    <% } else { %>
     <ul>
         <li><a href="index.jsp">Home</a></li>
         <li class="dropdown">
@@ -59,37 +93,6 @@
             </div>
         </li>
     </ul>
-=======
-=======
->>>>>>> 9190affa96e5b41aecf11f5667fd41cb54f727f7
-        <%
-            if (session.getAttribute("user") == null) { %> 
-    <center><h1>Flight Center</h1></center>
-    <div class="banner"><p class="alignright">You are not logged in</p><div style="clear: both;"></div></div>
-    <div style="text-align: right;"><a href="javascript:history.go(-1)">Back</a> | <a href="index.jsp">Main</a> | <a href="login.jsp">Login</a> | <a href="register.jsp">Register</a></div>
-    <% } else { %> 
-    <%
-        User user = (User) session.getAttribute("user");
-        String userName = user.getName();
-        String email = user.getEmail();
-        String privilege = user.getPrivilege();
-        System.out.println(privilege);
-    %>
-    <center><h1>Flight Center</h1></center>
-        <% if (privilege.equals("admin")) {%> 
-    <div style="background: #eee; border: solid 1px #333; text-align: right; width: 100%;">You are logged in as Administrator - <%= userName%> &lt;<%=email%>&gt; </div>
-    <div style="text-align: right;"><a href="javascript:history.go(-1)">Back</a> | <a href="index.jsp">Main</a> | <a href="admin.jsp">Administrator</a> | <a href="logout.jsp">Logout</a></div>
-    <% } else {%>
-    <div style="background: #eee; border: solid 1px #333; text-align: right; width: 100%;">You are logged in as <%= userName%> &lt;<%=email%>&gt; </div>
-    <div style="text-align: right;"><a href="javascript:history.go(-1)">Back</a> | <a href="index.jsp">Main</a> | <a href="booking.jsp">Bookings</a> | <a href="logout.jsp">Logout</a></div>
-    <% }
-    %>
-    <% }
-    %> 
-<<<<<<< HEAD
->>>>>>> 9190affa96e5b41aecf11f5667fd41cb54f727f7
-=======
->>>>>>> 9190affa96e5b41aecf11f5667fd41cb54f727f7
 
     <form action="login.jsp" method="post">
         <fieldset>

@@ -12,35 +12,37 @@
         <link rel="stylesheet" href="styles.css">
         <title>Flight Center - Results</title>
     </head>
-    <%
-        if (session.getAttribute("user") == null) { %> 
-    <center><h1>Flight Center</h1></center>
-    <div class="banner"><p class="alignright">You are not logged in</p><div style="clear: both;"></div></div>
-    <div style="text-align: right;"><a href="javascript:history.go(-1)">Back</a> | <a href="index.jsp">Main</a> | <a href="login.jsp">Login</a> | <a href="register.jsp">Register</a></div>
-    <% } else { %> 
-    <%
-        User user = (User) session.getAttribute("user");
-        String userName = user.getName();
-        String email = user.getEmail();
-        String privilege = user.getPrivilege();
-        System.out.println(privilege);
-    %>
-    <center><h1>Flight Center</h1></center>
-        <% if (privilege.equals("admin")) {%> 
-    <div style="background: #eee; border: solid 1px #333; text-align: right; width: 100%;">You are logged in as Administrator - <%= userName%> &lt;<%=email%>&gt; </div>
-    <div style="text-align: right;"><a href="javascript:history.go(-1)">Back</a> | <a href="index.jsp">Main</a> | <a href="admin.jsp">Administrator</a> | <a href="logout.jsp">Logout</a></div>
-    <% } else {%>
-    <div style="background: #eee; border: solid 1px #333; text-align: right; width: 100%;">You are logged in as <%= userName%> &lt;<%=email%>&gt; </div>
-    <div style="text-align: right;"><a href="javascript:history.go(-1)">Back</a> | <a href="index.jsp">Main</a> | <a href="booking.jsp">Bookings</a> | <a href="logout.jsp">Logout</a></div>
-    <% }
-    %>
-    <% }
-    %> 
-    <form method="post">
-        <fieldset>
-            <h2>Results</h2>
+    <body>
+        <center><h1>Flight Center</h1></center>
+        <%
+            if (session.getAttribute("user") != null) {
+                User user = (User) session.getAttribute("user");%> 
+        <ul>
+            <li><a href="index.jsp">Home</a></li>
+            <li><a href="bookings.jsp">Bookings</a></li>
+            <li class="dropdown">
+                <a href="login.jsp" class="dropbtn">You are logged in as <%= user.getName()%> &lt;<%= user.getEmail()%>&gt; </a>
+                <div class="dropdown-content">
+                    <a href="logout.jsp">Logout</a>
+                </div>
+            </li>
+            <% if (user.getPrivilege().equals("admin")) { %>
+            <li class="right"><a href="admin.jsp">Admin</a></li>  
+                <% } %>
+        </ul>
+        <% } else { %> 
+        <ul>
+            <li><a href="index.jsp">Home</a></li>
+            <li class="dropdown">
+                <a href="login.jsp" class="dropbtn">You are not logged in</a>
+                <div class="dropdown-content">
+                    <a href="login.jsp">Login</a>
+                    <a href="register.jsp">Register</a>
+                </div>
+            </li>
+        </ul>
+        <% }%> 
 
-        </fieldset>
-    </form>
-</body>
+        <h2>Results</h2>
+    </body>
 </html>

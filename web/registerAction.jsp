@@ -28,7 +28,6 @@
             <jsp:setProperty name="registerApp" property="filePath" value="<%=filePath%>"/>
         </jsp:useBean>
         <%Users users = registerApp.getUsers();%>
-<<<<<<< HEAD
     
         <% if (users.getUser(email) == null) {
         User user = new User(name, email, password, dob, ID);
@@ -65,39 +64,5 @@
     <h2>Sorry, that email has already been registered.</h2>
     <% } %>
 </body>
-=======
-
-    </head>
-    <body>
-        <form method="post">
-            <fieldset>
-                <%
-                    if (users.getUser(email) == null) {%> 
-                <center><h1>Flight Center</h1></center>
-                <div style="background: #eee; border: solid 1px #333; text-align: right; width: 100%;">You are logged in as <%= name%> &lt;<%=email%>&gt; </div>
-                <div style="text-align: right;"><a href="javascript:history.go(-1)">Back</a> | <a href="index.jsp">Main</a> | <a href="booking.jsp">Bookings</a> | <a href="logout.jsp">Logout</a></div>
-                <h2>Welcome <%=name%>!</h2>
-                <p>You have now been registered. Click <a href="index.jsp">here</a> to go back.</p>
-                <p>Your name is: <%=name%>.</p>
-                <p>Your email is: <%=email%>.</p>
-                <p>Your password is: <%=password%>.</p>
-                <p>Your date of birth is <%=dob%>.</p>
-                <p>Your user ID is <%=ID%>.</p>
-                <%
-                    User user = new User(name, email, password, dob, ID);
-                    session.setAttribute("user", user);
-                    users.addUser(user);
-                    registerApp.updateXML(users, filePath);
-                %>
-                <% } else { %>
-                <p>The email has already been registered.</p>
-                <p>Click <a href="register.jsp">here</a> to go back.</p>
-                <% }
-                %>
-            </fieldset>
-
-        </form>
-    </body>
->>>>>>> 9190affa96e5b41aecf11f5667fd41cb54f727f7
 
 </html>
