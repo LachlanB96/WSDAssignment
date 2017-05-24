@@ -8,6 +8,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="styles.css">
         <title>Flight Center</title>
 
 
@@ -33,7 +34,7 @@
                     		session.setAttribute("user", user);
                 	%>
                         <center><h1>Flight Center</h1></center>
-                        <div style="background: #eee; border: solid 1px #333; text-align: right; width: 100%;">You are logged in as <%= userName%> &lt;<%=email%>&gt; </div>
+                        <div style="background: #eee; border: solid 1px #333; text-align: right; width: 100%;">You are logged in as <%=userName%> &lt;<%=email%>&gt; </div>
                         <div style="text-align: right;"><a href="javascript:history.go(-1)">Back</a> | <a href="index.jsp">Main</a> | <a href="booking.jsp">Bookings</a> | <a href="logout.jsp">Logout</a></div>
                         <fieldset>
                             <p>Login successful. Click <a href="index.jsp">here</a> to return to the main page.</p>
