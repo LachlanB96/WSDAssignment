@@ -48,4 +48,12 @@
         <privilege>admin</privilege>
         <id>584351</id>
     </user>
+    <user>
+        <name>a</name>
+        <email>a@a.com</email>
+        <password>a</password>
+        <dob>03-02-1976</dob>
+        <privilege>admin</privilege>
+        <id>584626</id>
+    </user>
 </users>

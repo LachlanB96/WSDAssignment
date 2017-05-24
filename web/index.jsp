@@ -12,79 +12,96 @@
         <link rel="stylesheet" href="styles.css">
         <title>Flight Center - Home</title>
     </head>
-    <% if (session.getAttribute("user") == null) { %>
     <body>
-        <center><h1>Flight Center</h1></center>
-        <div class="banner"><p class="alignright">You are not logged in</p><div style="clear: both;"></div></div>
-        <div style="text-align: right;"><a href="javascript:history.go(-1)">Back</a> | <a href="index.jsp">Main</a> | <a href="login.jsp">Login</a> | <a href="register.jsp">Register</a></div>
-        <% } else { %>
-        <%
-            User user = (User) session.getAttribute("user");
-            String userName = user.getName();
-            String email = user.getEmail();
-        %>
-        <center><h1>Flight Center</h1></center>
-        <div style="background: #eee; border: solid 1px #333; text-align: right; width: 100%;">You are logged in as <%= userName %> &lt;<%=email%>&gt; </div>
-        
-        <div style="text-align: right;"><a href="javascript:history.go(-1)">Back</a> | <a href="index.jsp">Main</a> | <a href="booking.jsp">Bookings</a> | <a href="logout.jsp">Logout</a></div>
-        <% }%>
+    <center><h1>Flight Center</h1></center>
+        <% if (session.getAttribute("user") == null) { %>
 
-        <form action="results.jsp" method="get">
-            <fieldset>
-                <h2>Search for your flight!</h2>
-                <table>
-                    <tr>
-                        <td><label class="field" for="origin">Select your location that you will be leaving from: </label></td>
-                        <td><select name="origin">
-                                <option value="Sydney">Sydney</option>
-                                <option value="Melbourne">Melbourne</option>
-                                <option value="Brisbane">Brisbane</option>
-                                <option value="Canberra">Canberra</option>
-                                <option value="Adelaide">Adelaide</option>
-                                <option value="Darwin">Darwin</option>
-                                <option value="Perth">Perth</option>
-                                <option value="Hobart">Hobart</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label class="field" for="destination">Select your destination: </label></td>
-                        <td><select name="destination">
-                                <option value="Sydney">Sydney</option>
-                                <option value="Melbourne">Melbourne</option>
-                                <option value="Brisbane">Brisbane</option>
-                                <option value="Canberra">Canberra</option>
-                                <option value="Adelaide">Adelaide</option>
-                                <option value="Darwin">Darwin</option>
-                                <option value="Perth">Perth</option>
-                                <option value="Hobart">Hobart</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label class="field" for="flight">Select your type of flight: </label></td>
-                        <td><input type="radio" name="flight" value="Business" > Business <br>
-                            <input type="radio" name="flight" value="Economy" > Economy</td>
-                    </tr>
-                    <tr>
-                        <td><label class="field" for="depatureDate">Departure date: </label></td>
-                        <td><input type="date" name="departureDate"></td>
-                    </tr>
-                    <tr>
-                        <td><label class="field" for="returnDate">Return date: </label></td>
-                        <td><input type="date" name="returnDate"></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <input type="submit" value="Submit">
-                        </td>
-                    </tr>
-                    
-                </table>
-            </fieldset>
-        </form>
+    <ul>
+        <li><a href="index.jsp">Home</a></li>
+        <li class="dropdown">
+            <a href="login.jsp" class="dropbtn">You are not logged in</a>
+            <div class="dropdown-content">
+                <a href="login.jsp">Login</a>
+                <a href="register.jsp">Register</a>
+            </div>
+        </li>
+        <!--<li class="right"><a href="bookings.jsp">Bookings</a></li>-->
+    </ul>
+    <% } else {
+        User user = (User) session.getAttribute("user");
+    %>
+    <ul>
+        <li><a href="index.jsp">Home</a></li>
+        <li><a href="bookings.jsp">Bookings</a></li>
+        <li class="dropdown">
+            <a href="login.jsp" class="dropbtn">You are logged in as <%= user.getName()%> &lt;<%= user.getEmail()%>&gt; </a>
+            <div class="dropdown-content">
+                <a href="logout.jsp">Logout</a>
+            </div>
+        </li>
+        <% if (user.getPrivilege().equals("admin")) { %>
+        <li class="right"><a href="admin.jsp">Admin</a></li>  
+            <% } %>
+    </ul>
 
-    </body>
+    <% }%>
+
+    <form action="results.jsp" method="get">
+        <fieldset>
+            <h2>Search for your flight!</h2>
+            <table>
+                <tr>
+                    <td><label class="field" for="origin">Select your location that you will be leaving from: </label></td>
+                    <td><select name="origin">
+                            <option value="Sydney">Sydney</option>
+                            <option value="Melbourne">Melbourne</option>
+                            <option value="Brisbane">Brisbane</option>
+                            <option value="Canberra">Canberra</option>
+                            <option value="Adelaide">Adelaide</option>
+                            <option value="Darwin">Darwin</option>
+                            <option value="Perth">Perth</option>
+                            <option value="Hobart">Hobart</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="field" for="destination">Select your destination: </label></td>
+                    <td><select name="destination">
+                            <option value="Sydney">Sydney</option>
+                            <option value="Melbourne">Melbourne</option>
+                            <option value="Brisbane">Brisbane</option>
+                            <option value="Canberra">Canberra</option>
+                            <option value="Adelaide">Adelaide</option>
+                            <option value="Darwin">Darwin</option>
+                            <option value="Perth">Perth</option>
+                            <option value="Hobart">Hobart</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="field" for="flight">Select your type of flight: </label></td>
+                    <td><input type="radio" name="flight" value="Business" > Business <br>
+                        <input type="radio" name="flight" value="Economy" > Economy</td>
+                </tr>
+                <tr>
+                    <td><label class="field" for="depatureDate">Departure date: </label></td>
+                    <td><input type="date" name="departureDate"></td>
+                </tr>
+                <tr>
+                    <td><label class="field" for="returnDate">Return date: </label></td>
+                    <td><input type="date" name="returnDate"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Submit">
+                    </td>
+                </tr>
+
+            </table>
+        </fieldset>
+    </form>
+
+</body>
 
 </html>
