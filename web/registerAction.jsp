@@ -11,6 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="styles.css">
         <title>Registering</title>
         <%! int ID; %>
         <%
@@ -29,12 +30,13 @@
     </head>
     <body>
         <form method="post">
-            <fieldset>
-                <%
+
+            <%
                     if (users.getUser(email) == null) {%> 
-                <center><h1>Flight Center</h1></center>
-                <div style="background: #eee; border: solid 1px #333; text-align: right; width: 100%;">You are logged in as <%= name%> &lt;<%=email%>&gt; </div>
-                <div style="text-align: right;"><a href="javascript:history.go(-1)">Back</a> | <a href="index.jsp">Main</a> | <a href="booking.jsp">Bookings</a> | <a href="logout.jsp">Logout</a></div>
+            <center><h1>Flight Center</h1></center>
+            <div class="banner"><p class="alignright">You are logged in as <%=name%> &lt;<%=email%>&gt; </p><div style="clear: both;"></div></div>
+            <div style="text-align: right;"><a href="javascript:history.go(-1)">Back</a> | <a href="index.jsp">Main</a> | <a href="booking.jsp">Bookings</a> | <a href="logout.jsp">Logout</a></div>
+            <fieldset>
                 <h2>Welcome <%=name%>!</h2>
                 <p>You have now been registered. Click <a href="index.jsp">here</a> to go back.</p>
                 <p>Your name is: <%=name%>.</p>
@@ -48,12 +50,15 @@
                     users.addUser(user);
                     registerApp.updateXML(users, filePath);
                 %>
-                <% } else { %>
+            </fieldset>
+            <% } else { %>
+            <fieldset>
                 <p>The email has already been registered.</p>
                 <p>Click <a href="register.jsp">here</a> to go back.</p>
-                <% }
-                %>
             </fieldset>
+            <% }
+            %>
+
 
         </form>
     </body>

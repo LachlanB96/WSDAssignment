@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="styles.css">
         <title>Flight Center - Results</title>
     </head>
-    <%
+        <%
         if (session.getAttribute("user") == null) { %> 
     <center><h1>Flight Center</h1></center>
     <div class="banner"><p class="alignright">You are not logged in</p><div style="clear: both;"></div></div>
@@ -27,15 +27,15 @@
     %>
     <center><h1>Flight Center</h1></center>
         <% if (privilege.equals("admin")) {%> 
-    <div style="background: #eee; border: solid 1px #333; text-align: right; width: 100%;">You are logged in as Administrator - <%= userName%> &lt;<%=email%>&gt; </div>
+    <div class="banner"><p class="alignright">You are logged in as Administrator - <%= userName%> &lt;<%=email%>&gt;</p><div style="clear: both;"></div></div>
     <div style="text-align: right;"><a href="javascript:history.go(-1)">Back</a> | <a href="index.jsp">Main</a> | <a href="admin.jsp">Administrator</a> | <a href="logout.jsp">Logout</a></div>
     <% } else {%>
-    <div style="background: #eee; border: solid 1px #333; text-align: right; width: 100%;">You are logged in as <%= userName%> &lt;<%=email%>&gt; </div>
+    <div class="banner"><p class="alignright">You are logged in as <%= userName%> &lt;<%=email%>&gt; </p><div style="clear: both;"></div></div>
     <div style="text-align: right;"><a href="javascript:history.go(-1)">Back</a> | <a href="index.jsp">Main</a> | <a href="booking.jsp">Bookings</a> | <a href="logout.jsp">Logout</a></div>
     <% }
     %>
     <% }
-    %> 
+    %>  
     <form method="post">
         <fieldset>
             <h2>Results</h2>
