@@ -29,7 +29,7 @@
     </ul>
     <% } else {
         User user = (User) session.getAttribute("user");
-<<<<<<< HEAD
+
         String userName = user.getName();
         String email = user.getEmail();
         String privilege = user.getPrivilege();
@@ -43,8 +43,6 @@
     <div class="banner"><p class="alignright">You are logged in as <%= userName%> &lt;<%=email%>&gt; </p><div style="clear: both;"></div></div>
     <div style="text-align: right;"><a href="javascript:history.go(-1)">Back</a> | <a href="index.jsp">Main</a> | <a href="booking.jsp">Bookings</a> | <a href="logout.jsp">Logout</a></div>
     <% }
-=======
->>>>>>> 529d0d4e5b52713b437d4d2ed5b6a8ce7864cee4
     %>
     <ul>
         <li><a href="index.jsp">Home</a></li>
