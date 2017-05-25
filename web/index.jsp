@@ -12,14 +12,24 @@
         <link rel="stylesheet" href="styles.css">
         <title>Flight Center - Home</title>
     </head>
-    <%
-            if (session.getAttribute("user") == null) { %> 
+    <body>
     <center><h1>Flight Center</h1></center>
-    <div class="banner"><p class="alignright">You are not logged in</p><div style="clear: both;"></div></div>
-    <div style="text-align: right;"><a href="javascript:history.go(-1)">Back</a> | <a href="index.jsp">Main</a> | <a href="login.jsp">Login</a> | <a href="register.jsp">Register</a></div>
-    <% } else { %> 
-    <%
+        <% if (session.getAttribute("user") == null) { %>
+
+    <ul>
+        <li><a href="index.jsp">Home</a></li>
+        <li class="dropdown">
+            <a href="login.jsp" class="dropbtn">You are not logged in</a>
+            <div class="dropdown-content">
+                <a href="login.jsp">Login</a>
+                <a href="register.jsp">Register</a>
+            </div>
+        </li>
+        <!--<li class="right"><a href="bookings.jsp">Bookings</a></li>-->
+    </ul>
+    <% } else {
         User user = (User) session.getAttribute("user");
+<<<<<<< HEAD
         String userName = user.getName();
         String email = user.getEmail();
         String privilege = user.getPrivilege();
@@ -33,9 +43,24 @@
     <div class="banner"><p class="alignright">You are logged in as <%= userName%> &lt;<%=email%>&gt; </p><div style="clear: both;"></div></div>
     <div style="text-align: right;"><a href="javascript:history.go(-1)">Back</a> | <a href="index.jsp">Main</a> | <a href="booking.jsp">Bookings</a> | <a href="logout.jsp">Logout</a></div>
     <% }
+=======
+>>>>>>> 529d0d4e5b52713b437d4d2ed5b6a8ce7864cee4
     %>
-    <% }
-    %> 
+    <ul>
+        <li><a href="index.jsp">Home</a></li>
+        <li><a href="bookings.jsp">Bookings</a></li>
+        <li class="dropdown">
+            <a href="login.jsp" class="dropbtn">You are logged in as <%= user.getName()%> &lt;<%= user.getEmail()%>&gt; </a>
+            <div class="dropdown-content">
+                <a href="logout.jsp">Logout</a>
+            </div>
+        </li>
+        <% if (user.getPrivilege().equals("admin")) { %>
+        <li class="right"><a href="admin.jsp">Admin</a></li>  
+            <% } %>
+    </ul>
+
+    <% }%>
 
     <form action="results.jsp" method="get">
         <fieldset>

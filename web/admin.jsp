@@ -12,8 +12,23 @@
         <link rel="stylesheet" href="styles.css">
         <title>Flight Center - Administrators</title>
     </head>
-    <body>
 
+    <% if (session.getAttribute("user") == null) { %>
+
+    <body>
+        <center><h1>Flight Center</h1></center>
+        <ul>
+        <li><a href="index.jsp">Home</a></li>
+        <li class="dropdown">
+            <a href="login.jsp" class="dropbtn">You are not logged in</a>
+            <div class="dropdown-content">
+                <a href="login.jsp">Login</a>
+            </div>
+        </li>
+    </ul>
+        <h2>Please login</h2>
+
+<<<<<<< HEAD
         <%
         if (session.getAttribute("user") == null) { %> 
     <center><h1>Flight Center</h1></center>
@@ -38,11 +53,26 @@
     %>
     <% }
     %>  
+=======
+        <% } else {
+            User user = (User) session.getAttribute("user"); %>
+>>>>>>> 529d0d4e5b52713b437d4d2ed5b6a8ce7864cee4
 
-    <form method="post">
-        <fieldset>
+        <center><h1>Flight Center</h1></center>
+        <ul>
+        <li><a href="index.jsp">Home</a></li>
+        <li><a href="bookings.jsp">Bookings</a></li>
+        <li class="dropdown">
+            <a href="login.jsp" class="dropbtn">You are logged in as <%= user.getName()%> &lt;<%= user.getEmail()%>&gt; </a>
+            <div class="dropdown-content">
+                <a href="logout.jsp">Logout</a>
+            </div>
+        </li>
+        <% if (user.getPrivilege().equals("admin")) { %>
+        <li class="right"><a href="admin.jsp">Admin</a></li>  
+        <% } %>
+        </ul>
             <h2>Administrator</h2>
-        </fieldset>
-    </form>
-</body>
+        <% } %>
+    </body>
 </html>
