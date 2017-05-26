@@ -17,7 +17,7 @@
     <xsl:template match="flights">
         <html>
             <head>
-                <title>flights</title>
+                <title>Flights</title>
             </head>
             <body>
                 <table>

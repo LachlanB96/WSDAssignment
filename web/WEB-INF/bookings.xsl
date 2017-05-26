@@ -17,14 +17,14 @@
     <xsl:template match="bookings">
         <html>
             <head>
-                <title>flights</title>
+                <title>Flights</title>
             </head>
             <body>
                 <table>
                     <thead>
                         <th>ID</th>
                         <th>Flight ID</th>
-                        <th>Bookign ID</th>
+                        <th>Booking ID</th>
                         <th>Origin</th>
                         <th>Destination</th>
                         <th>Flight Type</th>
@@ -48,7 +48,7 @@
                 <xsl:value-of select="flightID"/>
             </td>
             <td>
-                <xsl:value-of select="bookingId"/>
+                <xsl:value-of select="bookingID"/>
             </td>
             <td>
                 <xsl:value-of select="origin"/>
