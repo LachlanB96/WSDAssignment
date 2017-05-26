@@ -23,7 +23,11 @@ hs_err_pid*
 
 # MacOS Shit
 *.DS_Store
+
+#Windows Shit
 *.ini
+
+#Folders
 /dist/
 /nbproject/private/
 /build/
