@@ -30,6 +30,7 @@
                         <th>Flight Type</th>
                         <th>Departure Date</th>
                         <th>Return Date</th>
+                        <th>Description</th>
                     </thead>
                     <tbody>
                         <xsl:apply-templates />
@@ -64,6 +65,9 @@
             </td>
             <td>
                 <xsl:value-of select="returnDate"/>
+            </td>
+            <td>
+                <xsl:value-of select="description"/>
             </td>
         </tr>
     </xsl:template>

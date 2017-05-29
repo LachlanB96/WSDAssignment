@@ -57,11 +57,12 @@ and open the template in the editor.
                             <xs:element name="id" type="IDFormat"/>
                             <xs:element name="flightID" type="flightIDFormat"/>
                             <xs:element name="bookingID" type="bookingIDFormat"/>
-                            <xs:element name="departureDate" type="dateFormat"/>
-                            <xs:element name="returnDate" type="dateFormat"/>
                             <xs:element name="origin" type="cityFormat"/> 
                             <xs:element name="destination" type="cityFormat"/> 
-                            <xs:element name="flightType" type="flightTypeFormat"/>                            
+                            <xs:element name="flightType" type="flightTypeFormat"/>
+                            <xs:element name="departureDate" type="dateFormat"/>
+                            <xs:element name="returnDate" type="dateFormat"/>
+                            <xs:element name="description" type="xs:string"/>                     
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
