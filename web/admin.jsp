@@ -45,7 +45,13 @@
         <li class="right"><a href="admin.jsp">Admin</a></li>  
         <% } %>
         </ul>
+        <fieldset>
             <h2>Administrator</h2>
+            <p>View all bookings</p>
+            <p>View booking details</p>
+            <p>Edit a booking</p>
+            <p>Cancel a booking</p>
+        </fieldset>        
         <% } %>
     </body>
 </html>
