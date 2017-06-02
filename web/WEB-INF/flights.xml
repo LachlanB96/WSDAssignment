@@ -13,6 +13,7 @@
         <origin>Sydney</origin>
         <destination>Melbourne</destination>
         <flightType>Business</flightType>
+        <description>Business flight from Sydney to Melbourne.</description>
         <flightID>1001</flightID>
     </flight>
     <flight>
@@ -23,6 +24,7 @@
         <origin>Sydney</origin>
         <destination>Brisbane</destination>
         <flightType>Business</flightType>
+        <description>Business flight from Sydney to Brisbane.</description>
         <flightID>1002</flightID>
     </flight>
     <flight>
@@ -33,6 +35,7 @@
         <origin>Melbourne</origin>
         <destination>Sydney</destination>
         <flightType>Business</flightType>
+        <description>Business flight from Melbourne to Sydney.</description>
         <flightID>1003</flightID>
     </flight>
     <flight>
@@ -43,6 +46,7 @@
         <origin>Melbourne</origin>
         <destination>Brisbane</destination>
         <flightType>Business</flightType>
+        <description>Business flight from Melbourne to Brisbane.</description>
         <flightID>1004</flightID>
     </flight>
     <flight>
@@ -53,6 +57,7 @@
         <origin>Brisbane</origin>
         <destination>Sydney</destination>
         <flightType>Business</flightType>
+        <description>Business flight from Brisbane to Sydney.</description>
         <flightID>1005</flightID>
     </flight>
     <flight>
@@ -63,6 +68,7 @@
         <origin>Brisbane</origin>
         <destination>Melbourne</destination>
         <flightType>Business</flightType>
+        <description>Business flight from Brisbane to Melbourne.</description>
         <flightID>1006</flightID>
     </flight>
     <flight>
@@ -73,6 +79,7 @@
         <origin>Sydney</origin>
         <destination>Melbourne</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Sydney to Melbourne.</description>
         <flightID>2001</flightID>
     </flight>
     <flight>
@@ -83,6 +90,7 @@
         <origin>Sydney</origin>
         <destination>Brisbane</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Sydney to Brisbane.</description>
         <flightID>2002</flightID>
     </flight>
     <flight>
@@ -93,6 +101,7 @@
         <origin>Sydney</origin>
         <destination>Hobart</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Sydney to Hobart.</description>
         <flightID>2003</flightID>
     </flight>
     <flight>
@@ -103,6 +112,7 @@
         <origin>Sydney</origin>
         <destination>Darwin</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Sydney to Darwin.</description>
         <flightID>2004</flightID>
     </flight>
     <flight>
@@ -113,6 +123,7 @@
         <origin>Sydney</origin>
         <destination>Perth</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Sydney to Perth.</description>
         <flightID>2005</flightID>
     </flight>
     <flight>
@@ -123,6 +134,7 @@
         <origin>Sydney</origin>
         <destination>Adelaide</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Sydney to Adelaide.</description>
         <flightID>2006</flightID>
     </flight>
     <flight>
@@ -133,6 +145,7 @@
         <origin>Sydney</origin>
         <destination>Canberra</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Sydney to Canberra.</description>
         <flightID>2007</flightID>
     </flight>
     <flight>
@@ -143,6 +156,7 @@
         <origin>Melbourne</origin>
         <destination>Sydney</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Melbourne to Sydney.</description>
         <flightID>3001</flightID>
     </flight>
     <flight>
@@ -153,6 +167,7 @@
         <origin>Melbourne</origin>
         <destination>Brisbane</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Melbourne to Brisbane.</description>
         <flightID>3002</flightID>
     </flight>
     <flight>
@@ -163,6 +178,7 @@
         <origin>Melbourne</origin>
         <destination>Canberra</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Melbourne to Canberra.</description>
         <flightID>3003</flightID>
     </flight>
     <flight>
@@ -173,6 +189,7 @@
         <origin>Melbourne</origin>
         <destination>Hobart</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Melbourne to Hobart.</description>
         <flightID>3004</flightID>
     </flight>
     <flight>
@@ -183,6 +200,7 @@
         <origin>Melbourne</origin>
         <destination>Adelaide</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Melbourne to Adelaide.</description>
         <flightID>3005</flightID>
     </flight>
     <flight>
@@ -193,6 +211,7 @@
         <origin>Melbourne</origin>
         <destination>Darwin</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Melbourne to Darwin.</description>
         <flightID>3006</flightID>
     </flight>
     <flight>
@@ -203,6 +222,7 @@
         <origin>Melbourne</origin>
         <destination>Perth</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Melbourne to Perth.</description>
         <flightID>3007</flightID>
     </flight>
     <flight>
@@ -213,6 +233,7 @@
         <origin>Brisbane</origin>
         <destination>Sydney</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Brisbane to Sydney.</description>
         <flightID>4001</flightID>
     </flight>
     <flight>
@@ -223,6 +244,7 @@
         <origin>Brisbane</origin>
         <destination>Melbourne</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Brisbane to Melbourne.</description>
         <flightID>4002</flightID>
     </flight>
     <flight>
@@ -233,6 +255,7 @@
         <origin>Brisbane</origin>
         <destination>Canberra</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Brisbane to Canberra.</description>
         <flightID>4003</flightID>
     </flight>
     <flight>
@@ -243,6 +266,7 @@
         <origin>Brisbane</origin>
         <destination>Hobart</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Brisbane to Hobart.</description>
         <flightID>4004</flightID>
     </flight>
     <flight>
@@ -253,6 +277,7 @@
         <origin>Brisbane</origin>
         <destination>Adelaide</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Brisbane to Adelaide.</description>
         <flightID>4005</flightID>
     </flight>
     <flight>
@@ -263,6 +288,7 @@
         <origin>Brisbane</origin>
         <destination>Darwin</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Brisbane to Darwin.</description>
         <flightID>4006</flightID>
     </flight>
     <flight>
@@ -273,6 +299,7 @@
         <origin>Brisbane</origin>
         <destination>Perth</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Brisbane to Perth.</description>
         <flightID>4007</flightID>
     </flight>
     <flight>
@@ -283,6 +310,7 @@
         <origin>Canberra</origin>
         <destination>Sydney</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Canberra to Sydney.</description>
         <flightID>5001</flightID>
     </flight>
     <flight>
@@ -293,6 +321,7 @@
         <origin>Canberra</origin>
         <destination>Melbourne</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Canberra to Melbourne.</description>
         <flightID>5002</flightID>
     </flight>
     <flight>
@@ -303,6 +332,7 @@
         <origin>Canberra</origin>
         <destination>Brisbane</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Canberra to Brisbane.</description>
         <flightID>5003</flightID>
     </flight>
     <flight>
@@ -313,6 +343,7 @@
         <origin>Canberra</origin>
         <destination>Hobart</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Canberra to Hobart.</description>
         <flightID>5004</flightID>
     </flight>
     <flight>
@@ -323,6 +354,7 @@
         <origin>Canberra</origin>
         <destination>Adelaide</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Canberra to Adelaide.</description>
         <flightID>5005</flightID>
     </flight>
     <flight>
@@ -333,6 +365,7 @@
         <origin>Canberra</origin>
         <destination>Darwin</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Canberra to Darwin.</description>
         <flightID>5006</flightID>
     </flight>
     <flight>
@@ -343,6 +376,7 @@
         <origin>Canberra</origin>
         <destination>Perth</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Canberra to Perth.</description>
         <flightID>5007</flightID>
     </flight>
     <flight>
@@ -353,6 +387,7 @@
         <origin>Hobart</origin>
         <destination>Sydney</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Hobart to Sydney.</description>
         <flightID>6001</flightID>
     </flight>
     <flight>
@@ -363,6 +398,7 @@
         <origin>Hobart</origin>
         <destination>Melbourne</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Hobart to Melbourne.</description>
         <flightID>6002</flightID>
     </flight>
     <flight>
@@ -373,6 +409,7 @@
         <origin>Hobart</origin>
         <destination>Brisbane</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Hobart to Brisbane.</description>
         <flightID>6003</flightID>
     </flight>
     <flight>
@@ -383,6 +420,7 @@
         <origin>Hobart</origin>
         <destination>Canberra</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Hobart to Canberra.</description>
         <flightID>6004</flightID>
     </flight>
     <flight>
@@ -393,6 +431,7 @@
         <origin>Hobart</origin>
         <destination>Adelaide</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Hobart to Adelaide.</description>
         <flightID>6005</flightID>
     </flight>
     <flight>
@@ -403,6 +442,7 @@
         <origin>Hobart</origin>
         <destination>Darwin</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Hobart to Darwin.</description>
         <flightID>6006</flightID>
     </flight>
     <flight>
@@ -413,6 +453,7 @@
         <origin>Hobart</origin>
         <destination>Perth</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Hobart to Perth.</description>
         <flightID>6007</flightID>
     </flight>
     <flight>
@@ -423,6 +464,7 @@
         <origin>Adelaide</origin>
         <destination>Sydney</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Adelaide to Sydney.</description>
         <flightID>7001</flightID>
     </flight>
     <flight>
@@ -433,6 +475,7 @@
         <origin>Adelaide</origin>
         <destination>Melbourne</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Adelaide to Melbourne.</description>
         <flightID>7002</flightID>
     </flight>
     <flight>
@@ -443,6 +486,7 @@
         <origin>Adelaide</origin>
         <destination>Brisbane</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Adelaide to Brisbane.</description>
         <flightID>7003</flightID>
     </flight>
     <flight>
@@ -453,6 +497,7 @@
         <origin>Adelaide</origin>
         <destination>Canberra</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Adelaide to Canberra.</description>
         <flightID>7004</flightID>
     </flight>
     <flight>
@@ -463,6 +508,7 @@
         <origin>Adelaide</origin>
         <destination>Hobart</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Adelaide to Hobart.</description>
         <flightID>7005</flightID>
     </flight>
     <flight>
@@ -473,6 +519,7 @@
         <origin>Adelaide</origin>
         <destination>Darwin</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Adelaide to Darwin.</description>
         <flightID>7006</flightID>
     </flight>
     <flight>
@@ -483,6 +530,7 @@
         <origin>Adelaide</origin>
         <destination>Perth</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Adelaide to Perth.</description>
         <flightID>7007</flightID>
     </flight>
     <flight>
@@ -493,6 +541,7 @@
         <origin>Darwin</origin>
         <destination>Sydney</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Darwin to Sydney.</description>
         <flightID>8001</flightID>
     </flight>
     <flight>
@@ -503,6 +552,7 @@
         <origin>Darwin</origin>
         <destination>Melbourne</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Darwin to Melbourne.</description>
         <flightID>8002</flightID>
     </flight>
     <flight>
@@ -513,6 +563,7 @@
         <origin>Darwin</origin>
         <destination>Brisbane</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Darwin to Brisbane.</description>
         <flightID>8003</flightID>
     </flight>
     <flight>
@@ -523,6 +574,7 @@
         <origin>Darwin</origin>
         <destination>Canberra</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Darwin to Canberra.</description>
         <flightID>8004</flightID>
     </flight>
     <flight>
@@ -533,6 +585,7 @@
         <origin>Darwin</origin>
         <destination>Hobart</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Darwin to Hobart.</description>
         <flightID>8005</flightID>
     </flight>
     <flight>
@@ -543,6 +596,7 @@
         <origin>Darwin</origin>
         <destination>Adelaide</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Darwin to Adelaide.</description>
         <flightID>8006</flightID>
     </flight>
     <flight>
@@ -553,6 +607,7 @@
         <origin>Darwin</origin>
         <destination>Perth</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Darwin to Perth.</description>
         <flightID>8007</flightID>
     </flight>
     <flight>
@@ -563,6 +618,7 @@
         <origin>Perth</origin>
         <destination>Sydney</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Perth to Sydney.</description>
         <flightID>9001</flightID>
     </flight>
     <flight>
@@ -573,6 +629,7 @@
         <origin>Perth</origin>
         <destination>Melbourne</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Perth to Melbourne.</description>
         <flightID>9002</flightID>
     </flight>
     <flight>
@@ -583,6 +640,7 @@
         <origin>Perth</origin>
         <destination>Brisbane</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Perth to Brisbane.</description>
         <flightID>9003</flightID>
     </flight>
     <flight>
@@ -593,6 +651,7 @@
         <origin>Perth</origin>
         <destination>Canberra</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Perth to Canberra.</description>
         <flightID>9004</flightID>
     </flight>
     <flight>
@@ -603,6 +662,7 @@
         <origin>Perth</origin>
         <destination>Hobart</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Perth to Hobart.</description>
         <flightID>9005</flightID>
     </flight>
     <flight>
@@ -613,6 +673,7 @@
         <origin>Perth</origin>
         <destination>Adelaide</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Perth to Adelaide.</description>
         <flightID>9006</flightID>
     </flight>
     <flight>
@@ -623,6 +684,7 @@
         <origin>Perth</origin>
         <destination>Darwin</destination>
         <flightType>Economy</flightType>
+        <description>Economy flight from Perth to Darwin.</description>
         <flightID>9007</flightID>
     </flight>
 </flights>

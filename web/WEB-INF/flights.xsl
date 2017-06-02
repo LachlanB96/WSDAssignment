@@ -29,6 +29,7 @@
                         <th>Origin</th>
                         <th>Destination</th>
                         <th>Flight type</th>
+                        <th>Description</th>
                         <th>Flight ID</th>
                     </thead>
                     <tbody>
