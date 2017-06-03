@@ -1,9 +1,3 @@
-<%-- 
-    Document   : results
-    Created on : 25/04/2017, 10:14:07 PM
-    Author     : Peter Nguyen
---%>
-
 <%@page import ="ass.wsd.*" contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import ="ass.wsd.dom.*"%>
 <!DOCTYPE html>
@@ -48,7 +42,7 @@
     <jsp:useBean id="results" class="ass.wsd.dom.UsersPrinter" scope="page">
     
     <%
-        String htmlTable = results.setFilePath(application.getRealPath("WEB-INF/flights.xml"));
+        String htmlTable = results.print(application.getRealPath("WEB-INF/flights.xml"), request.getParameter("destination"));
     %>
     <%= htmlTable%>
         </jsp:useBean>
