@@ -118,7 +118,7 @@
         </form>
 
         <%} else {%>
-        <p>No booking can be found. Click here to search for a flight and make a booking.</p>
+        <p>No booking can be found. Click <a href="index.jsp">here</a> to search for a flight and make a booking.</p>
         <% }
         %>
 
@@ -133,7 +133,7 @@
                 </div>
             </li>
         </ul>
-        <h2>Please login to view your bookings</h2>
+        <h2>Please login to edit your bookings</h2>
         <% }%>
     </fieldset>
 </body>

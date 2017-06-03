@@ -35,9 +35,9 @@
     <h2>Booking</h2>
     <br>
     <p><a href="makeBooking.jsp">Make a booking</a></p>
-    <p>View bookings</p>
+    <p>View booking</p>
     <p><a href="editBookings.jsp">Edit booking</a></p>
-    <p>Cancel a booking</p>
+    <p><a href="cancelBooking.jsp">Cancel a booking</a></p>
     <% } else { %> 
     <ul>
         <li><a href="index.jsp">Home</a></li>
