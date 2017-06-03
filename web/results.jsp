@@ -1,3 +1,7 @@
+<%@page import="java.time.temporal.TemporalAccessor"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import ="ass.wsd.*" contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import ="ass.wsd.dom.*"%>
 <!DOCTYPE html>
@@ -54,7 +58,16 @@
     <jsp:useBean id="results" class="ass.wsd.dom.UsersPrinter" scope="page">
         <form method="GET" action="makeBooking.jsp">
             <%
-                String htmlTable = results.print("results", application.getRealPath("WEB-INF/flights.xml"), request.getParameter("destination"), loggedIn);
+                String[] searchFilters = new String[5];
+                searchFilters[0] = ""; //FlightID
+                searchFilters[1] = request.getParameter("origin"); //origin
+                searchFilters[2] = request.getParameter("destination"); //destination
+                searchFilters[3] = request.getParameter("flightType"); //flightType (eco or business)
+                String oldDateFormat = request.getParameter("depatureDate");
+                TemporalAccessor temporal = DateTimeFormatter.ofPattern("yyyy-MM-dd").parse(oldDateFormat); // change from yyyy-MM-dd to dd-MM-yyyy
+                String newDateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy").format(temporal);
+                searchFilters[4] = newDateFormat; //departure date
+                String htmlTable = results.print("results", application.getRealPath("WEB-INF/flights.xml"), searchFilters, loggedIn);
             %>
             <%= htmlTable%>
             <input type="submit" value="Continue to Next Step" class="btn btn-success btn-outline btn-confirm">

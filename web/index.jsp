@@ -80,12 +80,12 @@
                 </tr>
                 <tr>
                     <td><label class="field" for="flightType">Select your type of flight: </label></td>
-                    <td><input type="radio" name="flightType" value="Business" > Business <br>
-                        <input type="radio" name="flightType" value="Economy" > Economy</td>
+                    <td><input type="radio" name="flightType" value="Business" checked="checked"> Business <br>
+                        <input type="radio" name="flightType" value="Economy"> Economy</td>
                 </tr>
                 <tr>
                     <td><label class="field" for="depatureDate">Departure date: </label></td>
-                    <td><input type="date" name="departureDate"></td>
+                    <td><input type="date" name="depatureDate"></td>
                 </tr>
                 <tr>
                     <td><label class="field" for="returnDate">Return date: </label></td>

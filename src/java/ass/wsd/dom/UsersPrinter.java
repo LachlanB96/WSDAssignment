@@ -14,7 +14,7 @@ public class UsersPrinter implements Serializable {
     public UsersPrinter() {
     }
 
-    public String print(String printType, String filePath, String filterDestination, boolean loggedIn) throws ParserConfigurationException, SAXException, IOException {
+    public String print(String printType, String filePath, String[] searchFilters, boolean loggedIn) throws ParserConfigurationException, SAXException, IOException {
         FileInputStream in = new FileInputStream(filePath);
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -22,10 +22,10 @@ public class UsersPrinter implements Serializable {
         Element root = document.getDocumentElement();
         String output;
         if (printType.equals("results")){
-            output = printHTML(root, filterDestination, loggedIn);
+            output = printHTML(root, searchFilters, loggedIn);
         }
         else if (printType.equals("booking")){
-            output = printBooking(root, filterDestination);
+            output = printBooking(root, searchFilters);
         }
         else {
             output = "ERROR";
@@ -34,10 +34,8 @@ public class UsersPrinter implements Serializable {
         return output;
     }
 
-    public String printHTML(Node node, String filterDestination, boolean loggedIn) {
-        int type = node.getNodeType();
-        String name = node.getNodeName();
-        String value = node.getNodeValue();
+    public String printHTML(Node node, String[] searchFilters, boolean loggedIn) {
+        int flightCounter = 0;
         String htmlTable = "";
         htmlTable += "<table class='table'><thead><tr>"
                 + "<td>departureDate</td>"
@@ -57,7 +55,10 @@ public class UsersPrinter implements Serializable {
         for (int i = 1; i < flights.getLength(); i += 2) {
             NodeList flight = flights.item(i).getChildNodes();
 
-            if (flight.item(9).getChildNodes().item(0).getNodeValue().equals(filterDestination)) {
+            if (flight.item(7).getChildNodes().item(0).getNodeValue().equals(searchFilters[1]) 
+                    && flight.item(9).getChildNodes().item(0).getNodeValue().equals(searchFilters[2])
+                    && flight.item(11).getChildNodes().item(0).getNodeValue().equals(searchFilters[3])
+                    && flight.item(1).getChildNodes().item(0).getNodeValue().equals(searchFilters[4])) {
                 htmlTable += "<tr>";
                 for (int j = 1; j < flight.getLength(); j += 2) {
                     htmlTable += "<td>";
@@ -69,14 +70,20 @@ public class UsersPrinter implements Serializable {
                         + "value='" + flight.item(15).getChildNodes().item(0).getNodeValue() + "'>"
                         + "</td>"
                         + "</tr>";
+                flightCounter++;
             }
         }
         htmlTable += "</tbody></table>";
-        return htmlTable;
+        if (flightCounter > 0){
+            return htmlTable;
+        }
+        else {
+            return "No Flights fitting Criteria<br>";
+        }
     }
     
     
-    public String printBooking(Node node, String flightID) {
+    public String printBooking(Node node, String[] searchFilters) {
         int type = node.getNodeType();
         String name = node.getNodeName();
         String value = node.getNodeValue();
@@ -95,7 +102,7 @@ public class UsersPrinter implements Serializable {
         for (int i = 1; i < flights.getLength(); i += 2) {
             NodeList flight = flights.item(i).getChildNodes();
 
-            if (flight.item(15).getChildNodes().item(0).getNodeValue().equals(flightID)) {
+            if (flight.item(15).getChildNodes().item(0).getNodeValue().equals(searchFilters[0])) {
                 htmlTable += "<tr>";
                 for (int j = 1; j < flight.getLength(); j += 2) {
                     htmlTable += "<td>";

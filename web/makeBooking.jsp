@@ -18,7 +18,13 @@
         <jsp:useBean id="results" class="ass.wsd.dom.UsersPrinter" scope="page">
         <form method="GET" action="makeBooking.jsp">
             <%
-                String htmlTable = results.print("booking", application.getRealPath("WEB-INF/flights.xml"), request.getParameter("flight"), true);
+                String[] searchFilters = new String[5];
+                searchFilters[0] = request.getParameter("flight"); //FlightID
+                searchFilters[1] = ""; //origin
+                searchFilters[2] = ""; //destination
+                searchFilters[3] = ""; //flightType (eco or business)
+                searchFilters[4] = ""; //departure date
+                String htmlTable = results.print("booking", application.getRealPath("WEB-INF/flights.xml"), searchFilters, true);
             %>
             <%= htmlTable%>
             <input type="submit" value="Confirm booking" class="btn btn-success btn-outline btn-confirm">
