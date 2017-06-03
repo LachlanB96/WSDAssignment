@@ -37,14 +37,15 @@
         </li>
     </ul>
     <% }%> 
+    <fieldset>
+        <h2>Results</h2>
+        <jsp:useBean id="results" class="ass.wsd.dom.UsersPrinter" scope="page">
 
-    <h2>Results</h2>
-    <jsp:useBean id="results" class="ass.wsd.dom.UsersPrinter" scope="page">
-    
-    <%
-        String htmlTable = results.print(application.getRealPath("WEB-INF/flights.xml"), request.getParameter("destination"));
-    %>
-    <%= htmlTable%>
+            <%
+                String htmlTable = results.print(application.getRealPath("WEB-INF/flights.xml"), request.getParameter("destination"));
+            %>
+            <%= htmlTable%>
         </jsp:useBean>
+    </fieldset>
 </body>
 </html>
