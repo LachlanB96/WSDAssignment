@@ -42,34 +42,23 @@ public class UsersPrinter implements Serializable {
         NodeList flights = node.getChildNodes();
         for (int i = 1; i < flights.getLength(); i += 2) {
             NodeList flight = flights.item(i).getChildNodes();
-            if (filterDestination.isEmpty()){
-                htmlTable += "<tr>";
-                for (int j = 1; j < flight.getLength(); j += 2) {
-                    htmlTable += "<td>";
-                    htmlTable += flight.item(j).getChildNodes().item(0).getNodeValue();
-                    htmlTable += "</td>";
-                    htmlTable += "<td style='display: none;'>"
-                            + "<input type='radio' name='flight' id='flight_choice' "
-                            + "value='" + flight.item(9).getChildNodes().item(0).getNodeValue() + "'>"
-                            + "</td>";
-                }
-                htmlTable += "</tr>";
-            }
+            
             if (flight.item(9).getChildNodes().item(0).getNodeValue().equals(filterDestination)) {
-                htmlTable += "<tr>";
+                htmlTable += "<div class='btn-group' data-toggle='buttons'><tr>";
                 for (int j = 1; j < flight.getLength(); j += 2) {
                     htmlTable += "<td>";
                     htmlTable += flight.item(j).getChildNodes().item(0).getNodeValue();
                     htmlTable += "</td>";
-                    htmlTable += "<td style='display: none;'>"
-                            + "<input type='radio' name='flight' id='flight_choice' "
-                            + "value='" + flight.item(9).getChildNodes().item(0).getNodeValue() + "'>"
-                            + "</td>";
                 }
-                htmlTable += "</tr>";
+                htmlTable += "<td style='display: none;'>"
+                            + "<input type='radio' name='flight' id='flight_choice' "
+                            + "value='" + flight.item(15).getChildNodes().item(0).getNodeValue() + "'>"
+                            + "</td>"
+                            + "</tr>"
+                            + "</div>";
             }
         }
-        htmlTable += "</tr></tbody></table>";
+        htmlTable += "</tbody></table>";
         return htmlTable;
     }
 }

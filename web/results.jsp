@@ -57,5 +57,12 @@
         </form>
         
     </jsp:useBean>
+    <script type="text/javascript">
+		$('.row-select tr').click(function(event) {
+			$(".row-select tr").removeClass("selected");
+			$(this).toggleClass('selected');
+			$(this).find('td input:radio').prop('checked', true);
+		});
+	</script>
 </body>
 </html>
