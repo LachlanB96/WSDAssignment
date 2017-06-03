@@ -36,7 +36,7 @@
     <br>
     <p>Make a booking</p>
     <p>View bookings</p>
-    <p>Edit bookings</p>
+    <p><a href="editBookings.jsp">Edit bookings.</a></p>
     <p>Cancel a booking</p>
     <% } else { %> 
     <ul>
