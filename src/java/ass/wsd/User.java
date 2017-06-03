@@ -24,7 +24,7 @@ public class User implements Serializable {
     private String dob;
     @XmlElement(name = "privilege")
     private String privilege;
-    @XmlElement(name = "ID")
+    @XmlElement(name = "id")
     private int ID;
 
     public User() {
