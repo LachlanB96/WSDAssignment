@@ -50,7 +50,6 @@
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="departureDate" type="dateFormat"/>
-                            <xs:element name="returnDate" type="dateFormat"/>
                             <xs:element name="price" type="priceFormat"/>
                             <xs:element name="numofSeats" type="numofSeatsFormat"/>
                             <xs:element name="origin" type="cityFormat"/>

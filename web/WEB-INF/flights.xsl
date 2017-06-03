@@ -17,13 +17,12 @@
     <xsl:template match="flights">
         <html>
             <head>
-                <title>Flights</title>
+                <title>flights.xsl</title>
             </head>
             <body>
                 <table>
                     <thead>
                         <th>Departure Date</th>
-                        <th>Return Date</th>
                         <th>Price</th>
                         <th>Number of Seats</th>
                         <th>Origin</th>
@@ -44,9 +43,6 @@
         <tr>
             <td>
                 <xsl:value-of select="departureDate"/>
-            </td>
-            <td>
-                <xsl:value-of select="returnDate"/>
             </td>
             <td>
                 <xsl:value-of select="price"/>

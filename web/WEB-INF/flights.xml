@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<!--
-<flights xmlns="http://www.uts.edu.au/31284/wsd-ass"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.uts.edu.au/31284/wsd-ass/flights.xsd">
--->
 <flights>
     <flight>
         <departureDate>30-05-2017</departureDate>
-        <returnDate>03-06-2017</returnDate>
         <price>70.00</price>
         <numofSeats>9</numofSeats>
         <origin>Sydney</origin>
@@ -18,7 +12,6 @@
     </flight>
     <flight>
         <departureDate>30-05-2017</departureDate>
-        <returnDate>03-06-2017</returnDate>
         <price>70.00</price>
         <numofSeats>7</numofSeats>
         <origin>Sydney</origin>
@@ -29,7 +22,6 @@
     </flight>
     <flight>
         <departureDate>08-07-2017</departureDate>
-        <returnDate>11-07-2017</returnDate>
         <price>70.00</price>
         <numofSeats>3</numofSeats>
         <origin>Melbourne</origin>
@@ -40,7 +32,6 @@
     </flight>
     <flight>
         <departureDate>09-07-2017</departureDate>
-        <returnDate>15-07-2017</returnDate>
         <price>70.00</price>
         <numofSeats>8</numofSeats>
         <origin>Melbourne</origin>
@@ -51,7 +42,6 @@
     </flight>
     <flight>
         <departureDate>22-06-2017</departureDate>
-        <returnDate>25-06-2017</returnDate>
         <price>70.00</price>
         <numofSeats>0</numofSeats>
         <origin>Brisbane</origin>
@@ -62,7 +52,6 @@
     </flight>
     <flight>
         <departureDate>13-06-2017</departureDate>
-        <returnDate>18-06-2017</returnDate>
         <price>70.00</price>
         <numofSeats>3</numofSeats>
         <origin>Brisbane</origin>
@@ -73,7 +62,6 @@
     </flight>
     <flight>
         <departureDate>30-05-2017</departureDate>
-        <returnDate>03-06-2017</returnDate>
         <price>30.00</price>
         <numofSeats>2</numofSeats>
         <origin>Sydney</origin>
@@ -84,7 +72,6 @@
     </flight>
     <flight>
         <departureDate>30-05-2017</departureDate>
-        <returnDate>03-06-2017</returnDate>
         <price>30.00</price>
         <numofSeats>6</numofSeats>
         <origin>Sydney</origin>
@@ -95,7 +82,6 @@
     </flight>
     <flight>
         <departureDate>01-08-2017</departureDate>
-        <returnDate>06-08-2017</returnDate>
         <price>30.00</price>
         <numofSeats>12</numofSeats>
         <origin>Sydney</origin>
@@ -106,7 +92,6 @@
     </flight>
     <flight>
         <departureDate>20-07-2017</departureDate>
-        <returnDate>03-08-2017</returnDate>
         <price>80.00</price>
         <numofSeats>19</numofSeats>
         <origin>Sydney</origin>
@@ -117,7 +102,6 @@
     </flight>
     <flight>
         <departureDate>07-07-2017</departureDate>
-        <returnDate>18-07-2017</returnDate>
         <price>90.00</price>
         <numofSeats>9</numofSeats>
         <origin>Sydney</origin>
@@ -128,7 +112,6 @@
     </flight>
     <flight>
         <departureDate>20-06-2017</departureDate>
-        <returnDate>27-06-2017</returnDate>
         <price>70.00</price>
         <numofSeats>3</numofSeats>
         <origin>Sydney</origin>
@@ -139,7 +122,6 @@
     </flight>
     <flight>
         <departureDate>08-06-2017</departureDate>
-        <returnDate>17-06-2017</returnDate>
         <price>50.00</price>
         <numofSeats>2</numofSeats>
         <origin>Sydney</origin>
@@ -150,7 +132,6 @@
     </flight>
     <flight>
         <departureDate>31-05-2017</departureDate>
-        <returnDate>04-06-2017</returnDate>
         <price>30.00</price>
         <numofSeats>0</numofSeats>
         <origin>Melbourne</origin>
@@ -161,7 +142,6 @@
     </flight>
     <flight>
         <departureDate>03-06-2017</departureDate>
-        <returnDate>09-06-2017</returnDate>
         <price>30.00</price>
         <numofSeats>0</numofSeats>
         <origin>Melbourne</origin>
@@ -172,7 +152,6 @@
     </flight>
     <flight>
         <departureDate>07-06-2017</departureDate>
-        <returnDate>12-06-2017</returnDate>
         <price>30.00</price>
         <numofSeats>2</numofSeats>
         <origin>Melbourne</origin>
@@ -183,7 +162,6 @@
     </flight>
     <flight>
         <departureDate>17-06-2017</departureDate>
-        <returnDate>22-06-2017</returnDate>
         <price>60.00</price>
         <numofSeats>10</numofSeats>
         <origin>Melbourne</origin>
@@ -194,7 +172,6 @@
     </flight>
     <flight>
         <departureDate>17-06-2017</departureDate>
-        <returnDate>22-06-2017</returnDate>
         <price>50.00</price>
         <numofSeats>7</numofSeats>
         <origin>Melbourne</origin>
@@ -205,7 +182,6 @@
     </flight>
     <flight>
         <departureDate>17-06-2017</departureDate>
-        <returnDate>21-06-2017</returnDate>
         <price>60.00</price>
         <numofSeats>10</numofSeats>
         <origin>Melbourne</origin>
@@ -216,7 +192,6 @@
     </flight>
     <flight>
         <departureDate>07-06-2017</departureDate>
-        <returnDate>22-06-2017</returnDate>
         <price>80.00</price>
         <numofSeats>10</numofSeats>
         <origin>Melbourne</origin>
@@ -227,7 +202,6 @@
     </flight>
     <flight>
         <departureDate>17-06-2017</departureDate>
-        <returnDate>22-06-2017</returnDate>
         <price>30.00</price>
         <numofSeats>10</numofSeats>
         <origin>Brisbane</origin>
@@ -238,7 +212,6 @@
     </flight>
     <flight>
         <departureDate>17-06-2017</departureDate>
-        <returnDate>22-06-2017</returnDate>
         <price>30.00</price>
         <numofSeats>3</numofSeats>
         <origin>Brisbane</origin>
@@ -249,7 +222,6 @@
     </flight>
     <flight>
         <departureDate>13-06-2017</departureDate>
-        <returnDate>20-06-2017</returnDate>
         <price>50.00</price>
         <numofSeats>13</numofSeats>
         <origin>Brisbane</origin>
@@ -260,7 +232,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>60.00</price>
         <numofSeats>10</numofSeats>
         <origin>Brisbane</origin>
@@ -271,7 +242,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>60.00</price>
         <numofSeats>10</numofSeats>
         <origin>Brisbane</origin>
@@ -282,7 +252,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>60.00</price>
         <numofSeats>0</numofSeats>
         <origin>Brisbane</origin>
@@ -293,7 +262,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>60.00</price>
         <numofSeats>10</numofSeats>
         <origin>Brisbane</origin>
@@ -304,7 +272,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>50.00</price>
         <numofSeats>10</numofSeats>
         <origin>Canberra</origin>
@@ -315,7 +282,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>50.00</price>
         <numofSeats>10</numofSeats>
         <origin>Canberra</origin>
@@ -326,7 +292,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>50.00</price>
         <numofSeats>10</numofSeats>
         <origin>Canberra</origin>
@@ -337,7 +302,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>80.00</price>
         <numofSeats>10</numofSeats>
         <origin>Canberra</origin>
@@ -348,7 +312,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>60.00</price>
         <numofSeats>10</numofSeats>
         <origin>Canberra</origin>
@@ -359,7 +322,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>60.00</price>
         <numofSeats>10</numofSeats>
         <origin>Canberra</origin>
@@ -370,7 +332,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>80.00</price>
         <numofSeats>10</numofSeats>
         <origin>Canberra</origin>
@@ -381,7 +342,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>80.00</price>
         <numofSeats>10</numofSeats>
         <origin>Hobart</origin>
@@ -392,7 +352,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>80.00</price>
         <numofSeats>10</numofSeats>
         <origin>Hobart</origin>
@@ -403,7 +362,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>80.00</price>
         <numofSeats>10</numofSeats>
         <origin>Hobart</origin>
@@ -414,7 +372,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>80.00</price>
         <numofSeats>10</numofSeats>
         <origin>Hobart</origin>
@@ -425,7 +382,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>100.00</price>
         <numofSeats>10</numofSeats>
         <origin>Hobart</origin>
@@ -436,7 +392,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>100.00</price>
         <numofSeats>10</numofSeats>
         <origin>Hobart</origin>
@@ -447,7 +402,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>120.00</price>
         <numofSeats>10</numofSeats>
         <origin>Hobart</origin>
@@ -458,7 +412,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>60.00</price>
         <numofSeats>10</numofSeats>
         <origin>Adelaide</origin>
@@ -469,7 +422,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>60.00</price>
         <numofSeats>10</numofSeats>
         <origin>Adelaide</origin>
@@ -480,7 +432,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>60.00</price>
         <numofSeats>10</numofSeats>
         <origin>Adelaide</origin>
@@ -491,7 +442,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>60.00</price>
         <numofSeats>10</numofSeats>
         <origin>Adelaide</origin>
@@ -502,7 +452,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>100.00</price>
         <numofSeats>10</numofSeats>
         <origin>Adelaide</origin>
@@ -513,7 +462,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>50.00</price>
         <numofSeats>10</numofSeats>
         <origin>Adelaide</origin>
@@ -524,7 +472,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>50.00</price>
         <numofSeats>10</numofSeats>
         <origin>Adelaide</origin>
@@ -535,7 +482,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>80.00</price>
         <numofSeats>10</numofSeats>
         <origin>Darwin</origin>
@@ -546,7 +492,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>80.00</price>
         <numofSeats>10</numofSeats>
         <origin>Darwin</origin>
@@ -557,7 +502,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>80.00</price>
         <numofSeats>10</numofSeats>
         <origin>Darwin</origin>
@@ -568,7 +512,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>80.00</price>
         <numofSeats>10</numofSeats>
         <origin>Darwin</origin>
@@ -579,7 +522,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>100.00</price>
         <numofSeats>10</numofSeats>
         <origin>Darwin</origin>
@@ -590,7 +532,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>50.00</price>
         <numofSeats>10</numofSeats>
         <origin>Darwin</origin>
@@ -601,7 +542,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>60.00</price>
         <numofSeats>12</numofSeats>
         <origin>Darwin</origin>
@@ -612,7 +552,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>80.00</price>
         <numofSeats>10</numofSeats>
         <origin>Perth</origin>
@@ -623,7 +562,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>80.00</price>
         <numofSeats>10</numofSeats>
         <origin>Perth</origin>
@@ -634,7 +572,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>80.00</price>
         <numofSeats>10</numofSeats>
         <origin>Perth</origin>
@@ -645,7 +582,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>80.00</price>
         <numofSeats>10</numofSeats>
         <origin>Perth</origin>
@@ -656,7 +592,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>120.00</price>
         <numofSeats>10</numofSeats>
         <origin>Perth</origin>
@@ -667,7 +602,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>60.00</price>
         <numofSeats>10</numofSeats>
         <origin>Perth</origin>
@@ -678,7 +612,6 @@
     </flight>
     <flight>
         <departureDate>27-06-2017</departureDate>
-        <returnDate>30-06-2017</returnDate>
         <price>60.00</price>
         <numofSeats>10</numofSeats>
         <origin>Perth</origin>

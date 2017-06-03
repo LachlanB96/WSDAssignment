@@ -48,8 +48,7 @@
     <jsp:useBean id="results" class="ass.wsd.dom.UsersPrinter" scope="page">
     
     <%
-        String htmlTable = results.setFilePath(application.getRealPath("WEB-INF/users.xml"));
-        out.println(htmlTable);
+        String htmlTable = results.setFilePath(application.getRealPath("WEB-INF/flights.xml"));
     %>
     <%= htmlTable%>
         </jsp:useBean>
