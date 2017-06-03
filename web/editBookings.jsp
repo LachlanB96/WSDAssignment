@@ -39,6 +39,7 @@
         <h2>Edit Booking</h2>
         <%
             //String ID = request.getParameter("id");
+            //fetch user ID of the current session
             int userID = user.getID();
             out.println(user.getName());
             out.println(user.getID());
@@ -50,12 +51,12 @@
             //String flightType = request.getParameter("flightType");
             //String departureDate = request.getParameter("departureDate");
             //String returnDate = request.getParameter("returnDate");
-            Bookings booking = getBooking.getBookings();
+            Bookings booking = getBooking.getBookings(); //Use the javabean to fetch the bookings using BookingsApp.java and fetching it from bookings.xml
             out.println(booking);
-            Booking userBooking = booking.getUserID(userID);
+            Booking userBooking = booking.getUserID(userID); //Use userID to search if the user has a booking and return that booking so it can be edited.
             out.println(userBooking);
 
-            //Do if statement if booking id can be found, then they can edit. If not, say make a booking first.
+            //Do if statement if user id of booking can be found, then they can edit. If not, say make a booking first.
             if (userBooking != null) {
 
                 //session.setAttribute("booking", booking);
