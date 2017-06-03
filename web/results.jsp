@@ -70,7 +70,11 @@
                 String htmlTable = results.print("results", application.getRealPath("WEB-INF/flights.xml"), searchFilters, loggedIn);
             %>
             <%= htmlTable%>
+            <% if (loggedIn) { %>
             <input type="submit" value="Continue to Next Step" class="btn btn-success btn-outline btn-confirm">
+            <% } else { %>
+            <a href="login.jsp" class="btn btn-success btn-outline btn-warning">Login to Select Flight</a>
+            <% }%>
         </form>
 
     </jsp:useBean>

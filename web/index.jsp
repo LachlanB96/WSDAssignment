@@ -46,13 +46,13 @@
 
     <% }%>
 
-    <form action="results.jsp" method="get">
+    <form action="results.jsp" method="get" onsubmit="return validate();">
         <fieldset>
             <h2>Search for your flight!</h2>
             <table>
                 <tr>
                     <td><label class="field" for="origin">Select your location that you will be leaving from: </label></td>
-                    <td><select name="origin">
+                    <td><select name="origin" id="origin">
                             <option value="Sydney">Sydney</option>
                             <option value="Melbourne">Melbourne</option>
                             <option value="Brisbane">Brisbane</option>
@@ -66,7 +66,7 @@
                 </tr>
                 <tr>
                     <td><label class="field" for="destination">Select your destination: </label></td>
-                    <td><select name="destination">
+                    <td><select name="destination" id="destination">
                             <option value="Sydney">Sydney</option>
                             <option value="Melbourne">Melbourne</option>
                             <option value="Brisbane">Brisbane</option>
@@ -85,7 +85,7 @@
                 </tr>
                 <tr>
                     <td><label class="field" for="depatureDate">Departure date: </label></td>
-                    <td><input type="date" name="depatureDate"></td>
+                    <td><input type="date" name="depatureDate" id="depatureDate"></td>
                 </tr>
                 <tr>
                     <td><label class="field" for="returnDate">Return date: </label></td>
@@ -102,6 +102,25 @@
         </fieldset>
     </form>
 
+    <script type="text/javascript">
+        function validate()
+        {
+            var depatureDate = document.getElementById("depatureDate");
+            var origin = document.getElementById("origin");
+            var destination = document.getElementById("destination");
+            var valid = true;
+            if (origin.value == destination.value){
+                alert("Departure and Origin are the same place!");
+                valid = false;
+            }
+            else if (depatureDate.value.length <= 0){
+                alert("Put in a Depature Date!");
+                valid = false;
+            }
+            return valid;
+        };
+
+    </script>
 </body>
 
 </html>
