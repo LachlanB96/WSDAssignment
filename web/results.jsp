@@ -48,13 +48,14 @@
 
     <h2>Results</h2>
     <jsp:useBean id="results" class="ass.wsd.dom.UsersPrinter" scope="page">
-        <form method="GET" action="make_booking.php" onsubmit="return validateSelectedFlight()">
+        <form method="GET" action="make_booking.php">
             <%
                 String htmlTable = results.print(application.getRealPath("WEB-INF/flights.xml"), request.getParameter("destination"));
             %>
+            <%= htmlTable%>
             <input type="submit" value="Continue to Next Step" class="btn btn-success btn-outline btn-confirm">
         </form>
-        <%= htmlTable%>
+        
     </jsp:useBean>
 </body>
 </html>
