@@ -34,9 +34,9 @@
     <fieldset>
     <h2>Booking</h2>
     <br>
-    <p>Make a booking</p>
+    <p><a href="makeBooking.jsp">Make a booking</a></p>
     <p>View bookings</p>
-    <p><a href="editBookings.jsp">Edit bookings.</a></p>
+    <p><a href="editBookings.jsp">Edit booking</a></p>
     <p>Cancel a booking</p>
     <% } else { %> 
     <ul>
