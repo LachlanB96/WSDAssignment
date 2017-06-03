@@ -8,7 +8,7 @@ and open the template in the editor.
     <booking>
         <id>342345</id>
         <flightID>1001</flightID>
-        <bookingId>100</bookingId>
+        <bookingID>100</bookingID>
         <origin>Sydney</origin>
         <destination>Melbourne</destination>
         <flightType>Business</flightType>
@@ -19,7 +19,7 @@ and open the template in the editor.
     <booking>
         <id>263843</id>
         <flightID>2001</flightID>
-        <bookingId>101</bookingId>
+        <bookingID>101</bookingID>
         <origin>Sydney</origin>
         <destination>Melbourne</destination>
         <flightType>Economy</flightType>
