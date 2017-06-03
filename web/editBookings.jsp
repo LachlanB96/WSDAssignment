@@ -38,19 +38,9 @@
     <fieldset>
         <h2>Edit Booking</h2>
         <%
-            //String ID = request.getParameter("id");
+            
             //fetch user ID of the current session
             int userID = user.getID();
-            //out.println(user.getName());
-            //out.println(user.getID());
-
-            //int userID = Integer.parseInt(request.getParameter("id"));
-            //String bookingID = request.getParameter("bookingID");
-            //String origin = request.getParameter("origin");
-            //String destination = request.getParameter("destination");
-            //String flightType = request.getParameter("flightType");
-            //String departureDate = request.getParameter("departureDate");
-            //String returnDate = request.getParameter("returnDate");
             Bookings booking = getBooking.getBookings(); //Use the javabean to fetch the bookings using BookingsApp.java and fetching it from bookings.xml
             //out.println(booking);
             Booking userBooking = booking.getUserID(userID); //Use userID to search if the user has a booking and return that booking so it can be edited.
