@@ -46,7 +46,7 @@
             Booking userBooking = booking.getUserID(userID); //Use userID to search if the user has a booking and return that booking so it can be edited.
             //out.println(userBooking);
 
-            //Do if statement if user id of booking can be found, then they can edit. If not, say make a booking first.
+            
             if (userBooking != null) {
                 int bookingID = userBooking.getBookingID();
                 String origin = userBooking.getOrigin();

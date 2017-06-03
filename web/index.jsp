@@ -114,7 +114,7 @@
                 valid = false;
             }
             else if (depatureDate.value.length <= 0){
-                alert("Put in a Depature Date!");
+                alert("Put in a Departure Date!");
                 valid = false;
             }
             return valid;

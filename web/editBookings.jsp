@@ -59,25 +59,10 @@
                 String flightType = userBooking.getFlightType();
                 String departureDate = userBooking.getDepartureDate();
                 String returnDate = userBooking.getReturnDate();
-                
-                
-                if (request.getParameter("submitted") != null) {
-                    String newOrigin = request.getParameter("origin");
-                    String newDestination = request.getParameter("destination");
-                    String newflightType = request.getParameter("flightType");
-                    String newDepartureDate = request.getParameter("departureDate");
-                    String newReturnDate = request.getParameter("returnDate");
-                    userBooking.setOrigin(newOrigin);
-                    userBooking.setDestination(newDestination);
-                    userBooking.setFlightType(newflightType);
-                    userBooking.setDepartureDate(newDepartureDate);
-                    userBooking.setReturnDate(newReturnDate);
-                    getBooking.updateXML(booking, filePath);
-                    response.sendRedirect("editBookings.jsp");
-                }
+                //When user changes their booking, they will need to perform search with new parameters. When they go on makeBooking.jsp to make a booking after search, the current booking will be removed on that page and the new changes will be made with the new booking.
         %>
 
-        <form action="editBookings.jsp" method="post">
+        <form action="results.jsp" method="post">
             <table>
                 <tr><td width="60%">Booking ID: <%=bookingID%></td></tr>
                 <tr><td>Your current booking details:</td><td>What changes to your booking will you like to make?</td></tr>
