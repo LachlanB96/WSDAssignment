@@ -8,10 +8,6 @@ package ass.wsd;
 import java.io.*;
 import javax.xml.bind.*;
 
-/**
- *
- * @author Peter Nguyen
- */
 public class BookingsApp implements Serializable {
     private String filePath; 
     private Bookings bookings;

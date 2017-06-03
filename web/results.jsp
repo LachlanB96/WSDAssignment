@@ -4,14 +4,22 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="styles.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/myFunctions.js"></script>
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="styles.css" />
         <title>Flight Center - Results</title>
     </head>
     <body>
     <center><h1>Flight Center</h1></center>
         <%
             if (session.getAttribute("user") != null) {
-                User user = (User) session.getAttribute("user");%> 
+                User user = (User) session.getAttribute("user");
+        %> 
     <ul>
         <li><a href="index.jsp">Home</a></li>
         <li><a href="bookings.jsp">Bookings</a></li>
@@ -37,15 +45,16 @@
         </li>
     </ul>
     <% }%> 
-    <fieldset>
-        <h2>Results</h2>
-        <jsp:useBean id="results" class="ass.wsd.dom.UsersPrinter" scope="page">
 
+    <h2>Results</h2>
+    <jsp:useBean id="results" class="ass.wsd.dom.UsersPrinter" scope="page">
+        <form method="GET" action="make_booking.php" onsubmit="return validateSelectedFlight()">
             <%
                 String htmlTable = results.print(application.getRealPath("WEB-INF/flights.xml"), request.getParameter("destination"));
             %>
-            <%= htmlTable%>
-        </jsp:useBean>
-    </fieldset>
+            <input type="submit" value="Continue to Next Step" class="btn btn-success btn-outline btn-confirm">
+        </form>
+        <%= htmlTable%>
+    </jsp:useBean>
 </body>
 </html>
