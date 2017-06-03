@@ -79,9 +79,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><label class="field" for="flight">Select your type of flight: </label></td>
-                    <td><input type="radio" name="flight" value="Business" > Business <br>
-                        <input type="radio" name="flight" value="Economy" > Economy</td>
+                    <td><label class="field" for="flightType">Select your type of flight: </label></td>
+                    <td><input type="radio" name="flightType" value="Business" > Business <br>
+                        <input type="radio" name="flightType" value="Economy" > Economy</td>
                 </tr>
                 <tr>
                     <td><label class="field" for="depatureDate">Departure date: </label></td>
