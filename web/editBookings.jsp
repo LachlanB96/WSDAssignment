@@ -41,8 +41,8 @@
             //String ID = request.getParameter("id");
             //fetch user ID of the current session
             int userID = user.getID();
-            out.println(user.getName());
-            out.println(user.getID());
+            //out.println(user.getName());
+            //out.println(user.getID());
 
             //int userID = Integer.parseInt(request.getParameter("id"));
             //String bookingID = request.getParameter("bookingID");
@@ -52,9 +52,9 @@
             //String departureDate = request.getParameter("departureDate");
             //String returnDate = request.getParameter("returnDate");
             Bookings booking = getBooking.getBookings(); //Use the javabean to fetch the bookings using BookingsApp.java and fetching it from bookings.xml
-            out.println(booking);
+            //out.println(booking);
             Booking userBooking = booking.getUserID(userID); //Use userID to search if the user has a booking and return that booking so it can be edited.
-            out.println(userBooking);
+            //out.println(userBooking);
 
             //Do if statement if user id of booking can be found, then they can edit. If not, say make a booking first.
             if (userBooking != null) {
@@ -62,30 +62,68 @@
                 //session.setAttribute("booking", booking);
                 //Booking editBooking = (Booking) session.getAttribute("booking");
                 int bookingID = userBooking.getBookingID();
-                out.println(bookingID);
+                //out.println(bookingID);
+                
                 String origin = userBooking.getOrigin();
                 String destination = userBooking.getDestination();
                 String flightType = userBooking.getFlightType();
                 String departureDate = userBooking.getDepartureDate();
                 String returnDate = userBooking.getReturnDate();
-                userBooking.setOrigin(origin);
-                userBooking.setDestination(destination);
-                userBooking.setFlightType(flightType);
-                userBooking.setDepartureDate(departureDate);
-                userBooking.setReturnDate(returnDate);
-                getBooking.updateXML(booking, filePath);
+                
+                
+                if (request.getParameter("submitted") != null) {
+                    String newOrigin = request.getParameter("origin");
+                    String newDestination = request.getParameter("destination");
+                    String newflightType = request.getParameter("flightType");
+                    String newDepartureDate = request.getParameter("departureDate");
+                    String newReturnDate = request.getParameter("returnDate");
+                    userBooking.setOrigin(newOrigin);
+                    userBooking.setDestination(newDestination);
+                    userBooking.setFlightType(newflightType);
+                    userBooking.setDepartureDate(newDepartureDate);
+                    userBooking.setReturnDate(newReturnDate);
+                    getBooking.updateXML(booking, filePath);
+                    response.sendRedirect("editBookings.jsp");
+                }
         %>
-        <p>Booking ID = <%=bookingID%></p>
+
         <form action="editBookings.jsp" method="post">
             <table>
+                <tr><td width="60%">Booking ID: <%=bookingID%></td></tr>
+                <tr><td>Your current booking details:</td><td>What changes to your booking will you like to make?</td></tr>
                 <tr><td>Your location that you will be leaving from: <%=origin%></td>
+                    <td><select name="origin">
+                            <option value="Sydney">Sydney</option>
+                            <option value="Melbourne">Melbourne</option>
+                            <option value="Brisbane">Brisbane</option>
+                            <option value="Canberra">Canberra</option>
+                            <option value="Adelaide">Adelaide</option>
+                            <option value="Darwin">Darwin</option>
+                            <option value="Perth">Perth</option>
+                            <option value="Hobart">Hobart</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr><td>Your destination: <%=destination%></td>
+                    <td><select name="destination">
+                            <option value="Sydney">Sydney</option>
+                            <option value="Melbourne">Melbourne</option>
+                            <option value="Brisbane">Brisbane</option>
+                            <option value="Canberra">Canberra</option>
+                            <option value="Adelaide">Adelaide</option>
+                            <option value="Darwin">Darwin</option>
+                            <option value="Perth">Perth</option>
+                            <option value="Hobart">Hobart</option>
+                        </select>
+                    </td>
                 </tr>
-
-                <tr><td>Departure Date: <%=departureDate%></td></tr>
-                <tr><td>Return Date: <%=returnDate%></td></tr>
-                <tr><td></td><td><input type="submit" value="Cancel"></td></tr>
+                <tr><td>Your type of flight: <%=flightType%></td>
+                    <td><input type="radio" name="flightType" value="Business" > Business <br>
+                        <input type="radio" name="flightType" value="Economy" > Economy</td>
+                </tr>
+                <tr><td>Departure Date: <%=departureDate%></td><td><input type="date" name="departureDate"></td></tr>
+                <tr><td>Return Date: <%=returnDate%></td><td><input type="date" name="returnDate"></td></tr>
+                <tr><td></td><td><input type="submit" value="Save Changes"></td><input type="hidden" name="submitted" value="yes"></tr>
             </table>
         </form>
 
