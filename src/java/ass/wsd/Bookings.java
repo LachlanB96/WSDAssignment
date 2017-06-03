@@ -28,7 +28,7 @@ public class Bookings implements Serializable {
         list.add(booking);
     }
 
-    public void removeUser(Booking booking) {
+    public void removeBooking(Booking booking) {
         list.remove(booking);
     }
     
