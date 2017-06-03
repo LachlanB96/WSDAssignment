@@ -21,7 +21,7 @@
                 String htmlTable = results.print("booking", application.getRealPath("WEB-INF/flights.xml"), request.getParameter("flight"), true);
             %>
             <%= htmlTable%>
-            <input type="submit" value="Continue to Next Step" class="btn btn-success btn-outline btn-confirm">
+            <input type="submit" value="Confirm booking" class="btn btn-success btn-outline btn-confirm">
         </form>
 
     </jsp:useBean>
