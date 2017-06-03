@@ -17,8 +17,10 @@
     <body>
     <center><h1>Flight Center</h1></center>
         <%
+            boolean loggedIn = false;
             if (session.getAttribute("user") != null) {
                 User user = (User) session.getAttribute("user");
+                loggedIn = true;
         %> 
     <ul>
         <li><a href="index.jsp">Home</a></li>
@@ -33,7 +35,9 @@
         <li class="right"><a href="admin.jsp">Admin</a></li>  
             <% } %>
     </ul>
-    <% } else { %> 
+    <% } else {
+
+    %> 
     <ul>
         <li><a href="index.jsp">Home</a></li>
         <li class="dropdown">
@@ -48,21 +52,21 @@
 
     <h2>Results</h2>
     <jsp:useBean id="results" class="ass.wsd.dom.UsersPrinter" scope="page">
-        <form method="GET" action="make_booking.php">
+        <form method="GET" action="makeBooking.jsp">
             <%
-                String htmlTable = results.print(application.getRealPath("WEB-INF/flights.xml"), request.getParameter("destination"));
+                String htmlTable = results.print("results", application.getRealPath("WEB-INF/flights.xml"), request.getParameter("destination"), loggedIn);
             %>
             <%= htmlTable%>
             <input type="submit" value="Continue to Next Step" class="btn btn-success btn-outline btn-confirm">
         </form>
-        
+
     </jsp:useBean>
     <script type="text/javascript">
-		$('.row-select tr').click(function(event) {
-			$(".row-select tr").removeClass("selected");
-			$(this).toggleClass('selected');
-			$(this).find('td input:radio').prop('checked', true);
-		});
-	</script>
+        $('.row-select tr').click(function (event) {
+            $(".row-select tr").removeClass("selected");
+            $(this).toggleClass('selected');
+            $(this).find('td input:radio').prop('checked', true);
+        });
+    </script>
 </body>
 </html>
