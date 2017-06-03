@@ -8,11 +8,6 @@ package ass.wsd;
 import java.io.*;
 import javax.xml.bind.*;
 
-
-/**
- *
- * @author Peter Nguyen
- */
 public class UsersApp implements Serializable{
     private String filePath; 
     private Users users;
