@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.uts.edu.au/31284/wsd-ass"
+    xmlns="http://www.uts.edu.au/31284/wsd-ass"
+    elementFormDefault="qualified">
+    
+    
+    <xs:simpleType name="dateFormat">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{4}-[0-1]{1}[0-9]{1}-[0-3]{1}[0-9]{1}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="priceFormat">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]+\.[0-9][0-9]"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="numofSeatsFormat">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="[0-9]+"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="cityFormat">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="Sydney|Melbourne|Brisbane|Canberra|Hobart|Adelaide|Darwin|Perth"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="flightTypeFormat">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="Business|Economy"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="IDFormat">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="\d{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+  
+    
+    <xs:element name="flights">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="flight" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="departureDate" type="dateFormat"/>
+                            <xs:element name="price" type="priceFormat"/>
+                            <xs:element name="numofSeats" type="numofSeatsFormat"/>
+                            <xs:element name="origin" type="cityFormat"/>
+                            <xs:element name="destination" type="cityFormat"/>
+                            <xs:element name="flightType" type="flightTypeFormat"/>
+                            <xs:element name="description" type="xs:string"/>
+                            <xs:element name="flightID" type="IDFormat"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

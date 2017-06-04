@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<users>
+    <user>
+        <name>Ryan Heise</name>
+        <email>ryan@ryanheise.com</email>
+        <password>blahblah</password>
+        <dob>10-02-1976</dob>
+        <privilege>customer</privilege>
+        <id>342345</id>
+    </user>
+    <user>
+        <name>Shannon Noll</name>
+        <email>shannon@gmail.com</email>
+        <password>whataboutme</password>
+        <dob>23-02-1966</dob>
+        <privilege>customer</privilege>
+        <id>263843</id>
+    </user>
+    <user>
+        <name>Bob Price</name>
+        <email>bobprice@gmail.com</email>
+        <password>mypassword</password>
+        <dob>13-05-1984</dob>
+        <privilege>customer</privilege>
+        <id>847522</id>
+    </user>
+    <user>
+        <name>George Smith</name>
+        <email>georgesmith@gmail.com</email>
+        <password>youwillneverguessmypassword</password>
+        <dob>23-07-1984</dob>
+        <privilege>customer</privilege>
+        <id>492343</id>
+    </user>
+    <user>
+        <name>Cindy Anderson</name>
+        <email>cindyanderson@gmail.com</email>
+        <password>thisjobsucks</password>
+        <dob>28-10-1988</dob>
+        <privilege>admin</privilege>
+        <id>495343</id>
+    </user>
+    <user>
+        <name>Tom Smith</name>
+        <email>tom@tomsmith.com</email>
+        <password>numberone</password>
+        <dob>03-02-1976</dob>
+        <privilege>admin</privilege>
+        <id>584351</id>
+    </user>
+    <user>
+        <name>a</name>
+        <email>a@a.com</email>
+        <password>a</password>
+        <dob>03-02-1976</dob>
+        <privilege>admin</privilege>
+        <id>584626</id>
+    </user>
+</users>
