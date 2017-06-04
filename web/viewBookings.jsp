@@ -33,11 +33,31 @@
             <% } %>
     </ul>
     <fieldset>
-        
-        <c:import url="WEB-INF/bookings.xsl" var="xslt"/>
-        <c:import url="WEB-INF/bookings.xml"
-              var="inputDoc" />
-        <x:transform xml="${inputDoc}" xslt="${xslt}"/>
+        <table border="1">
+
+            <c:import url="WEB-INF/bookings.xsl" var="xslt"/>
+            <c:import url="WEB-INF/bookings.xml" var="inputDoc" />
+            <x:parse xml="${inputDoc}" var="output"/>
+            <x:forEach var="tag" select="$output//bookings/booking">
+                <x:choose>
+                    <x:when select="$tag/id = 342345">
+                        <tr>
+                            <td><x:out select="$tag/id" /></td>
+                            <td><x:out select="$tag/flightID" /></td>
+                            <td><x:out select="$tag/bookingID" /></td>
+                            <td><x:out select="$tag/origin" /></td>
+                            <td><x:out select="$tag/destination" /></td>
+                            <td><x:out select="$tag/flightType" /></td>
+                            <td><x:out select="$tag/departureDate" /></td>
+                            <td><x:out select="$tag/returnDate" /></td>
+                            <td><x:out select="$tag/description" /></td>
+                        </tr>
+                    </x:when>
+                </x:choose>
+            </x:forEach>
+        </table>
+
+
         <% } else { %> 
         <ul>
             <li><a href="index.jsp">Home</a></li>
