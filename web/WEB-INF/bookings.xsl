@@ -17,10 +17,15 @@
     <xsl:template match="bookings">
         <html>
             <head>
-                <title>Flights</title>
+                <title>Booking</title>
+                <style>
+                    table.format {border: solid 1px black; width:100%; }
+                    table.format td { border: solid 1px #999; }
+                </style>
             </head>
             <body>
-                <table>
+                <h2>View Bookings</h2>
+                <table class="format">
                     <thead>
                         <th>ID</th>
                         <th>Flight ID</th>
