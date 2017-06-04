@@ -39,12 +39,11 @@
     </ul>
     <fieldset>
         <h2>Administrator - Edit Booking</h2>
-        <h2>Cancel Booking</h2>
         <c:import url="WEB-INF/bookings.xsl" var="xslt"/>
         <c:import url="WEB-INF/bookings.xml"
                   var="inputDoc" />
         <x:transform xml="${inputDoc}" xslt="${xslt}"/>
-        <form action="adminCancelBooking.jsp" method="get">
+        <form action="adminEditBookings.jsp" method="get">
             <table>
                 <tr></tr>
                 <tr></tr>
@@ -55,45 +54,45 @@
             </table>
         </form>
         <%
-            
-            int userID = user.getID();
-            
-            Bookings booking = getBooking.getBookings(); //Use the javabean to fetch the bookings using BookingsApp.java and fetching it from bookings.xml
-            //out.println(booking);
-            Booking userBooking = booking.getUserID(userID); //Use userID to search if the user has a booking and return that booking so it can be edited.
-            //out.println(userBooking);
-
-            //Do if statement if user id of booking can be found, then they can edit. If not, say make a booking first.
-            if (userBooking != null) {             
-                int bookingID = userBooking.getBookingID();                
-                String origin = userBooking.getOrigin();
-                String destination = userBooking.getDestination();
-                String flightType = userBooking.getFlightType();
-                String departureDate = userBooking.getDepartureDate();
-                String returnDate = userBooking.getReturnDate();
-                                
-                if (request.getParameter("submitted") != null) {
-                    String newOrigin = request.getParameter("origin");
-                    String newDestination = request.getParameter("destination");
-                    String newflightType = request.getParameter("flightType");
-                    String newDepartureDate = request.getParameter("departureDate");
-                    String newReturnDate = request.getParameter("returnDate");
-                    userBooking.setOrigin(newOrigin);
-                    userBooking.setDestination(newDestination);
-                    userBooking.setFlightType(newflightType);
-                    userBooking.setDepartureDate(newDepartureDate);
-                    userBooking.setReturnDate(newReturnDate);
-                    getBooking.updateXML(booking, filePath);
-                    response.sendRedirect("editBookings.jsp");
-                }
+            Bookings booking = getBooking.getBookings();
         %>
+        <%
+            if (request.getParameter("adminEdit") != null) { %>
+        <%
+            int requestedUserID = Integer.parseInt(request.getParameter("userID"));
+            Booking userBooking = booking.getUserID(requestedUserID);
+            int bookingID = userBooking.getBookingID();
+            String origin = userBooking.getOrigin();
+            String destination = userBooking.getDestination();
+            String flightType = userBooking.getFlightType();
+            String departureDate = userBooking.getDepartureDate();
+            String returnDate = userBooking.getReturnDate();
+            String description = userBooking.getDescription();
 
-        <form action="editBookings.jsp" method="post">
+            if (request.getParameter("submitted") != null) {
+                String newOrigin = request.getParameter("origin");
+                String newDestination = request.getParameter("destination");
+                String newflightType = request.getParameter("flightType");
+                String newDepartureDate = request.getParameter("departureDate");
+                String newReturnDate = request.getParameter("returnDate");
+                String newDescription = request.getParameter("description");
+                userBooking.setOrigin(newOrigin);
+                userBooking.setDestination(newDestination);
+                userBooking.setFlightType(newflightType);
+                userBooking.setDepartureDate(newDepartureDate);
+                userBooking.setReturnDate(newReturnDate);
+                userBooking.setDescription(newDescription);
+                getBooking.updateXML(booking, filePath);
+                response.sendRedirect("adminEditBookings.jsp");
+            }
+        %>
+        <form action="adminEditBookings.jsp" method="post">
             <table>
                 <tr><td width="60%">Booking ID: <%=bookingID%></td></tr>
                 <tr><td>Your current booking details:</td><td>What changes to your booking will you like to make?</td></tr>
                 <tr><td>Your location that you will be leaving from: <%=origin%></td>
                     <td><select name="origin">
+                            <option value="<%=origin%>" selected><%=origin%></option>
                             <option value="Sydney">Sydney</option>
                             <option value="Melbourne">Melbourne</option>
                             <option value="Brisbane">Brisbane</option>
@@ -107,6 +106,7 @@
                 </tr>
                 <tr><td>Your destination: <%=destination%></td>
                     <td><select name="destination">
+                            <option value="<%=destination%>" selected><%=destination%></option>
                             <option value="Sydney">Sydney</option>
                             <option value="Melbourne">Melbourne</option>
                             <option value="Brisbane">Brisbane</option>
@@ -119,17 +119,23 @@
                     </td>
                 </tr>
                 <tr><td>Your type of flight: <%=flightType%></td>
-                    <td><input type="radio" name="flightType" value="Business" > Business <br>
+                    <% if (flightType.equals("Business")) { %>
+                    <td><input type="radio" name="flightType" value="Business" checked="checked"> Business <br>
                         <input type="radio" name="flightType" value="Economy" > Economy</td>
+                        <% } else { %>
+                    <td><input type="radio" name="flightType" value="Business" > Business <br>
+                        <input type="radio" name="flightType" value="Economy" checked="checked"> Economy</td>
+                        <% }%>
                 </tr>
-                <tr><td>Departure Date: <%=departureDate%></td><td><input type="date" name="departureDate"></td></tr>
+                <tr><td>Departure Date: <%=departureDate%></td><td><input type="date" name="departureDate" value="<%=departureDate%>"></td></tr>
                 <tr><td>Return Date: <%=returnDate%></td><td><input type="date" name="returnDate"></td></tr>
+                <tr><td>Description: <%=description%></td><td><input type="text" name="description"></td></tr>
                 <tr><td></td><td><input type="submit" value="Save Changes"></td><input type="hidden" name="submitted" value="yes"></tr>
             </table>
         </form>
 
-        <%} else {%>
-        <p>No booking can be found. Click here to search for a flight and make a booking.</p>
+        
+        <%--<p>No booking can be found. Click here to search for a flight and make a booking.</p> --%>
         <% }
         %>
 
