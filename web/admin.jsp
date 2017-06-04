@@ -50,7 +50,7 @@
             <p><a href="adminViewBookings.jsp">View all bookings</a></p>
             <p>View all booking details</p>
             <p>Edit a booking</p>
-            <p>Cancel a booking</p>
+            <p><a href="adminCancelBooking.jsp">Cancel a booking</a></p>
         </fieldset>        
         <% } %>
     </body>
