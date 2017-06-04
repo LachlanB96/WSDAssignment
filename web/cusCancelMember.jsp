@@ -4,6 +4,7 @@
     Author     : Peter Nguyen
 --%>
 
+<%@page import="java.util.stream.Collectors"%>
 <%@page import ="ass.wsd.*" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,8 +15,9 @@
     </head>
     <body>
         <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
-        <jsp:useBean id="logIn" class="ass.wsd.UsersApp" scope="application">
-        </jsp:useBean>
+        <jsp:useBean id="logIn" class="ass.wsd.UsersApp" scope="session">
+            </jsp:useBean>
+        
 
     <center><h1>Flight Center</h1></center>
         <% if (session.getAttribute("user") != null) {
@@ -35,9 +37,12 @@
             <% } %>
     </ul>
     <% if (request.getParameter("cancelMem") != null) {
+        System.out.print("TEST");
+        System.out.print(logIn.getUsers());
         Users deleteUser = logIn.getUsers();
         deleteUser.removeUser(user);
         logIn.updateXML(deleteUser);
+        %> <jsp:setProperty name="logIn" property="filePath" value="<%=filePath%>"/> <%
         response.sendRedirect("logout.jsp");
         }%>
     <fieldset>
@@ -64,5 +69,6 @@
         <h2>Please login.</h2>
         <% }%>
     </fieldset>
+    
 </body>
 </html>

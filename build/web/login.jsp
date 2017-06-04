@@ -15,7 +15,7 @@
     <center><h1>Flight Center</h1></center>
 
     <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
-    <jsp:useBean id="logIn" class="ass.wsd.UsersApp" scope="application">
+    <jsp:useBean id="logIn" class="ass.wsd.UsersApp" scope="session">
         <jsp:setProperty name="logIn" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
     
