@@ -7,6 +7,7 @@ package ass.wsd.soap;
 
 import ass.wsd.Booking;
 import ass.wsd.BookingsApp;
+import ass.wsd.FlightsApp;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,9 +49,28 @@ public class ModifyBookingApp {
             } catch (Exception ex) {
                 Logger.getLogger(ModifyBookingApp.class.getName()).log(Level.SEVERE, null, ex);
             }
-            application.setAttribute("bookingsApp", app);
+            application.setAttribute("BookingsApp", app);
         }
         return app.getBookings().getList();
+
+    }
+    
+    
+    @WebMethod
+    public FlightsApp getFlightsApp() {
+
+        ServletContext application = (ServletContext) context.getMessageContext().get(MessageContext.SERVLET_CONTEXT);
+        FlightsApp app = (FlightsApp) application.getAttribute("FlightsApp");
+        if (app == null) {
+            app = new FlightsApp();
+            try {
+                app.setFilePath(application.getRealPath("WEB-INF/flights.xml"));
+            } catch (Exception ex) {
+                Logger.getLogger(ModifyBookingApp.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            application.setAttribute("FlightsApp", app);
+        }
+        return app;
 
     }
 }

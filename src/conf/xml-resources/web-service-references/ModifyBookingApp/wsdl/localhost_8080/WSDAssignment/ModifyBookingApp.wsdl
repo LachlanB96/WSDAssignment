@@ -4,30 +4,49 @@
 <xsd:import namespace="http://soap.wsd.ass/" schemaLocation="http://localhost:8080/WSDAssignment/ModifyBookingApp?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="hello">
-<part name="parameters" element="tns:hello"/>
-</message>
-<message name="helloResponse">
-<part name="parameters" element="tns:helloResponse"/>
-</message>
 <message name="getBookingsXML">
 <part name="parameters" element="tns:getBookingsXML"/>
 </message>
 <message name="getBookingsXMLResponse">
 <part name="parameters" element="tns:getBookingsXMLResponse"/>
 </message>
+<message name="hello">
+<part name="parameters" element="tns:hello"/>
+</message>
+<message name="helloResponse">
+<part name="parameters" element="tns:helloResponse"/>
+</message>
+<message name="getFlightsApp">
+<part name="parameters" element="tns:getFlightsApp"/>
+</message>
+<message name="getFlightsAppResponse">
+<part name="parameters" element="tns:getFlightsAppResponse"/>
+</message>
 <portType name="ModifyBookingApp">
-<operation name="hello">
-<input wsam:Action="http://soap.wsd.ass/ModifyBookingApp/helloRequest" message="tns:hello"/>
-<output wsam:Action="http://soap.wsd.ass/ModifyBookingApp/helloResponse" message="tns:helloResponse"/>
-</operation>
 <operation name="getBookingsXML">
 <input wsam:Action="http://soap.wsd.ass/ModifyBookingApp/getBookingsXMLRequest" message="tns:getBookingsXML"/>
 <output wsam:Action="http://soap.wsd.ass/ModifyBookingApp/getBookingsXMLResponse" message="tns:getBookingsXMLResponse"/>
 </operation>
+<operation name="hello">
+<input wsam:Action="http://soap.wsd.ass/ModifyBookingApp/helloRequest" message="tns:hello"/>
+<output wsam:Action="http://soap.wsd.ass/ModifyBookingApp/helloResponse" message="tns:helloResponse"/>
+</operation>
+<operation name="getFlightsApp">
+<input wsam:Action="http://soap.wsd.ass/ModifyBookingApp/getFlightsAppRequest" message="tns:getFlightsApp"/>
+<output wsam:Action="http://soap.wsd.ass/ModifyBookingApp/getFlightsAppResponse" message="tns:getFlightsAppResponse"/>
+</operation>
 </portType>
 <binding name="ModifyBookingAppPortBinding" type="tns:ModifyBookingApp">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="getBookingsXML">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="hello">
 <soap:operation soapAction=""/>
 <input>
@@ -37,7 +56,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="getBookingsXML">
+<operation name="getFlightsApp">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

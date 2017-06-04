@@ -4,6 +4,10 @@
 
 <xs:element name="getBookingsXMLResponse" type="tns:getBookingsXMLResponse"/>
 
+<xs:element name="getFlightsApp" type="tns:getFlightsApp"/>
+
+<xs:element name="getFlightsAppResponse" type="tns:getFlightsAppResponse"/>
+
 <xs:element name="hello" type="tns:hello"/>
 
 <xs:element name="helloResponse" type="tns:helloResponse"/>
@@ -17,6 +21,36 @@
 <xs:complexType name="helloResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFlightsApp">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getFlightsAppResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:flightsApp" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="flightsApp">
+<xs:sequence>
+<xs:element name="flights" type="tns:flights" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="flights">
+<xs:sequence>
+<xs:element name="flightID" type="xs:int"/>
+<xs:element name="departureDate" type="xs:string" minOccurs="0"/>
+<xs:element name="returnDate" type="xs:string" minOccurs="0"/>
+<xs:element name="price" type="xs:string" minOccurs="0"/>
+<xs:element name="numofSeats" type="xs:string" minOccurs="0"/>
+<xs:element name="origin" type="xs:string" minOccurs="0"/>
+<xs:element name="destination" type="xs:string" minOccurs="0"/>
+<xs:element name="description" type="xs:string" minOccurs="0"/>
+<xs:element name="flightType" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
