@@ -46,11 +46,19 @@
             //out.println(booking);
             Booking userBooking = booking.getUserID(userID); //Use userID to search if the user has a booking and return that booking so it can be edited.
             //out.println(userBooking);
+            
 
             if (userBooking != null) {
                 booking.removeBooking(userBooking);
                 getBooking.updateXML(booking, filePath);
                 response.sendRedirect("makeBooking.jsp");
+
+                if (request.getParameter("confirm") != null) {
+                    //Booking newBooking = new Booking(userID, flightID, bookingID, origin, destination, flightType, departureDate, returnDate, description);
+                    //booking.addBooking(newBooking);
+                    getBooking.updateXML(booking, filePath);
+                    response.sendRedirect("bookings.jsp");
+                }                         
         %>
         <%} else {%>
         <jsp:useBean id="results" class="ass.wsd.dom.UsersPrinter" scope="page">
@@ -66,7 +74,7 @@
                         String htmlTable = results.print("booking", application.getRealPath("WEB-INF/flights.xml"), searchFilters, true);
                     %>
                     <%= htmlTable%>
-                    <input type="submit" value="Confirm booking" class="btn btn-success btn-outline btn-confirm">
+                    <input type="submit" value="Confirm booking" class="btn btn-success btn-outline btn-confirm"><input type="hidden" name="confirm" value="yes">
                 </fieldset>
             </form>
         </jsp:useBean>
