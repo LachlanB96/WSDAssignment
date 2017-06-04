@@ -56,6 +56,7 @@
                 if (request.getParameter("confirm") != null) {
                     //Booking newBooking = new Booking(userID, flightID, bookingID, origin, destination, flightType, departureDate, returnDate, description);
                     //booking.addBooking(newBooking);
+                    booking.addBooking(userBooking);
                     getBooking.updateXML(booking, filePath);
                     response.sendRedirect("bookings.jsp");
                 }                         
