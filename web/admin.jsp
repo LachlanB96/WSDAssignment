@@ -48,7 +48,7 @@
         <fieldset>
             <h2>Administrator</h2>
             <p><a href="adminViewBookings.jsp">View all bookings</a></p>
-            <p>View all booking details</p>
+            <p><a href="adminViewDetails.jsp">View all booking details</a></p>
             <p><A href="adminEditBookings.jsp">Edit a booking</a></p>
             <p><a href="adminCancelBooking.jsp">Cancel a booking</a></p>
         </fieldset>        
