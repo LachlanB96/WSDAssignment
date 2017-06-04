@@ -40,12 +40,15 @@
     <%
 
         //fetch user ID of the current session
-        int userID = user.getID();
+        
         Bookings booking = getBooking.getBookings(); //Use the javabean to fetch the bookings using BookingsApp.java and fetching it from bookings.xml
         //out.println(booking);
-        Booking userBooking = booking.getUserID(userID); //Use userID to search if the user has a booking and return that booking.
+        //Booking userBooking = booking.getUserID(request.getParameter("userID"");
+        //Use userID to search if the user has a booking and return that booking.
         //out.println(userBooking);
         if (request.getParameter("adminCancel") != null) {
+            int requestedUserID = Integer.parseInt(request.getParameter("userID"));
+            Booking userBooking = booking.getUserID(requestedUserID);
             booking.removeBooking(userBooking);
             getBooking.updateXML(booking, filePath);
             response.sendRedirect("adminCancelBooking.jsp");
@@ -67,7 +70,6 @@
                         <input type="hidden" name="adminCancel" value="yes"></td></tr>
             </table>
         </form>
-
 
         <% } else { %> 
         <ul>
