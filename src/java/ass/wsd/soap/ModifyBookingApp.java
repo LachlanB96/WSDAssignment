@@ -17,8 +17,6 @@ import javax.jws.WebParam;
 import javax.servlet.ServletContext;
 import javax.xml.ws.WebServiceContext;
 import javax.xml.ws.handler.MessageContext;
-import uts.wsd.soap.client.IOException;
-import uts.wsd.soap.client.JAXBException;
 
 /**
  *
