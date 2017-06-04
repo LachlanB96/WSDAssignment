@@ -5,7 +5,9 @@
  */
 package ass.wsd.soap;
 
+import ass.wsd.Booking;
 import ass.wsd.BookingsApp;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Resource;
@@ -37,7 +39,7 @@ public class ModifyBookingApp {
     }
 
     @WebMethod
-    public BookingsApp getBookingsApp() {
+    public ArrayList<Booking> getBookingsXML() {
 
         ServletContext application = (ServletContext) context.getMessageContext().get(MessageContext.SERVLET_CONTEXT);
         BookingsApp app = (BookingsApp) application.getAttribute("BookingsApp");
@@ -50,7 +52,7 @@ public class ModifyBookingApp {
             }
             application.setAttribute("bookingsApp", app);
         }
-        return app;
+        return app.getBookings().getList();
 
     }
 }
