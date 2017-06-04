@@ -31,9 +31,9 @@
     
         <% if (users.getUser(email) == null) {
         User user = new User(name, email, password, dob, ID);
-        session.setAttribute("user", user);
+        session.setAttribute("customer", user);
         users.addUser(user);
-        registerApp.updateXML(users, filePath);
+        registerApp.updateXML(users);
         %>
     <ul>
         <li><a href="index.jsp">Home</a></li>

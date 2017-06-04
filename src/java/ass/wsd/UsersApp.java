@@ -6,6 +6,7 @@
 package ass.wsd;
 
 import java.io.*;
+import static java.lang.System.out;
 import javax.xml.bind.*;
 
 public class UsersApp implements Serializable{
@@ -40,15 +41,13 @@ public class UsersApp implements Serializable{
         fin.close();
     }
     
-    public void updateXML(Users users, String filePath) throws Exception {
+    public void updateXML(Users users) throws Exception {
         this.users = users;
-        this.filePath = filePath;
         JAXBContext jc = JAXBContext.newInstance(Users.class);
         Marshaller m = jc.createMarshaller();
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-        FileOutputStream fout = new FileOutputStream(filePath);
-        m.marshal(users, fout);
-        fout.close();
+        m.marshal(users, new FileOutputStream(this.filePath));
+        //Files.write(Paths.get(filePath), "test".getBytes(), StandardOpenOption.WRITE);
     }
 
     public Users getUsers() {
