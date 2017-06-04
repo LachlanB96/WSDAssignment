@@ -46,21 +46,19 @@
             //out.println(booking);
             Booking userBooking = booking.getUserID(userID); //Use userID to search if the user has a booking and return that booking so it can be edited.
             //out.println(userBooking);
-            
 
-            if (userBooking != null) {
-                booking.removeBooking(userBooking);
+            //if (userBooking != null) {
+            //booking.removeBooking(userBooking);
+            // getBooking.updateXML(booking, filePath);
+            //response.sendRedirect("makeBooking.jsp");
+            if (request.getParameter("confirm") != null) {
+                //Booking newBooking = new Booking(userID, flightID, bookingID, origin, destination, flightType, departureDate, returnDate, description);
+                //booking.addBooking(newBooking);
+                booking.addBooking(userBooking);
                 getBooking.updateXML(booking, filePath);
-                response.sendRedirect("makeBooking.jsp");
-
-                if (request.getParameter("confirm") != null) {
-                    //Booking newBooking = new Booking(userID, flightID, bookingID, origin, destination, flightType, departureDate, returnDate, description);
-                    //booking.addBooking(newBooking);
-                    booking.addBooking(userBooking);
-                    getBooking.updateXML(booking, filePath);
-                    response.sendRedirect("bookings.jsp");
-                }                         
-        %>
+                response.sendRedirect("viewBookings.jsp");
+            
+        %> 
         <%} else {%>
         <jsp:useBean id="results" class="ass.wsd.dom.UsersPrinter" scope="page">
             <form method="GET" action="makeBooking.jsp">
