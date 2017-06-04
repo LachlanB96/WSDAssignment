@@ -8,5 +8,5 @@
 
 #Folders
 /dist/
-#/nbproject/private/
-#/build/
+/nbproject/private/
+/build/

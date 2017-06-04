@@ -14,8 +14,7 @@
     </head>
     <body>
         <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
-        <jsp:useBean id="cancel" class="ass.wsd.UsersApp" scope="application">
-            <jsp:setProperty name="cancel" property="filePath" value="<%=filePath%>"/>
+        <jsp:useBean id="logIn" class="ass.wsd.UsersApp" scope="application">
         </jsp:useBean>
 
     <center><h1>Flight Center</h1></center>
@@ -36,9 +35,9 @@
             <% } %>
     </ul>
     <% if (request.getParameter("cancelMem") != null) {
-        Users deleteUser = cancel.getUsers();
+        Users deleteUser = logIn.getUsers();
         deleteUser.removeUser(user);
-        cancel.updateXML(deleteUser);
+        logIn.updateXML(deleteUser);
         response.sendRedirect("logout.jsp");
         }%>
     <fieldset>

@@ -9,14 +9,6 @@
         <id>342345</id>
     </user>
     <user>
-        <name>Shannon Noll</name>
-        <email>shannon@gmail.com</email>
-        <password>whataboutme</password>
-        <dob>23-02-1966</dob>
-        <privilege>customer</privilege>
-        <id>263843</id>
-    </user>
-    <user>
         <name>Bob Price</name>
         <email>bobprice@gmail.com</email>
         <password>mypassword</password>
