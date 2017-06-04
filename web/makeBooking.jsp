@@ -48,10 +48,10 @@
             //out.println(userBooking);
             
 
-            if (userBooking != null) {
-                booking.removeBooking(userBooking);
-                getBooking.updateXML(booking, filePath);
-                response.sendRedirect("makeBooking.jsp");
+            //if (userBooking != null) {
+                //booking.removeBooking(userBooking);
+               // getBooking.updateXML(booking, filePath);
+                //response.sendRedirect("makeBooking.jsp");
 
                 if (request.getParameter("confirm") != null) {
                     //Booking newBooking = new Booking(userID, flightID, bookingID, origin, destination, flightType, departureDate, returnDate, description);

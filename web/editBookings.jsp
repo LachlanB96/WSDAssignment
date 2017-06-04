@@ -38,7 +38,7 @@
     <fieldset>
         <h2>Edit Booking</h2>
         <%
-            
+
             //fetch user ID of the current session
             int userID = user.getID();
             Bookings booking = getBooking.getBookings(); //Use the javabean to fetch the bookings using BookingsApp.java and fetching it from bookings.xml
@@ -53,16 +53,22 @@
                 //Booking editBooking = (Booking) session.getAttribute("booking");
                 int bookingID = userBooking.getBookingID();
                 //out.println(bookingID);
-                
+
                 String origin = userBooking.getOrigin();
                 String destination = userBooking.getDestination();
                 String flightType = userBooking.getFlightType();
                 String departureDate = userBooking.getDepartureDate();
                 String returnDate = userBooking.getReturnDate();
                 //When user changes their booking, they will need to perform search with new parameters. When they go on makeBooking.jsp to make a booking after search, the current booking will be removed on that page and the new changes will be made with the new booking.
+                if (request.getParameter("editButton") != null) {
+                    booking.removeBooking(userBooking);
+                    getBooking.updateXML(booking, filePath);
+                    response.sendRedirect("results.jsp");
+
+                }
         %>
 
-        <form action="results.jsp" method="GET">
+        <form action="editBookings.jsp" method="GET">
             <table>
                 <tr><td width="60%">Booking ID: <%=bookingID%></td></tr>
                 <tr><td>Your current booking details:</td><td>What changes to your booking will you like to make?</td></tr>
@@ -95,14 +101,14 @@
                     </td>
                 </tr>
                 <tr><td>Your type of flight: </td>
-                    <% if (flightType.equals("Business")){ %>
-                        <td><input type="radio" name="flightType" value="Business" checked="checked"> Business <br>
+                    <% if (flightType.equals("Business")) { %>
+                    <td><input type="radio" name="flightType" value="Business" checked="checked"> Business <br>
                         <input type="radio" name="flightType" value="Economy" > Economy</td>
-                    <% } else { %>
-                        <td><input type="radio" name="flightType" value="Business" > Business <br>
+                        <% } else { %>
+                    <td><input type="radio" name="flightType" value="Business" > Business <br>
                         <input type="radio" name="flightType" value="Economy" checked="checked"> Economy</td>
-                        <% } %>
-                    
+                        <% }%>
+
                 </tr>
                 <tr><td>Departure Date: </td><td><input type="date" name="departureDate" value="<%=departureDate%>"></td></tr>
                 <tr><td>Return Date: <%=returnDate%></td><td><input type="date" name="returnDate"></td></tr>
