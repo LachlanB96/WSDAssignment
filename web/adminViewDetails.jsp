@@ -43,6 +43,8 @@
     %>
     <fieldset>
         <h2>View Booking Details</h2>
+        <%
+            if (request.getParameter("userID") == null) { %>
         <c:import url="WEB-INF/bookings.xsl" var="xslt"/>
         <c:import url="WEB-INF/bookings.xml"
                   var="inputDoc" />
@@ -53,26 +55,21 @@
                 <tr></tr>
                 <tr><td width="60%">What is the user ID of the booking you will like to view?</td></tr>
                 <tr><td><input type="text" name="userID"></td></tr>
-                <tr><td><input type="submit" value="View">  
-                        <input type="hidden" name="adminView" value="yes"></td></tr>
+                <tr><td><input type="submit" value="View"></td></tr>
             </table>
         </form>
         <%
-            if (request.getParameter("adminView") != null) { %>
-        <%
-            int requestedUserID = Integer.parseInt(request.getParameter("userID"));
-            
-            //Booking userBooking = booking.getUserID(requestedUserID);
-            //int idnumber = userBooking.getId();
-            
-            response.sendRedirect("adminViewDetails.jsp");
+        } else {
+            String userID = request.getParameter("userID");
+            session.setAttribute("adminUserIDSearch", userID);
         %>
+
         <table border="1">
 
             <c:import url="WEB-INF/bookings.xsl" var="xslt"/>
             <c:import url="WEB-INF/bookings.xml" var="inputDoc" />
             <x:parse xml="${inputDoc}" var="output"/>
-            <c:set var = "userID" scope = "page" value ="${requestedUserID}" />
+            <c:set var = "userID" scope = "page" value ="${adminUserIDSearch}" />
             <x:forEach var="tag" select="$output//bookings/booking">
                 <x:choose>
                     <x:when select="$tag/id = $userID">
@@ -90,22 +87,9 @@
                     </x:when>
                 </x:choose>
             </x:forEach>
-            %> } 
+            
             <% }
             %>
-
-            <% } else { %> 
-            <ul>
-                <li><a href="index.jsp">Home</a></li>
-                <li class="dropdown">
-                    <a href="login.jsp" class="dropbtn">You are not logged in</a>
-                    <div class="dropdown-content">
-                        <a href="login.jsp">Login</a>
-                        <a href="register.jsp">Register</a>
-                    </div>
-                </li>
-            </ul>
-            <h2>Please login to view your bookings</h2>
             <% }%>
     </fieldset>
 </body>
