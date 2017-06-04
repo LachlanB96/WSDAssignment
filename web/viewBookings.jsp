@@ -38,9 +38,10 @@
             <c:import url="WEB-INF/bookings.xsl" var="xslt"/>
             <c:import url="WEB-INF/bookings.xml" var="inputDoc" />
             <x:parse xml="${inputDoc}" var="output"/>
+            <c:set var = "userID" scope = "page" value ="${user.getID()}" />
             <x:forEach var="tag" select="$output//bookings/booking">
                 <x:choose>
-                    <x:when select="$tag/id = 342345">
+                    <x:when select="$tag/id = $userID">
                         <tr>
                             <td><x:out select="$tag/id" /></td>
                             <td><x:out select="$tag/flightID" /></td>
