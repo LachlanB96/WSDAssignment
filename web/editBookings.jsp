@@ -62,12 +62,13 @@
                 //When user changes their booking, they will need to perform search with new parameters. When they go on makeBooking.jsp to make a booking after search, the current booking will be removed on that page and the new changes will be made with the new booking.
         %>
 
-        <form action="results.jsp" method="post">
+        <form action="results.jsp" method="GET">
             <table>
                 <tr><td width="60%">Booking ID: <%=bookingID%></td></tr>
                 <tr><td>Your current booking details:</td><td>What changes to your booking will you like to make?</td></tr>
-                <tr><td>Your location that you will be leaving from: <%=origin%></td>
+                <tr><td>Your location that you will be leaving from: </td>
                     <td><select name="origin">
+                            <option value="<%=origin%>" selected><%=origin%></option>
                             <option value="Sydney">Sydney</option>
                             <option value="Melbourne">Melbourne</option>
                             <option value="Brisbane">Brisbane</option>
@@ -79,8 +80,9 @@
                         </select>
                     </td>
                 </tr>
-                <tr><td>Your destination: <%=destination%></td>
+                <tr><td>Your destination: </td>
                     <td><select name="destination">
+                            <option value="<%=destination%>" selected><%=destination%></option>
                             <option value="Sydney">Sydney</option>
                             <option value="Melbourne">Melbourne</option>
                             <option value="Brisbane">Brisbane</option>
@@ -92,11 +94,17 @@
                         </select>
                     </td>
                 </tr>
-                <tr><td>Your type of flight: <%=flightType%></td>
-                    <td><input type="radio" name="flightType" value="Business" > Business <br>
+                <tr><td>Your type of flight: </td>
+                    <% if (flightType.equals("Business")){ %>
+                        <td><input type="radio" name="flightType" value="Business" checked="checked"> Business <br>
                         <input type="radio" name="flightType" value="Economy" > Economy</td>
+                    <% } else { %>
+                        <td><input type="radio" name="flightType" value="Business" > Business <br>
+                        <input type="radio" name="flightType" value="Economy" checked="checked"> Economy</td>
+                        <% } %>
+                    
                 </tr>
-                <tr><td>Departure Date: <%=departureDate%></td><td><input type="date" name="departureDate"></td></tr>
+                <tr><td>Departure Date: </td><td><input type="date" name="departureDate" value="<%=departureDate%>"></td></tr>
                 <tr><td>Return Date: <%=returnDate%></td><td><input type="date" name="returnDate"></td></tr>
                 <tr><td></td><td><input type="submit" value="Save Changes"></td><input type="hidden" name="submitted" value="yes"></tr>
             </table>

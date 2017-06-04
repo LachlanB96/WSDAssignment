@@ -84,8 +84,8 @@
                         <input type="radio" name="flightType" value="Economy"> Economy</td>
                 </tr>
                 <tr>
-                    <td><label class="field" for="depatureDate">Departure date: </label></td>
-                    <td><input type="date" name="depatureDate" id="depatureDate"></td>
+                    <td><label class="field" for="departureDate">Departure date: </label></td>
+                    <td><input type="date" name="departureDate" id="departureDate"></td>
                 </tr>
                 <tr>
                     <td><label class="field" for="returnDate">Return date: </label></td>
@@ -105,7 +105,7 @@
     <script type="text/javascript">
         function validate()
         {
-            var depatureDate = document.getElementById("depatureDate");
+            var departureDate = document.getElementById("departureDate");
             var origin = document.getElementById("origin");
             var destination = document.getElementById("destination");
             var valid = true;
@@ -113,7 +113,7 @@
                 alert("Departure and Origin are the same place!");
                 valid = false;
             }
-            else if (depatureDate.value.length <= 0){
+            else if (departureDate.value.length <= 0){
                 alert("Put in a Departure Date!");
                 valid = false;
             }

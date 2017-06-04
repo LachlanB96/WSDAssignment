@@ -12,8 +12,8 @@ and open the template in the editor.
         <origin>Sydney</origin>
         <destination>Melbourne</destination>
         <flightType>Business</flightType>
-        <departureDate>30-05-2017</departureDate>
-        <returnDate>03-06-2017</returnDate>
+        <departureDate>2017-05-30</departureDate>
+        <returnDate>2017-06-03</returnDate>
         <description>Business flight from Sydney to Melbourne.</description>
     </booking>
     <booking>
@@ -23,8 +23,8 @@ and open the template in the editor.
         <origin>Sydney</origin>
         <destination>Melbourne</destination>
         <flightType>Economy</flightType>
-        <departureDate>30-05-2017</departureDate>
-        <returnDate>03-06-2017</returnDate>
+        <departureDate>2017-05-30</departureDate>
+        <returnDate>2017-06-03</returnDate>
         <description>Economy flight from Sydney to Melbourne.</description>        
     </booking>
 </bookings>

@@ -63,10 +63,7 @@
                 searchFilters[1] = request.getParameter("origin"); //origin
                 searchFilters[2] = request.getParameter("destination"); //destination
                 searchFilters[3] = request.getParameter("flightType"); //flightType (eco or business)
-                String oldDateFormat = request.getParameter("depatureDate");
-                TemporalAccessor temporal = DateTimeFormatter.ofPattern("yyyy-MM-dd").parse(oldDateFormat); // change from yyyy-MM-dd to dd-MM-yyyy
-                String newDateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy").format(temporal);
-                searchFilters[4] = newDateFormat; //departure date
+                searchFilters[4] = request.getParameter("departureDate"); //departure date
                 String htmlTable = results.print("results", application.getRealPath("WEB-INF/flights.xml"), searchFilters, loggedIn);
             %>
             <%= htmlTable%>
