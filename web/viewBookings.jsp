@@ -35,6 +35,8 @@
             <% } %>
     </ul>
     <fieldset>
+        <h2>Your booking details:</h2>
+        
         <table border="1">
 
             <c:import url="WEB-INF/bookings.xsl" var="xslt"/>
