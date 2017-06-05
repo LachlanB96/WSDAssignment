@@ -16,8 +16,17 @@
     <body>
         <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
         <jsp:useBean id="logIn" class="ass.wsd.UsersApp" scope="session">
-            </jsp:useBean>
-        
+        </jsp:useBean>
+
+        <% String filePath1 = application.getRealPath("WEB-INF/flights.xml");%>
+        <jsp:useBean id="getFlights" class="ass.wsd.FlightsApp" scope="application">
+            <jsp:setProperty name="getFlights" property="filePath" value="<%=filePath1%>"/>
+        </jsp:useBean>
+
+        <% String filePath2 = application.getRealPath("WEB-INF/bookings.xml");%>
+        <jsp:useBean id="getBooking" class="ass.wsd.BookingsApp" scope="application">
+            <jsp:setProperty name="getBooking" property="filePath" value="<%=filePath2%>"/>
+        </jsp:useBean>
 
     <center><h1>Flight Center</h1></center>
         <% if (session.getAttribute("user") != null) {
@@ -39,13 +48,31 @@
             <% } %>
     </ul>
     <% if (request.getParameter("cancelMem") != null) {
-        System.out.print("TEST");
-        System.out.print(logIn.getUsers());
-        Users deleteUser = logIn.getUsers();
-        deleteUser.removeUser(user);
-        logIn.updateXML(deleteUser);
-        %> <jsp:setProperty name="logIn" property="filePath" value="<%=filePath%>"/> <%
-        response.sendRedirect("logout.jsp");
+            //System.out.print("TEST");
+            //System.out.print(logIn.getUsers());
+            Users deleteUser = logIn.getUsers();
+            deleteUser.removeUser(user);
+            logIn.updateXML(deleteUser);
+            //Cancel booking if user has it.
+            Bookings booking = getBooking.getBookings();
+            int userID = user.getID();
+            Booking userBooking = booking.getUserID(userID);
+            
+            if (userBooking != null) {
+                booking.removeBooking(userBooking);
+                getBooking.updateXML(booking, filePath2);
+                //Now update numOfSeats
+                int flightID = userBooking.getFlightID();
+                Flights flight = getFlights.getFlights(); //get flights list
+                Flight updateFlight = flight.getFlightID(flightID); //get flight using the flightID
+                int numOfSeats = updateFlight.getNumofSeats();
+                int newnumofSeats = numOfSeats + 1;
+                updateFlight.setNumofSeats(newnumofSeats);
+                getFlights.updateXML(flight, filePath1);
+
+            }
+    %> <jsp:setProperty name="logIn" property="filePath" value="<%=filePath%>"/> <%
+            response.sendRedirect("logout.jsp");
         }%>
     <fieldset>
         <h2>Cancel Membership</h2>
@@ -71,6 +98,6 @@
         <h2>Please login.</h2>
         <% }%>
     </fieldset>
-    
+
 </body>
 </html>
