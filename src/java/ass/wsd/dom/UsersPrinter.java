@@ -38,14 +38,14 @@ public class UsersPrinter implements Serializable {
         int flightCounter = 0;
         String htmlTable = "";
         htmlTable += "<table class='table'><thead><tr>"
-                + "<td>departureDate</td>"
-                + "<td>price</td>"
-                + "<td>numofSeats</td>"
-                + "<td>origin</td>"
-                + "<td>destination</td>"
-                + "<td>flightType</td>"
-                + "<td>description</td>"
-                + "<td>flightID</td></tr></thead>";
+                + "<td>Departure Date</td>"
+                + "<td>Price</td>"
+                + "<td>Number of Seats</td>"
+                + "<td>Origin</td>"
+                + "<td>Destination</td>"
+                + "<td>Flight Type</td>"
+                + "<td>Description</td>"
+                + "<td>Flight ID</td></tr></thead>";
         if (loggedIn) {
             htmlTable += "<tbody class='row-select'>";
         } else {
@@ -78,7 +78,7 @@ public class UsersPrinter implements Serializable {
             return htmlTable;
         }
         else {
-            return "No Flights fitting Criteria<br>";
+            return "There are no flights that fit the criteria.<br>";
         }
     }
     

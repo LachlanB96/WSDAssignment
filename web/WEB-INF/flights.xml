@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <flights>
     <flight>
-        <departureDate>2017-05-30</departureDate>
+        <departureDate>2017-01-01</departureDate>
         <price>70.00</price>
         <numofSeats>9</numofSeats>
         <origin>Sydney</origin>
@@ -11,14 +11,14 @@
         <flightID>1001</flightID>
     </flight>
     <flight>
-        <departureDate>2017-05-30</departureDate>
+        <departureDate>2017-01-02</departureDate>
         <price>70.00</price>
-        <numofSeats>7</numofSeats>
-        <origin>Sydney</origin>
-        <destination>Brisbane</destination>
+        <numofSeats>9</numofSeats>
+        <origin>Melbourne</origin>
+        <destination>Sydney</destination>
         <flightType>Business</flightType>
-        <description>Business flight from Sydney to Brisbane.</description>
-        <flightID>1002</flightID>
+        <description>Business flight from Sydney to Melbourne.</description>
+        <flightID>1001</flightID>
     </flight>
     <flight>
         <departureDate>2017-07-08</departureDate>
