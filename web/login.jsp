@@ -66,11 +66,11 @@
             <table>
                 <tr>
                     <td><label class="field" for="Email">Email</label></td>
-                    <td><input type="email" name="email"></td>
+                    <td><input type="email" name="email" required></td>
                 </tr>
                 <tr>
                     <td><label class="field" for="password">Password</label></td>
-                    <td><input type="password" name="password"></td>
+                    <td><input type="password" name="password" required></td>
                 </tr>
                 <tr>
                     <td></td>
