@@ -25,6 +25,7 @@
     <ul>
         <li><a href="index.jsp">Home</a></li>
         <li><a href="bookings.jsp">Bookings</a></li>
+        <li><a href="cusCancelMember.jsp">Account</a></li>
         <li class="dropdown">
             <a href="login.jsp" class="dropbtn">You are logged in as <%= user.getName()%> &lt;<%= user.getEmail()%>&gt; </a>
             <div class="dropdown-content">
