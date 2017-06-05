@@ -16,16 +16,16 @@ public class FlightsApp implements Serializable {
     
     }
 
-    public FlightsApp(String filePath, Flights flights) {
+    public FlightsApp(String filePath, Flights flight) {
         super();
         this.filePath = filePath;
-        this.flights = flights;
+        this.flights = flight;
     }
 
     public void setFilePath(String filePath) throws Exception {
         
         // Create the unmarshaller
-        JAXBContext jc = JAXBContext.newInstance(Bookings.class);
+        JAXBContext jc = JAXBContext.newInstance(Flights.class);
         Unmarshaller u = jc.createUnmarshaller();
 
         this.filePath = filePath;
