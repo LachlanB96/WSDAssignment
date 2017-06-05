@@ -14,11 +14,11 @@
         <departureDate>2017-01-02</departureDate>
         <price>70.00</price>
         <numofSeats>9</numofSeats>
-        <origin>Melbourne</origin>
-        <destination>Sydney</destination>
+        <origin>Sydney</origin>
+        <destination>Brisbane</destination>
         <flightType>Business</flightType>
-        <description>Business flight from Sydney to Melbourne.</description>
-        <flightID>1001</flightID>
+        <description>Business flight from Sydney to Brisbane.</description>
+        <flightID>1002</flightID>
     </flight>
     <flight>
         <departureDate>2017-07-08</departureDate>

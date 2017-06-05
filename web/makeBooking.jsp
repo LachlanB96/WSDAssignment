@@ -1,4 +1,5 @@
 <%@page import ="ass.wsd.*"  contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.*"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,6 +18,11 @@
         <% String filePath = application.getRealPath("WEB-INF/bookings.xml");%>
         <jsp:useBean id="getBooking" class="ass.wsd.BookingsApp" scope="application">
             <jsp:setProperty name="getBooking" property="filePath" value="<%=filePath%>"/>
+        </jsp:useBean>
+
+        <% String filePath1 = application.getRealPath("WEB-INF/flights.xml");%>
+        <jsp:useBean id="getFlights" class="ass.wsd.FlightsApp" scope="application">
+            <jsp:setProperty name="getFlights" property="filePath" value="<%=filePath1%>"/>
         </jsp:useBean>
 
     <center><h1>Flight Center</h1></center>
@@ -49,17 +55,31 @@
             Booking userBooking = booking.getUserID(userID); //Use userID to search if the user has a booking and return that booking so it can be edited.
             //out.println(userBooking);
 
-            //if (userBooking != null) {
-            //booking.removeBooking(userBooking);
-            // getBooking.updateXML(booking, filePath);
-            //response.sendRedirect("makeBooking.jsp");
-            if (request.getParameter("confirm") != null) {
-                //Booking newBooking = new Booking(userID, flightID, bookingID, origin, destination, flightType, departureDate, returnDate, description);
-                //booking.addBooking(newBooking);
-                booking.addBooking(userBooking);
-                getBooking.updateXML(booking, filePath);
-                response.sendRedirect("viewBookings.jsp");
             
+            if (request.getParameter("confirm") != null) {
+                int bookingID;
+                bookingID = (new Random()).nextInt(999);
+                int flightID = Integer.parseInt(request.getParameter("flightID"));
+                Flights flight = getFlights.getFlights();
+                Flight newFlight = flight.getFlightID(flightID);
+                String origin = newFlight.getOrigin();
+                String destination = newFlight.getDestination();
+                String flightType = newFlight.getFlightType();
+                String departureDate = newFlight.getDepartureDate();
+                String returnDate = newFlight.getReturnDate();
+                String description = newFlight.getDescription();
+                
+                int numOfSeats = newFlight.getNumofSeats();
+                int newnumofSeats = numOfSeats - 1;
+                newFlight.setNumofSeats(newnumofSeats);
+                
+                Booking newBooking = new Booking(userID, flightID, bookingID, origin, destination, flightType, departureDate, returnDate, description);
+                booking.addBooking(newBooking);
+                            
+                getBooking.updateXML(booking, filePath);
+                getFlights.updateXML(flight, filePath1);
+                response.sendRedirect("viewBookings.jsp");
+
         %> 
         <%} else {%>
         <jsp:useBean id="results" class="ass.wsd.dom.UsersPrinter" scope="page">

@@ -25,7 +25,7 @@ public class Flight implements Serializable {
     @XmlElement(name = "price")
     private String price;
     @XmlElement(name = "numofSeats")
-    private String numofSeats;
+    private int numofSeats;
     @XmlElement(name = "origin")
     private String origin;
     @XmlElement(name = "destination")
@@ -35,7 +35,7 @@ public class Flight implements Serializable {
     @XmlElement(name = "flightType")
     private String flightType;
 
-    public Flight(int flightID, String departureDate, String returnDate, String price, String numofSeats, String origin, String destination, String description, String flightType) {
+    public Flight(int flightID, String departureDate, String returnDate, String price, int numofSeats, String origin, String destination, String description, String flightType) {
         this.flightID = flightID;
         this.departureDate = departureDate;
         this.returnDate = returnDate;
@@ -79,11 +79,11 @@ public class Flight implements Serializable {
         this.price = price;
     }
 
-    public String getNumofSeats() {
+    public int getNumofSeats() {
         return numofSeats;
     }
 
-    public void setNumofSeats(String numofSeats) {
+    public void setNumofSeats(int numofSeats) {
         this.numofSeats = numofSeats;
     }
 
