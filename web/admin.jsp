@@ -16,10 +16,11 @@
     <% if (session.getAttribute("user") == null) { %>
 
     <body>
-        <center><h1>Flight Center</h1></center>
-        <ul>
+    <center><h1>Flight Center</h1></center>
+    <ul>
+        <li><a href="javascript:history.go(-1)">Back</a></li>
         <li><a href="index.jsp">Home</a></li>
-        
+
         <li class="dropdown">
             <a href="login.jsp" class="dropbtn">You are not logged in</a>
             <div class="dropdown-content">
@@ -27,13 +28,13 @@
             </div>
         </li>
     </ul>
-        <h2>Please login</h2>
+    <h2>Please login</h2>
 
-        <% } else {
-            User user = (User) session.getAttribute("user"); %>
+    <% } else {
+            User user = (User) session.getAttribute("user");%>
 
-        <center><h1>Flight Center</h1></center>
-        <ul>
+    <center><h1>Flight Center</h1></center>
+    <ul>
         <li><a href="index.jsp">Home</a></li>
         <li><a href="javascript:history.go(-1)">Back</a></li>
         <li><a href="bookings.jsp">Bookings</a></li>
@@ -45,15 +46,15 @@
         </li>
         <% if (user.getPrivilege().equals("admin")) { %>
         <li class="right"><a href="admin.jsp">Admin</a></li>  
-        <% } %>
-        </ul>
-        <fieldset>
-            <h2>Administrator</h2>
-            <p><a href="adminViewBookings.jsp">View all bookings</a></p>
-            <p><a href="adminViewDetails.jsp">View all booking details</a></p>
-            <p><A href="adminEditBookings.jsp">Edit a booking</a></p>
-            <p><a href="adminCancelBooking.jsp">Cancel a booking</a></p>
-        </fieldset>        
-        <% } %>
-    </body>
+            <% } %>
+    </ul>
+    <fieldset>
+        <h2>Administrator</h2>
+        <p><a href="adminViewBookings.jsp">View all bookings</a></p>
+        <p><a href="adminViewDetails.jsp">View all booking details</a></p>
+        <p><A href="adminEditBookings.jsp">Edit a booking</a></p>
+        <p><a href="adminCancelBooking.jsp">Cancel a booking</a></p>
+    </fieldset>        
+    <% }%>
+</body>
 </html>

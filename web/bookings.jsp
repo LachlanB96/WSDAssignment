@@ -19,6 +19,7 @@
             User user = (User) session.getAttribute("user"); %>
     
     <ul>
+        <li><a href="javascript:history.go(-1)">Back</a></li>
         <li><a href="index.jsp">Home</a></li>
         <li><a href="bookings.jsp">Bookings</a></li>
         <li><a href="cusCancelMember.jsp">Account</a></li>
