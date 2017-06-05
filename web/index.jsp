@@ -51,7 +51,7 @@
 
     <% }%>
 
-    <form action="results.jsp" method="get" onsubmit="return validate();">
+    <form action="results.jsp" method="get" onsubmit="validate.java">
         <fieldset>
             <h2>Search for your flight!</h2>
             <table>
