@@ -51,13 +51,13 @@
 
     <% }%>
 
-    <form action="results.jsp" method="get" onsubmit="validate.java">
+    <form action="results.jsp" method="get" onsubmit="return validate();">
         <fieldset>
             <h2>Search for your flight!</h2>
             <table>
                 <tr>
                     <td><label class="field" for="origin">Select your location that you will be leaving from: </label></td>
-                    <td><select name="origin" id="origin">
+                    <td><select name="origin" id="origin" required>
                             <option value="Sydney" selected>Sydney</option>
                             <option value="Melbourne">Melbourne</option>
                             <option value="Brisbane">Brisbane</option>
@@ -71,7 +71,7 @@
                 </tr>
                 <tr>
                     <td><label class="field" for="destination">Select your destination: </label></td>
-                    <td><select name="destination" id="destination">
+                    <td><select name="destination" id="destination" required>
                             <option value="Sydney">Sydney</option>
                             <option value="Melbourne" selected>Melbourne</option>
                             <option value="Brisbane">Brisbane</option>
@@ -90,11 +90,11 @@
                 </tr>
                 <tr>
                     <td><label class="field" for="departureDate">Departure date: </label></td>
-                    <td><input type="date" name="departureDate" id="departureDate" value="2017-05-30"></td>
+                    <td><input type="date" name="departureDate" id="departureDate" placeholder="2017-01-01" required pattern="[0-9]{4}-[0-1]{1}[0-9]{1}-[0-3]{1}[0-9]{1}"></td>
                 </tr>
                 <tr>
                     <td><label class="field" for="returnDate">Return date: </label></td>
-                    <td><input type="date" name="returnDate"></td>
+                    <td><input type="date" name="returnDate" placeholder="2017-01-02" required pattern="[0-9]{4}-[0-1]{1}[0-9]{1}-[0-3]{1}[0-9]{1}"></td>
                 </tr>
                 <tr>
                     <td></td>

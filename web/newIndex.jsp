@@ -4,6 +4,10 @@
     Author     : lachlan
 --%>
 
+<<<<<<< HEAD
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+=======
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
@@ -25,6 +29,7 @@
    }
 %>
 
+>>>>>>> form-validation
 
 <t:templatePage>
     <jsp:attribute name="title">
@@ -34,6 +39,23 @@
         <h1>Flight Center</h1>
     </jsp:attribute>
     <jsp:body>
+<<<<<<< HEAD
+        <h2>Search for your flight!</h2>
+        <form action="results.jsp" method="get" onsubmit="return validate();">
+            <div class="form-group row">
+                <label for="origin" class="col-sm-2 col-form-label">Departing from: </label>
+                <div class="col-sm-10">
+                    <select name="origin" id="origin">
+                        <option value="Sydney" selected>Sydney</option>
+                        <option value="Melbourne">Melbourne</option>
+                        <option value="Brisbane">Brisbane</option>
+                        <option value="Canberra">Canberra</option>
+                        <option value="Adelaide">Adelaide</option>
+                        <option value="Darwin">Darwin</option>
+                        <option value="Perth">Perth</option>
+                        <option value="Hobart">Hobart</option>
+                    </select>
+=======
         
         <h2>Search for your flight!</h2>
         
@@ -42,12 +64,26 @@
                 <label for="origin" class="col-sm-2 col-form-label">Departing from: </label>
                 <div class="col-sm-10">
                     <input type="text" name="origin" value='${formHandler.getOrigin()}'>
+>>>>>>> form-validation
                 </div>
             </div>
             <div class="form-group row">
                 <label for="destination" class="col-sm-2 col-form-label">Departing from: </label>
                 <div class="col-sm-10">
+<<<<<<< HEAD
+                    <select name="destination" id="destination">
+                        <option value="Sydney">Sydney</option>
+                        <option value="Melbourne" selected>Melbourne</option>
+                        <option value="Brisbane">Brisbane</option>
+                        <option value="Canberra">Canberra</option>
+                        <option value="Adelaide">Adelaide</option>
+                        <option value="Darwin">Darwin</option>
+                        <option value="Perth">Perth</option>
+                        <option value="Hobart">Hobart</option>
+                    </select>
+=======
                     <input type="text" name="destination" value='${formHandler.getDestination()}'>
+>>>>>>> form-validation
                 </div>
             </div>
             <fieldset class="form-group row">
