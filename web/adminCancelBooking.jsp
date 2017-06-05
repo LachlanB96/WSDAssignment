@@ -20,6 +20,11 @@
             <jsp:setProperty name="getBooking" property="filePath" value="<%=filePath%>"/>
         </jsp:useBean>
 
+        <% String filePath1 = application.getRealPath("WEB-INF/flights.xml");%>
+        <jsp:useBean id="getFlights" class="ass.wsd.FlightsApp" scope="application">
+            <jsp:setProperty name="getFlights" property="filePath" value="<%=filePath1%>"/>
+        </jsp:useBean>
+
     <center><h1>Flight Center</h1></center>
         <% if (session.getAttribute("user") != null) {
                 User user = (User) session.getAttribute("user");%>
@@ -41,7 +46,6 @@
     <%
 
         //fetch user ID of the current session
-        
         Bookings booking = getBooking.getBookings(); //Use the javabean to fetch the bookings using BookingsApp.java and fetching it from bookings.xml
         //out.println(booking);
         //Booking userBooking = booking.getUserID(request.getParameter("userID"");
@@ -52,6 +56,14 @@
             Booking userBooking = booking.getUserID(requestedUserID);
             booking.removeBooking(userBooking);
             getBooking.updateXML(booking, filePath);
+            //Now update numOfSeats in flights to reflect changes
+            int flightID = userBooking.getFlightID();
+            Flights flight = getFlights.getFlights(); //get flights list
+            Flight updateFlight = flight.getFlightID(flightID); //get flight using the flightID
+            int numOfSeats = updateFlight.getNumofSeats();
+            int newnumofSeats = numOfSeats + 1;
+            updateFlight.setNumofSeats(newnumofSeats);
+            getFlights.updateXML(flight, filePath1);
             response.sendRedirect("adminCancelBooking.jsp");
         }
     %>
