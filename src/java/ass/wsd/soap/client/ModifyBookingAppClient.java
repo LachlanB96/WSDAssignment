@@ -6,6 +6,7 @@
 package ass.wsd.soap.client;
 
 import ass.wsd.Booking;
+import ass.wsd.Flight;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -54,27 +55,28 @@ public class ModifyBookingAppClient {
             System.out.println("--------------------------------------");
             FlightsApp flightsApp = port.getFlightsApp();
             Flights flights = flightsApp.getFlights();
-//            for (int i = 0; i < flights.size(); i++) {
-//                if (String.valueOf(bookings.get(i).id).equals(userIDFilter)) {
-//                    out.print(bookings.get(i).bookingID);
-//                    out.print(" | ");
-//                    out.print(bookings.get(i).departureDate);
-//                    out.print(" | ");
-//                    out.print(bookings.get(i).description);
-//                    out.print(" | ");
-//                    out.print(bookings.get(i).destination);
-//                    out.print(" | ");
-//                    out.print(bookings.get(i).flightID);
-//                    out.print(" | ");
-//                    out.print(bookings.get(i).flightType);
-//                    out.print(" | ");
-//                    out.print(bookings.get(i).id);
-//                    out.print(" | ");
-//                    out.print(bookings.get(i).origin);
-//                    out.print(" | ");
-//                    out.println(bookings.get(i).returnDate);
-//                }
-//            }
+            List<ass.wsd.soap.client.Flight> flightList = flights.getFlight();
+            for (int i = 0; i < flightList.size(); i++) {
+                //if (String.valueOf(flightList.get(i).id).equals(userIDFilter)) {
+                    out.print(flightList.get(i).flightID);
+                    out.print(" | ");
+                    out.print(flightList.get(i).departureDate);
+                    out.print(" | ");
+                    out.print(flightList.get(i).returnDate);
+                    out.print(" | ");
+                    out.print(flightList.get(i).price);
+                    out.print(" | ");
+                    out.print(flightList.get(i).numofSeats);
+                    out.print(" | ");
+                    out.print(flightList.get(i).origin);
+                    out.print(" | ");
+                    out.print(flightList.get(i).destination);
+                    out.print(" | ");
+                    out.print(flightList.get(i).description);
+                    out.print(" | ");
+                    out.println(flightList.get(i).flightType);
+                //}
+            }
 
             //x.getBookings();
         }
