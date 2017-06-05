@@ -95,7 +95,7 @@
                         String htmlTable = results.print("booking", application.getRealPath("WEB-INF/flights.xml"), searchFilters, true);
                     %>
                     <%= htmlTable%>
-                    <input type="submit" value="Confirm booking" class="btn btn-success btn-outline btn-confirm"><input type="hidden" name="confirm" value="yes">
+                    <input type="submit" value="Confirm booking" class="btn btn-success btn-outline btn-confirm"><input type="hidden" name="confirm" value="yes"><input type="hidden" name="flightID" value="<%=request.getParameter("flight")%>">
                 </fieldset>
             </form>
         </jsp:useBean>
