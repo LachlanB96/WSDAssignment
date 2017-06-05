@@ -59,7 +59,7 @@
             if (request.getParameter("confirm") != null) {
                 int bookingID;
                 bookingID = (new Random()).nextInt(999);
-                int flightID = Integer.parseInt(request.getParameter("flightID"));
+                int flightID = Integer.parseInt(request.getParameter("flightID")); // <--Issue with this
                 Flights flight = getFlights.getFlights();
                 Flight newFlight = flight.getFlightID(flightID);
                 String origin = newFlight.getOrigin();
