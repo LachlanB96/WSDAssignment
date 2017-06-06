@@ -78,17 +78,18 @@
             <% if (loggedIn && !htmlTable.contains("There are no flights that fit the criteria.")) { %>
             <input type="submit" value="Continue to Next Step" class="btn btn-success btn-outline btn-confirm">
             <% 
+                User user = (User) session.getAttribute("user");
                  int ID = user.getID();
                  Listings listing = getListing.getListings();
                  Listing updateListing = listing.getListing(ID);
                  int flightID = Integer.parseInt(request.getParameter("flightID"));
                  
                  if (updateListing == null) {
-                     Listing newListing = new Listing(ID, flightID, x, x , x); //Don't know what to put if there are no values to be added
+                     Listing newListing = new Listing(ID, flightID); //Don't know what to put if there are no values to be added
                      listing.addListing(newListing);
                      getListing.updateXML(listing, filePath);
                  } else {
-                     updateListing.setFlight1(flightID); //I need to make this somehow change it to setFlightX where X is the empty child node so if flight1 and 2 is full, it will use flight3 or if fligh1 is used, it will use flight2.
+                     updateListing.setFlightID(flightID); //I need to make this somehow change it to setFlightX where X is the empty child node so if flight1 and 2 is full, it will use flight3 or if fligh1 is used, it will use flight2.
                      getListing.updateXML(listing, filePath);
                  }
             %>

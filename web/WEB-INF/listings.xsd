@@ -31,11 +31,7 @@ and open the template in the editor.
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="id" type="IDFormat"/>
-                            <xs:element name="flight1" type="flightIDFormat"/> 
-                            <xs:element name="flight2" type="flightIDFormat"/> 
-                            <xs:element name="flight3" type="flightIDFormat"/>
-                            <xs:element name="flight4" type="flightIDFormat"/>
-                            <xs:element name="flight5" type="flightIDFormat"/>                                         
+                            <xs:element name="flight" type="flightIDFormat"/>                                       
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>

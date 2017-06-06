@@ -7,18 +7,14 @@ and open the template in the editor.
 <listings>
     <listing>
         <id>342345</id>
-        <flight1>1001</flight1>
-        <flight2>2001</flight2>
-        <flight3></flight3>
-        <flight4></flight4>
-        <flight5></flight5>           
+        <flight>1001</flight>          
+    </listing>
+    <listing>
+        <id>342345</id>
+        <flight>2001</flight>        
     </listing>
     <listing>
         <id>263843</id>
-        <flight1>2001</flight1>
-        <flight2></flight2>
-        <flight3></flight3>
-        <flight4></flight4>
-        <flight5></flight5>           
+        <flight>2001</flight>          
     </listing>
 </listings>

@@ -34,7 +34,7 @@ public class Listings implements Serializable {
     
     public Listing getListing(int ID) {
         for (Listing listing : list) {
-            if (listing.getId() == ID) {
+            if (listing.getID() == ID) {
                 return listing; // User ID found in listings.xml. Return this booking.
             }
         }

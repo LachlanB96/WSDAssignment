@@ -48,19 +48,7 @@
                 <xsl:value-of select="id"/>
             </td>
             <td>
-                <xsl:value-of select="flight1"/>
-            </td>
-            <td>
-                <xsl:value-of select="flight2"/>
-            </td>
-            <td>
-                <xsl:value-of select="flight3"/>
-            </td>
-            <td>
-                <xsl:value-of select="flight4"/>
-            </td>
-            <td>
-                <xsl:value-of select="flight5"/>
+                <xsl:value-of select="flight"/>
             </td>
         </tr>
     </xsl:template>

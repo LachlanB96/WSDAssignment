@@ -16,75 +16,32 @@ import java.io.Serializable;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Listing implements Serializable {
 
-    @XmlElement(name = "id")
-    private int id;
-    @XmlElement(name = "flight1")
-    private int flight1;
-    @XmlElement(name = "fligh2")
-    private int flight2;
-    @XmlElement(name = "fligh3")
-    private int flight3;
-    @XmlElement(name = "fligh4")
-    private int flight4;
-    @XmlElement(name = "fligh5")
-    private int flight5;
+    @XmlElement(name = "ID")
+    private int ID;
+    @XmlElement(name = "flightID")
+    private int flightID;
 
-    public Listing(int id, int flight1, int flight2, int flight3, int flight4, int flight5) {
-        this.id = id;
-        this.flight1 = flight1;
-        this.flight2 = flight2;
-        this.flight3 = flight3;
-        this.flight4 = flight4;
-        this.flight5 = flight5;
+    public Listing(int ID, int flightID) {
+        this.ID = ID;
+        this.flightID = flightID;
     }
 
-    public int getId() {
-        return id;
+    public int getID() {
+        return ID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
-    public int getFlight1() {
-        return flight1;
+    public int getFlightID() {
+        return flightID;
     }
 
-    public void setFlight1(int flight1) {
-        this.flight1 = flight1;
+    public void setFlightID(int flightID) {
+        this.flightID = flightID;
     }
 
-    public int getFlight2() {
-        return flight2;
-    }
-
-    public void setFlight2(int flight2) {
-        this.flight2 = flight2;
-    }
-
-    public int getFlight3() {
-        return flight3;
-    }
-
-    public void setFlight3(int flight3) {
-        this.flight3 = flight3;
-    }
-
-    public int getFlight4() {
-        return flight4;
-    }
-
-    public void setFlight4(int flight4) {
-        this.flight4 = flight4;
-    }
-
-    public int getFlight5() {
-        return flight5;
-    }
-
-    public void setFlight5(int flight5) {
-        this.flight5 = flight5;
-    }
 
     public Listing() {
     }
