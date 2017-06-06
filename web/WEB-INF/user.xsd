@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.uts.edu.au/31284/wsd-ass"
+    xmlns="http://www.uts.edu.au/31284/wsd-ass"
+    elementFormDefault="qualified">
+    
+    <xs:simpleType name="nameFormat">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([A-Z][a-z]*\s*)+"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="emailFormat">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([a-zA-Z0-9\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="passwordFormat">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-z]+"/>
+        </xs:restriction>
+    </xs:simpleType>
+  
+    <xs:simpleType name="dateFormat">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-3]{1}[0-9]{1}-[0-1]{1}[0-9]{1}-[0-9]{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="privilegeFormat">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="customer|admin"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="IDFormat">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="\d{6}"/>
+        </xs:restriction>
+    </xs:simpleType>
+   
+    <xs:element name="user">>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="nameFormat"/>
+                <xs:element name="email" type="emailFormat"/>
+                <xs:element name="password" type="passwordFormat"/>
+                <xs:element name="dob" type="dateFormat"/>
+                <xs:element name="privilege" type="privilegeFormat"/> 
+                <xs:element name="id" type="IDFormat"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
