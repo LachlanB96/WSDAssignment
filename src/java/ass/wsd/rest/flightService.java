@@ -55,4 +55,11 @@ public class flightService {
     public Flights getFlights() throws IOException, Exception {
         return getFlightsApp().getFlights();
     }
+    
+    @Path("getFlight")
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    public Flight getFlights(@QueryParam("id") int id) throws IOException, Exception {
+        return getFlightsApp().getFlights().getFlightID(id);
+    }
 }

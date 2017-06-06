@@ -12,14 +12,20 @@ import java.io.Serializable;
  *
  */
 @XmlRootElement
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class User implements Serializable {
 
+    @XmlElement(name = "name")
     private String name;
+    @XmlElement(name = "email")
     private String email;
+    @XmlElement(name = "password")
     private String password;
+    @XmlElement(name = "dob")
     private String dob;
+    @XmlElement(name = "privilege")
     private String privilege;
+    @XmlElement(name = "id")
     private int ID;
 
     public User() {
@@ -34,7 +40,6 @@ public class User implements Serializable {
         this.ID = ID;
     }
 
-    @XmlElement
     public String getName() {
         return name;
     }
@@ -43,7 +48,6 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    @XmlElement
     public String getPassword() {
         return password;
     }
@@ -52,7 +56,6 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    @XmlElement
     public String getEmail() {
         return email;
     }
@@ -61,7 +64,6 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    @XmlElement
     public String getDOB() {
         return dob;
     }
@@ -70,7 +72,6 @@ public class User implements Serializable {
         this.dob = dob;
     }
 
-    @XmlElement
     public String getPrivilege() {
         return privilege;
     }
@@ -79,7 +80,6 @@ public class User implements Serializable {
         this.privilege = privilege;
     }
 
-    @XmlElement
     public int getID() {
         return ID;
     }

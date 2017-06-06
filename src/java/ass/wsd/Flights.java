@@ -40,4 +40,9 @@ public class Flights implements Serializable {
         }
         return null; // No flight can be found for Flight ID.
     }
+    
+    public ArrayList<Flight> getFlightUserId(int userID) {
+        ArrayList<Flight> flights = new ArrayList<>();
+        return flights;
+    }
 }
