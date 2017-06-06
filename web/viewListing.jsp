@@ -44,21 +44,22 @@
         <table border="1">
             <tr>
                 <td width="50%">User ID</td>
-                <td>Listings - Flight ID</td>
+                <td>Flight ID</td>
             </tr>
-            <% System.out.println(user.getID()); %>
             <c:import url="WEB-INF/listings.xsl" var="xslt"/>
             <c:import url="WEB-INF/listings.xml" var="inputDoc" />
             <x:parse xml="${inputDoc}" var="output"/>
+            <c:set var = "userID" scope = "page" value ="${user.getID()}" />
             <x:forEach var="tag" select="$output//listings/listing">
-
-
-                <tr>
-                    <td><x:out select="$tag" /></td>
-                    <td><x:out select="$tag/*" /></td>
-                </tr>
-
-            </x:forEach>
+                <x:choose>
+                    <x:when select="$tag/id = $userID">
+                        <tr>
+                            <td><x:out select="$tag/id" /></td>
+                            <td><x:out select="$tag/flight" /></td>
+                        </tr>
+                    </x:when>
+                </x:choose>
+            </x:forEach> 
         </table>
 
         <form action="viewListing.jsp" method="get">
@@ -73,17 +74,17 @@
         </form>
 
         <%
-            if (request.getParameter("viewList") != null) {
-                String useflightID = request.getParameter("selFlightID");
-        %>
+            if (request.getParameter("viewList") != null) { 
+                session.setAttribute("useFlightID", request.getParameter("selFlightID"));
+        System.out.println("DEBUG3"); %>
         <table border="1">
             <c:import url="WEB-INF/flights.xsl" var="xslt"/>
             <c:import url="WEB-INF/flights.xml" var="inputDoc" />
             <x:parse xml="${inputDoc}" var="output"/>
-            <c:set var = "selflightID" scope = "page" value ="${useflightID}" />
+            <c:set var = "flightID" scope = "page" value = "${useFlightID}" />
             <x:forEach var="tag" select="$output//flights/flight">
                 <x:choose>
-                    <x:when select="$tag/id = $selflightID">
+                    <x:when select="$tag/flightID = $flightID">
                         <tr>
                             <td><x:out select="$tag/origin" /></td>
                             <td><x:out select="$tag/destination" /></td>
