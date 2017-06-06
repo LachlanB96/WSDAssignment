@@ -34,7 +34,6 @@
             <% } %>
     </ul>
     <fieldset>
-    <h2>Booking</h2>
     <h2>Listing</h2>
     <p><a href="viewListing.jsp">View listing</a></p>
     <p><a href="closeListing.jsp">Close listing</a></p>
