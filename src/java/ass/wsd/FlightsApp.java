@@ -36,9 +36,8 @@ public class FlightsApp implements Serializable {
         fin.close();
     }
     
-    public void updateXML(Flights flights, String filePath) throws Exception {
+    public void updateXML(Flights flights) throws Exception {
         this.flights = flights;
-        this.filePath = filePath;
         JAXBContext jc = JAXBContext.newInstance(Flights.class);
         Marshaller m = jc.createMarshaller();
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);

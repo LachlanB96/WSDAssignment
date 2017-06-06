@@ -3,18 +3,14 @@
 <%@page import ="ass.wsd.*" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="styles.css">
-        <title>Flight Center - Bookings</title>
-    </head>
+    <jsp:include page="metaHead.jsp" />
     <body>
         <% String filePath = application.getRealPath("WEB-INF/listings.xml");%>
         <jsp:useBean id="getListings" class="ass.wsd.ListingsApp" scope="application">
             <jsp:setProperty name="getListings" property="filePath" value="<%=filePath%>"/>
         </jsp:useBean>
 
-    <center><h1>Flight Center</h1></center>
+    <h1>View Listings</h1>
         <jsp:include page="menu.jsp" />
     <fieldset>
         <h2>Your Listing Details:</h2>

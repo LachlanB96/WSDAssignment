@@ -11,13 +11,6 @@
     color: #fff;
 }
 
-.btn-cancel {
-    width: 33%;
-}
-.btn-confirm {
-    width: 66%;
-}
-
 .row-select{
     transition: all .5s;
 }
@@ -39,7 +32,6 @@ tr.selected:hover{
     outline: thick solid;
 }
 
-
 .cb input {
     position: relative;
     z-index: -9999;
@@ -57,13 +49,11 @@ tr.selected:hover{
 h1 {
     text-align: center;
 }
+
 .banner {
     background: #eee;
     border: solid 1px #333;
     width: 100%;
-}
-.menu {
-    text-align: right;
 }
 
 ul {
@@ -109,7 +99,7 @@ li.dropdown {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
+    min-width: 200px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
@@ -122,7 +112,9 @@ li.dropdown {
     text-align: left;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
 
 .dropdown:hover .dropdown-content {
     display: block;
