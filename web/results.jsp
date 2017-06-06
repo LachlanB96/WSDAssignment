@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.time.temporal.TemporalAccessor"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="java.util.Date"%>
@@ -87,7 +88,8 @@
                 int ID = user.getID();
                 System.out.println(ID);
                 Listings listing = getListing.getListings();
-                Listing updateListing = listing.getListing(ID);
+
+                ArrayList<Listing> updateListing = listing.getListings(ID);
                 //int flightID = Integer.parseInt(request.getParameter("flightID"));
 
                 for (int i = 0; i < results.listFlightIDs.size(); i++) {
@@ -97,8 +99,11 @@
                         listing.addListing(newListing);
                         getListing.updateXML(listing, filePath);
                     } else {
-                        updateListing.setFlightID(results.listFlightIDs.get(i));
-                        getListing.updateXML(listing, filePath);
+                        for (int j = 0; j < updateListing.size(); j++) {
+                            updateListing.get(j).setFlightID(results.listFlightIDs.get(i));
+                            listing.setList(updateListing);
+                            getListing.updateXML(listing, filePath);
+                        }
                     }
                 }
 

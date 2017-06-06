@@ -23,6 +23,10 @@ public class Listings implements Serializable {
     public ArrayList<Listing> getList() {
         return list;
     }
+    
+    public void setList(ArrayList<Listing> list) {
+        this.list = list;
+    }
 
     public void addListing(Listing listing) {
         list.add(listing);
