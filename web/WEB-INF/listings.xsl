@@ -17,7 +17,7 @@
     <xsl:template match="listings">
         <html>
             <head>
-                <title>Booking</title>
+                <title>Listing</title>
                 <style>
                     table.format {border: solid 1px black; width:100%; }
                     table.format td { border: solid 1px #999; }

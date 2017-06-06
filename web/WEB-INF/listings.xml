@@ -9,16 +9,16 @@ and open the template in the editor.
         <id>342345</id>
         <flight1>1001</flight1>
         <flight2>2001</flight2>
-        <flight3>2002</flight3>
-        <flight4>2003</flight4>
-        <flight5>2004</flight5>           
+        <flight3></flight3>
+        <flight4></flight4>
+        <flight5></flight5>           
     </listing>
     <listing>
         <id>263843</id>
         <flight1>2001</flight1>
-        <flight2>2005</flight2>
-        <flight3>3001</flight3>
-        <flight4>1001</flight4>
-        <flight5>1002</flight5>           
+        <flight2></flight2>
+        <flight3></flight3>
+        <flight4></flight4>
+        <flight5></flight5>           
     </listing>
 </listings>

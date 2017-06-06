@@ -20,11 +20,16 @@
     </head>
     <body>
     <center><h1>Flight Center</h1></center>
+        <% String filePath = application.getRealPath("WEB-INF/listings.xml");%>
+        <jsp:useBean id="getListing" class="ass.wsd.ListingsApp" scope="application">
+            <jsp:setProperty name="getListing" property="filePath" value="<%=filePath%>"/>
+        </jsp:useBean>
         <%
             boolean loggedIn = false;
             if (session.getAttribute("user") != null) {
                 User user = (User) session.getAttribute("user");
                 loggedIn = true;
+                int userID = user.getID();
         %> 
     <ul>
         <li><a href="javascript:history.go(-1)">Back</a></li>
@@ -72,7 +77,22 @@
             <%= htmlTable%>
             <% if (loggedIn && !htmlTable.contains("There are no flights that fit the criteria.")) { %>
             <input type="submit" value="Continue to Next Step" class="btn btn-success btn-outline btn-confirm">
-            <% } else if (loggedIn && htmlTable.contains("There are no flights that fit the criteria.")){ %>
+            <% 
+                 int ID = user.getID();
+                 Listings listing = getListing.getListings();
+                 Listing updateListing = listing.getListing(ID);
+                 int flightID = Integer.parseInt(request.getParameter("flightID"));
+                 
+                 if (updateListing == null) {
+                     Listing newListing = new Listing(ID, flightID, x, x , x); //Don't know what to put if there are no values to be added
+                     listing.addListing(newListing);
+                     getListing.updateXML(listing, filePath);
+                 } else {
+                     updateListing.setFlight1(flightID); //I need to make this somehow change it to setFlightX where X is the empty child node so if flight1 and 2 is full, it will use flight3 or if fligh1 is used, it will use flight2.
+                     getListing.updateXML(listing, filePath);
+                 }
+            %>
+            <% } else if (loggedIn && htmlTable.contains("There are no flights that fit the criteria.")) { %>
             <a href="index.jsp" class="btn btn-success btn-outline btn-warning">Click here to return to the main menu</a>
             <% } else { %>
             <a href="login.jsp" class="btn btn-success btn-outline btn-warning">Login to Select Flight</a>
