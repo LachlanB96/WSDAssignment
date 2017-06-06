@@ -55,7 +55,7 @@
                 <tr></tr>
                 <tr></tr>
                 <tr><td width="60%">What is the user ID of the booking you will like to view?</td></tr>
-                <tr><td><input type="text" name="userID"></td></tr>
+                <tr><td><input type="text" name="userID" required></td></tr>
                 <tr><td><input type="submit" value="View"></td></tr>
             </table>
         </form>

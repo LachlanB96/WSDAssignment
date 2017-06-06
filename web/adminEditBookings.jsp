@@ -49,8 +49,8 @@
                 <tr></tr>
                 <tr></tr>
                 <tr><td width="60%">What is the user ID of the booking you will like to edit?</td></tr>
-                <tr><td><input type="text" name="userID"></td></tr>
-                <tr><td><input type="submit" value="Edit">  
+                <tr><td><input type="text" name="userID" required></td></tr>
+                <tr><td><input type="submit" value="Edit" required>  
                         <input type="hidden" name="adminEdit" value="yes"></td></tr>
             </table>
         </form>
@@ -129,8 +129,8 @@
                         <% }%>
                 </tr>
                 <tr><td>Departure Date: <%=departureDate%></td><td><input type="date" name="departureDate" value="<%=departureDate%>"></td></tr>
-                <tr><td>Return Date: <%=returnDate%></td><td><input type="date" name="returnDate"></td></tr>
-                <tr><td>Description: <%=description%></td><td><input type="text" name="description"></td></tr>
+                <tr><td>Return Date: <%=returnDate%></td><td><input type="date" name="returnDate" required></td></tr>
+                <tr><td>Description: <%=description%></td><td><input type="text" name="description" required></td></tr>
                 <tr><td></td><td><input type="submit" value="Save Changes"></td><input type="hidden" name="submitted" value="yes"></tr>
             </table>
         </form>

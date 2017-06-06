@@ -79,7 +79,7 @@
                 <tr></tr>
                 <tr><td width="60%">What is the user ID of the booking you will like to cancel?</td></tr>
                 <tr><td><input type="text" name="userID"></td></tr>
-                <tr><td><input type="submit" value="Cancel">  
+                <tr><td><input type="submit" value="Cancel" required>  
                         <input type="hidden" name="adminCancel" value="yes"></td></tr>
             </table>
         </form>

@@ -22,14 +22,14 @@
             <body>
                 <table>
                     <thead>
+                        <th>Flight ID</th>
                         <th>Departure Date</th>
                         <th>Price</th>
                         <th>Number of Seats</th>
                         <th>Origin</th>
                         <th>Destination</th>
                         <th>Flight type</th>
-                        <th>Description</th>
-                        <th>Flight ID</th>
+                        <th>Description</th>      
                     </thead>
                     <tbody>
                         <xsl:apply-templates />
@@ -41,6 +41,9 @@
     
     <xsl:template match="flight">
         <tr>
+            <td>
+                <xsl:value-of select="flightID"/>
+            </td>
             <td>
                 <xsl:value-of select="departureDate"/>
             </td>
@@ -58,9 +61,6 @@
             </td>
             <td>
                 <xsl:value-of select="flightType"/>
-            </td>
-            <td>
-                <xsl:value-of select="flightID"/>
             </td>
         </tr>
     </xsl:template>

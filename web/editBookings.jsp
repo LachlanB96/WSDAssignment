@@ -112,8 +112,8 @@
                         <% }%>
 
                 </tr>
-                <tr><td>Departure Date: </td><td><input type="date" name="departureDate" value="<%=departureDate%>"></td></tr>
-                <tr><td>Return Date: <%=returnDate%></td><td><input type="date" name="returnDate"></td></tr>
+                <tr><td>Departure Date: </td><td><input type="date" name="departureDate" value="<%=departureDate%>" required></td></tr>
+                <tr><td>Return Date: <%=returnDate%></td><td><input type="date" name="returnDate" required></td></tr>
                 <tr><td></td><td><input type="submit" value="Save Changes"></td><input type="hidden" name="editButton" value="yes"></tr>
             </table>
         </form>
