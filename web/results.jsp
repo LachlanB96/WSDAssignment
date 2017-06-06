@@ -66,6 +66,7 @@
     <jsp:useBean id="results" class="ass.wsd.dom.UsersPrinter" scope="page">
         <form method="GET" action="makeBooking.jsp">
             <%
+                System.out.println("DEBUG");
                 String[] searchFilters = new String[5];
                 searchFilters[0] = ""; //FlightID
                 searchFilters[1] = request.getParameter("origin"); //origin
@@ -73,25 +74,29 @@
                 searchFilters[3] = request.getParameter("flightType"); //flightType (eco or business)
                 searchFilters[4] = request.getParameter("departureDate"); //departure date
                 String htmlTable = results.print("results", application.getRealPath("WEB-INF/flights.xml"), searchFilters, loggedIn);
-            %>
-            <%= htmlTable%>
-            <% if (loggedIn && !htmlTable.contains("There are no flights that fit the criteria.")) { %>
+                out.println(htmlTable);
+                System.out.println(results.listFlightIDs.get(0));
+                if (loggedIn) { %>
             <input type="submit" value="Continue to Next Step" class="btn btn-success btn-outline btn-confirm">
             <%
+                //results.listFlightIDs.stream().forEach(elem -> System.out.println("element " + elem));
+                System.out.println("DEBUG");
                 User user = (User) session.getAttribute("user");
+                System.out.println(user);
                 int ID = user.getID();
+                System.out.println(ID);
                 Listings listing = getListing.getListings();
                 Listing updateListing = listing.getListing(ID);
                 //int flightID = Integer.parseInt(request.getParameter("flightID"));
 
-                for (int flightID : results.listFlightIDs) {
+                for (int i = 0; i < results.listFlightIDs.size(); i++) {
                     //DO SOMETHING HERE (ADD FLGIUHT IDS TO LISTING) 92 and 94
                     if (updateListing == null) {
-                        Listing newListing = new Listing(ID, flightID);
+                        Listing newListing = new Listing(ID, results.listFlightIDs.get(i));
                         listing.addListing(newListing);
                         getListing.updateXML(listing, filePath);
                     } else {
-                        updateListing.setFlightID(flightID);
+                        updateListing.setFlightID(results.listFlightIDs.get(i));
                         getListing.updateXML(listing, filePath);
                     }
                 }
