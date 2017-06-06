@@ -1,8 +1,6 @@
-<%-- 
-    Document   : closeListing
-    Created on : 06/06/2017, 9:41:29 PM
-    Author     : Peter Nguyen
---%>
+<%@page import="java.util.ArrayList"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@page import ="ass.wsd.*" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,21 +19,7 @@
         <% if (session.getAttribute("user") != null) {
                 User user = (User) session.getAttribute("user");%>
 
-    <ul>
-        <li><a href="javascript:history.go(-1)">Back</a></li>
-        <li><a href="index.jsp">Home</a></li>
-        <li><a href="bookings.jsp">Bookings</a></li>
-        <li><a href="cusCancelMember.jsp">Account</a></li>
-        <li class="dropdown">
-            <a href="login.jsp" class="dropbtn">You are logged in as <%= user.getName()%> &lt;<%= user.getEmail()%>&gt; </a>
-            <div class="dropdown-content">
-                <a href="logout.jsp">Logout</a>
-            </div>
-        </li>
-        <% if (user.getPrivilege().equals("admin")) { %>
-        <li class="right"><a href="admin.jsp">Admin</a></li>  
-            <% } %>
-    </ul>
+    <jsp:include page="menu.jsp" />
     <fieldset>
         <h2>Close Listing</h2>
         <p>Here is your current list:</p>
@@ -48,9 +32,12 @@
             <c:import url="WEB-INF/listings.xml" var="inputDoc" />
             <x:parse xml="${inputDoc}" var="output"/>
             <c:set var = "userID" scope = "page" value ="${user.getID()}" />
+            <c:set value="false" var="atleastOneListing"/>
             <x:forEach var="tag" select="$output//listings/listing">
                 <x:choose>
                     <x:when select="$tag/id = $userID">
+                        <c:set value="true" var="atleastOneListing"/>
+
                         <tr>
                             <td><x:out select="$tag/id" /></td>
                             <td><x:out select="$tag/flight" /></td>
@@ -58,29 +45,31 @@
                     </x:when>
                 </x:choose>
             </x:forEach> 
+
         </table>
-            
-        <form method="POST" action="closeListing.jsp">
-            <table>
-                <tr><td>Would you like to close this list?</td><td><input type="submit" value="Close"></td><input type="hidden" name="Close" value="yes"></td></tr>
-            </table>
+        <c:if test="${atleastOneListing eq false}">
+            <p>No listing can be found. Click <a href="index.jsp">here</a> to search for a flight and start making a list of flights.</p>
+        </c:if>
+
+        <form method="GET" action="closeListing.jsp">
+            <p>Would you like to close this list?</p>
+            <input type="submit" value="Close">
+            <input type="hidden" name="Close" value="yes">
         </form>
         <% if (request.getParameter("Close") != null) {
-            int reqUserID = user.getID();
-            Listings listing = getListing.getListings();
-            Listing closeListing = listing.getListing(reqUserID);
-            if (closeListing != null) {
-                listing.removeListing(closeListing);
-                getListing.updateXML(listing, filePath);
+                int reqUserID = user.getID();
+                Listings listing = getListing.getListings();
+                ArrayList<Listing> closeListings = listing.getListings(reqUserID);
+                for (int i = 0; i < closeListings.size(); i++) {
+                    listing.removeListing(closeListings.get(i));
+                    getListing.updateXML(listing, filePath);
+
+                }
                 response.sendRedirect("closeListing.jsp");
-            }
         %>
 
 
-        <%} else {%>
-        <p>No listing can be found. Click <a href="index.jsp">here</a> to search for a flight and start making a list of flights.</p>
-        <% }
-        %>
+        <% } %>
 
 
         <% } else { %> 

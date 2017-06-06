@@ -1,11 +1,5 @@
-<%-- 
-    Document   : viewBooking
-    Created on : 04/06/2017, 7:43:55 PM
-    Author     : Peter Nguyen
---%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@page import ="ass.wsd.*" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,24 +15,7 @@
         </jsp:useBean>
 
     <center><h1>Flight Center</h1></center>
-        <% if (session.getAttribute("user") != null) {
-                User user = (User) session.getAttribute("user");%>
-
-    <ul>
-        <li><a href="javascript:history.go(-1)">Back</a></li>
-        <li><a href="index.jsp">Home</a></li>
-        <li><a href="bookings.jsp">Bookings</a></li>
-        <li><a href="cusCancelMember.jsp">Account</a></li>
-        <li class="dropdown">
-            <a href="login.jsp" class="dropbtn">You are logged in as <%= user.getName()%> &lt;<%= user.getEmail()%>&gt; </a>
-            <div class="dropdown-content">
-                <a href="logout.jsp">Logout</a>
-            </div>
-        </li>
-        <% if (user.getPrivilege().equals("admin")) { %>
-        <li class="right"><a href="admin.jsp">Admin</a></li>  
-            <% } %>
-    </ul>
+        <jsp:include page="menu.jsp" />
     <fieldset>
         <h2>Your Listing Details:</h2>
 
@@ -106,7 +83,8 @@
             </c:if>
         </table>
         <% }
-        } else { %> 
+ 
+        if(session.getAttribute("user") == null) { %> 
         <ul>
             <li><a href="javascript:history.go(-1)">Back</a></li>
             <li><a href="index.jsp">Home</a></li>

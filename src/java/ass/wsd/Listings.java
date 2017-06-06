@@ -32,12 +32,13 @@ public class Listings implements Serializable {
         list.remove(listing);
     }
     
-    public Listing getListing(int ID) {
+    public ArrayList<Listing> getListings(int ID) {
+        ArrayList<Listing> lists = new ArrayList<>();
         for (Listing listing : list) {
             if (listing.getID() == ID) {
-                return listing; // User ID found in listings.xml. Return this booking.
+                lists.add(listing); // User ID found in listings.xml. Return this booking.
             }
         }
-        return null; // No listing can be found for User ID.
+        return lists; // No listing can be found for User ID.
     }
 }

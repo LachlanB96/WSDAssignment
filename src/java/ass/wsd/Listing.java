@@ -16,7 +16,7 @@ import java.io.Serializable;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Listing implements Serializable {
 
-    @XmlElement(name = "ID")
+    @XmlElement(name = "id")
     private int ID;
     @XmlElement(name = "flightID")
     private int flightID;
