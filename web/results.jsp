@@ -84,6 +84,10 @@
                  Listing updateListing = listing.getListing(ID);
                  int flightID = Integer.parseInt(request.getParameter("flightID"));
                  
+                 for (int flightIDTemp : results.listFlightIDs){
+                     DO SOMETHING HERE (ADD FLGIUHT IDS TO LISTING)
+                 }
+                 
                  if (updateListing == null) {
                      Listing newListing = new Listing(ID, flightID); //Don't know what to put if there are no values to be added
                      listing.addListing(newListing);

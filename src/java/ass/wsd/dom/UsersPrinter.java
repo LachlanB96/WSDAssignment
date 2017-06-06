@@ -10,6 +10,8 @@ import org.xml.sax.*;
 public class UsersPrinter implements Serializable {
 
     public String htmlTable = "";
+    
+    public int[] listFlightIDs;
 
     public UsersPrinter() {
     }
@@ -65,6 +67,7 @@ public class UsersPrinter implements Serializable {
                     htmlTable += flight.item(j).getChildNodes().item(0).getNodeValue();
                     htmlTable += "</td>";
                 }
+                listFlightIDs[flightCounter] = Integer.parseInt(flight.item(15).getChildNodes().item(0).getNodeValue());
                 htmlTable += "<td style='display: none;'>"
                         + "<input type='radio' name='flight' id='flight_choice' "
                         + "value='" + flight.item(15).getChildNodes().item(0).getNodeValue() + "'>"
