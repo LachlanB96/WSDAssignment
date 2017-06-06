@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <flights>
     <flight>
-        <departureDate>2017-05-30</departureDate>
+        <departureDate>2017-01-01</departureDate>
         <price>70.00</price>
         <numofSeats>9</numofSeats>
         <origin>Sydney</origin>

@@ -70,8 +70,10 @@
                 String htmlTable = results.print("results", application.getRealPath("WEB-INF/flights.xml"), searchFilters, loggedIn);
             %>
             <%= htmlTable%>
-            <% if (loggedIn) { %>
+            <% if (loggedIn && !htmlTable.contains("There are no flights that fit the criteria.")) { %>
             <input type="submit" value="Continue to Next Step" class="btn btn-success btn-outline btn-confirm">
+            <% } else if (loggedIn && htmlTable.contains("There are no flights that fit the criteria.")){ %>
+            <a href="index.jsp" class="btn btn-success btn-outline btn-warning">Click here to return to the main menu</a>
             <% } else { %>
             <a href="login.jsp" class="btn btn-success btn-outline btn-warning">Login to Select Flight</a>
             <% }%>
