@@ -12,7 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="styles.css">
-        <title>Flight Center - Bookings</title>
+        <title>Flight Center - Admin</title>
     </head>
     <body>
         <% String filePath = application.getRealPath("WEB-INF/bookings.xml");%>
