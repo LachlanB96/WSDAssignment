@@ -63,7 +63,7 @@
                     </tr>
                     <tr>
                         <td><label class="field" for="dob">Date of Birth: </label></td>
-                        <td><input type="date" name="dob" placeholder="2010-11-22" required pattern="[0-3]{1}[0-9]{1}-[0-1]{1}[0-9]{1}-[0-9]{4}"></td>
+                        <td><input type="date" name="dob" placeholder="01-01-2001" required pattern="[0-3]{1}[0-9]{1}-[0-1]{1}[0-9]{1}-[0-9]{4}"></td>
                     </tr>
                     <tr>
                         <td></td>
