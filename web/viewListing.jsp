@@ -5,6 +5,7 @@
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@page import ="ass.wsd.*" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -74,17 +75,18 @@
         </form>
 
         <%
-            if (request.getParameter("viewList") != null) { 
-                session.setAttribute("useFlightID", request.getParameter("selFlightID"));
-        System.out.println("DEBUG3"); %>
+            if (request.getParameter("viewList") != null) {
+                session.setAttribute("useFlightID", request.getParameter("selFlightID")); %>
         <table border="1">
             <c:import url="WEB-INF/flights.xsl" var="xslt"/>
             <c:import url="WEB-INF/flights.xml" var="inputDoc" />
             <x:parse xml="${inputDoc}" var="output"/>
             <c:set var = "flightID" scope = "page" value = "${useFlightID}" />
+            <c:set value="false" var="atleastOneFlight"/>
             <x:forEach var="tag" select="$output//flights/flight">
                 <x:choose>
                     <x:when select="$tag/flightID = $flightID">
+                        <c:set value="true" var="atleastOneFlight"/>
                         <tr>
                             <td><x:out select="$tag/origin" /></td>
                             <td><x:out select="$tag/destination" /></td>
@@ -99,9 +101,10 @@
                     </x:when>
                 </x:choose>
             </x:forEach> 
+            <c:if test="${atleastOneFlight eq false}">
+                <p>Flight can not be found. Please try again.</p>
+            </c:if>
         </table>
-        <% } else { %>
-        <p>Flight can not be found. Please try again.</p>
         <% }
         } else { %> 
         <ul>
