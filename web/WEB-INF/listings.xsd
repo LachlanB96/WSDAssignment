@@ -24,10 +24,10 @@ and open the template in the editor.
     </xs:simpleType>
    
     
-    <xs:element name="flights">
+    <xs:element name="listings">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="flight" maxOccurs="unbounded">
+                <xs:element name="listing" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="id" type="IDFormat"/>

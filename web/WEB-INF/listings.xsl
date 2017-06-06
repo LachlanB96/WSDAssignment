@@ -24,16 +24,11 @@
                 </style>
             </head>
             <body>
-                <h2>View Listings</h2>
-                <table class="format">
+                <table>
                     <thead>
                         <th>ID</th>
                         <th>Flights</th>
                     </thead>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
                     <tbody>
                         <xsl:apply-templates />
                     </tbody>
@@ -42,7 +37,7 @@
         </html>
     </xsl:template>
     
-    <xsl:template match="booking">
+    <xsl:template match="listing">
         <tr>
             <td>
                 <xsl:value-of select="id"/>

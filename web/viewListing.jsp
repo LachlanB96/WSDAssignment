@@ -14,9 +14,9 @@
         <title>Flight Center - Bookings</title>
     </head>
     <body>
-        <% String filePath = application.getRealPath("WEB-INF/flights.xml");%>
-        <jsp:useBean id="getFlights" class="ass.wsd.FlightsApp" scope="application">
-            <jsp:setProperty name="getFlights" property="filePath" value="<%=filePath%>"/>
+        <% String filePath = application.getRealPath("WEB-INF/listings.xml");%>
+        <jsp:useBean id="getListings" class="ass.wsd.ListingsApp" scope="application">
+            <jsp:setProperty name="getListings" property="filePath" value="<%=filePath%>"/>
         </jsp:useBean>
 
     <center><h1>Flight Center</h1></center>
@@ -42,25 +42,22 @@
         <h2>Your Listing Details:</h2>
 
         <table border="1">
-
+            <tr>
+                <td width="50%">User ID</td>
+                <td>Listings - Flight ID</td>
+            </tr>
+            <% System.out.println(user.getID()); %>
             <c:import url="WEB-INF/listings.xsl" var="xslt"/>
             <c:import url="WEB-INF/listings.xml" var="inputDoc" />
             <x:parse xml="${inputDoc}" var="output"/>
-            <c:set var = "userID" scope = "page" value ="${user.getID()}" />
             <x:forEach var="tag" select="$output//listings/listing">
-                <x:choose>
-                    <x:when select="$tag/id = $userID">
-                        <tr>
-                            <td width="50%">User ID</td>
-                            <td>Listings - Flight ID</td>
-                        </tr>
-                        <tr>
-                            <td><x:out select="$tag/id" /></td>
-                            <td><x:out select="$tag/flight" /></td>
-                        </tr>
 
-                    </x:when>
-                </x:choose>
+
+                <tr>
+                    <td><x:out select="$tag" /></td>
+                    <td><x:out select="$tag/*" /></td>
+                </tr>
+
             </x:forEach>
         </table>
 
@@ -71,16 +68,14 @@
                 <tr><td width="60%">What is the flight ID of the listing you will like to view?</td></tr>
                 <tr><td><input type="text" name="selFlightID" required></td></tr>
                 <tr><td><input type="submit" value="View" required>  
-                        <input type="hidden" name="viewList" value="yes" required></td></tr>
+                        <input type="hidden" name="viewList" value="yes"></td></tr>
             </table>
         </form>
 
         <%
             if (request.getParameter("viewList") != null) {
-                Flights flight = getFlights.getFlights();
-                int useflightID = Integer.parseInt(request.getParameter("selFlightID"));
-                Flight viewFlight = flight.getFlightID(useflightID);
-                if (viewFlight != null) { %>
+                String useflightID = request.getParameter("selFlightID");
+        %>
         <table border="1">
             <c:import url="WEB-INF/flights.xsl" var="xslt"/>
             <c:import url="WEB-INF/flights.xml" var="inputDoc" />
@@ -107,14 +102,7 @@
         <% } else { %>
         <p>Flight can not be found. Please try again.</p>
         <% }
-        %>
-        <% }
-        %>
-
-
-
-
-        <% } else { %> 
+        } else { %> 
         <ul>
             <li><a href="javascript:history.go(-1)">Back</a></li>
             <li><a href="index.jsp">Home</a></li>
