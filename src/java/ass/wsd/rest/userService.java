@@ -71,10 +71,29 @@ public class userService {
         return getUsersApp().getUsers().getList();
     }
     
+    // Debugging methods
+    
     @Path("working")
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String working(@QueryParam("text") String text) {
         return text;
+    }
+    
+    @Path("printInfoStatic")
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String findUserStatic() throws JAXBException, IOException, Exception {
+        String s = "";
+        User user = getUsersApp().getUsers().getUser("a@a.com");
+        s += "Username: " + user.getEmail();
+        return s;
+    }
+    
+    @Path("getInfoStatic")
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    public User getInfoStatic() throws JAXBException, IOException, Exception {
+        return new User("James", "james@james.com", "secretJames", "13-05-1984", 847563);
     }
 }

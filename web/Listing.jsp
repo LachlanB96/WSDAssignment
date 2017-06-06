@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="styles.css">
-        <title>Flight Center - Bookings</title>
+        <title>Flight Center - Listing</title>
     </head>
     <body>
         
@@ -35,10 +35,9 @@
     </ul>
     <fieldset>
     <h2>Booking</h2>
-    <p><a href="makeBooking.jsp">Make a booking</a></p>
-    <p><a href="viewBookings.jsp">View a booking</a></p>
-    <p><a href="editBookings.jsp">Edit a booking</a></p>
-    <p><a href="cancelBooking.jsp">Cancel a booking</a></p>
+    <h2>Listing</h2>
+    <p><a href="viewListing.jsp">View listing</a></p>
+    <p><a href="closeListing.jsp">Close listing</a></p>
     <% } else { %> 
     <ul>
         <li><a href="index.jsp">Home</a></li>

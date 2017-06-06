@@ -28,6 +28,7 @@
         <li><a href="javascript:history.go(-1)">Back</a></li>
         <li><a href="index.jsp">Home</a></li>
         <li><a href="bookings.jsp">Bookings</a></li>
+        <li><a href="Listing.jsp">Listings</a></li>
         <li class="dropdown">
             <a href="login.jsp" class="dropbtn">You are logged in as <%= user.getName()%> &lt;<%= user.getEmail()%>&gt; </a>
             <div class="dropdown-content">
