@@ -13,6 +13,7 @@ import java.io.Serializable;
  *
  *
  */
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Flight implements Serializable {
 
