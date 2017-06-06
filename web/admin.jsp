@@ -54,6 +54,7 @@
         <p><a href="adminViewDetails.jsp">View all booking details</a></p>
         <p><A href="adminEditBookings.jsp">Edit a booking</a></p>
         <p><a href="adminCancelBooking.jsp">Cancel a booking</a></p>
+        <p><a href="adminCancelMem.jsp">Cancel a membership</a></p>
     </fieldset>        
     <% }%>
 </body>

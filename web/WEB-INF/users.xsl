@@ -17,14 +17,17 @@
     <xsl:template match="users">
         <html>
             <head>
-                <title>users.xsl</title>
+                <title>Users</title>
+                <style>
+                    table.format {border: solid 1px black; width:100%; }
+                    table.format td { border: solid 1px #999; }
+                </style>
             </head>
             <body>
-                <table>
+                <table class="format">
                     <thead>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Password</th>
                         <th>DOB</th>
                         <th>Privilege</th>
                         <th>ID</th>
@@ -44,9 +47,6 @@
             </td>
             <td>
                 <xsl:value-of select="email"/>
-            </td>
-            <td>
-                <xsl:value-of select="password"/>
             </td>
             <td>
                 <xsl:value-of select="dob"/>
