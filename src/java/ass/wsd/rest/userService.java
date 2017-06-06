@@ -11,6 +11,7 @@ import javax.ws.rs.core.*;
 import javax.xml.bind.JAXBException;
 import java.io.*;
 import ass.wsd.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -41,26 +42,6 @@ public class userService {
             return userApp;
         }
     }
-    
-    private BookingsApp getBookingsApp() throws JAXBException, IOException, Exception {
-        // The web server can handle requests from different clients in parallel.
-        // These are called "threads".
-        //
-        // We do NOT want other threads to manipulate the application object at the same
-        // time that we are manipulating it, otherwise bad things could happen.
-        //
-        // The "synchronized" keyword is used to lock the application object while
-        // we're manpulating it.
-        synchronized (application) {
-            BookingsApp bookingsApp = (BookingsApp) application.getAttribute("bookingsApp");
-            if (bookingsApp == null) {
-                bookingsApp = new BookingsApp();
-                bookingsApp.setFilePath(application.getRealPath("WEB-INF/bookings.xml"));
-                application.setAttribute("bookingsApp", bookingsApp);
-            }
-            return bookingsApp;
-        }
-    }
 
     @Path("hello")
     @GET
@@ -83,19 +64,17 @@ public class userService {
         return getUsersApp().getUsers();
     }
     
-    @Path("getBookings")
+    @Path("getUserList")
     @GET
     @Produces(MediaType.APPLICATION_XML)
-    public Bookings getBookings() throws IOException, Exception {
-        return getBookingsApp().getBookings();
+    public ArrayList<User> getUserList() throws JAXBException, IOException, Exception {
+        return getUsersApp().getUsers().getList();
     }
     
-    /**
-    @Path("getFlights")
+    @Path("working")
     @GET
-    @Produces(MediaType.APPLICATION_XML)
-    public Flights getFlights() throws IOException, Exception {
-        return getFlightsApp().getFlights();
+    @Produces(MediaType.TEXT_PLAIN)
+    public String working(@QueryParam("text") String text) {
+        return text;
     }
-    **/
 }
