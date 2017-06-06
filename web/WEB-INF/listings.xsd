@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<! 
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.uts.edu.au/31284/wsd-ass"
+           xmlns="http://www.uts.edu.au/31284/wsd-ass"
+           elementFormDefault="qualified">
+
+    <xs:simpleType name="IDFormat">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="\d{6}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="flightIDFormat">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="\d{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+   
+    
+    <xs:element name="flights">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="flight" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="id" type="IDFormat"/>
+                            <xs:element name="flight1" type="flightIDFormat"/> 
+                            <xs:element name="flight2" type="flightIDFormat"/> 
+                            <xs:element name="flight3" type="flightIDFormat"/>
+                            <xs:element name="flight4" type="flightIDFormat"/>
+                            <xs:element name="flight5" type="flightIDFormat"/>                                         
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
