@@ -44,8 +44,9 @@ public class ModifyBookingAppClient {
             System.out.println("(3) Create a booking");
             System.out.println("(4) View current bookings");
             System.out.println("(5) View current listings");
-            System.out.println("(6) Close a listing");
-            System.out.println("(7) Exit application");
+            System.out.println("(6) Cancel a booking");
+            System.out.println("(7) Close a listing");
+            System.out.println("(8) Exit application");
             String input = userInputString("==> ", "1", scan, false);
 
             // LOGIN METHOD ###########################################################################
@@ -159,11 +160,17 @@ public class ModifyBookingAppClient {
                     out.println(flightList.get(i).flightType);
                     //}
                 }
-            } else if (input.equals("6")) {
+            }
+            else if (input.equals("6")) {
+                System.out.println("CANCEL BOOKING");
+                //TODO IMPLEMENT CANCEL BOOKING. IS SAME AS CLOSE LISTING, JUST
+                //FOR A BOOKING INSTEAD. CODE IS ALREADY WRITTEN PRETY MUCH.
+            }
+            else if (input.equals("7")) {
                 System.out.println("CLOSE LISTING");
-                int listingID = Integer.valueOf(userInputString("Customer ID", "342345", scan, false));
+                int listingID = Integer.valueOf(userInputString("Enter ID of the listing: ", "342345", scan, false));
                 port.closeListing(listingID);
-            } else if (input.equals("7")) {
+            } else if (input.equals("8")) {
                 running = false;
             }
         }
