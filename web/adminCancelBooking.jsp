@@ -56,7 +56,7 @@
             int requestedUserID = Integer.parseInt(request.getParameter("userID"));
             Booking userBooking = booking.getUserID(requestedUserID);
             booking.removeBooking(userBooking);
-            getBooking.updateXML(booking, filePath);
+            getBooking.updateXML(booking);
             //Now update numOfSeats in flights to reflect changes
             int flightID = userBooking.getFlightID();
             Flights flight = getFlights.getFlights(); //get flights list
@@ -64,7 +64,7 @@
             int numOfSeats = updateFlight.getNumofSeats();
             int newnumofSeats = numOfSeats + 1;
             updateFlight.setNumofSeats(newnumofSeats);
-            getFlights.updateXML(flight, filePath1);
+            getFlights.updateXML(flight);
             response.sendRedirect("adminCancelBooking.jsp");
         }
     %>

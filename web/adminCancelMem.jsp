@@ -69,7 +69,7 @@
             
             if (userBooking != null) {
                 booking.removeBooking(userBooking);
-                getBooking.updateXML(booking, filePath2);
+                getBooking.updateXML(booking);
                 //Now update numOfSeats
                 int flightID = userBooking.getFlightID();
                 Flights flight = getFlights.getFlights(); //get flights list
@@ -77,7 +77,7 @@
                 int numOfSeats = updateFlight.getNumofSeats();
                 int newnumofSeats = numOfSeats + 1;
                 updateFlight.setNumofSeats(newnumofSeats);
-                getFlights.updateXML(flight, filePath1);
+                getFlights.updateXML(flight);
 
             }
     %> <jsp:setProperty name="logIn" property="filePath" value="<%=filePath%>"/> <%

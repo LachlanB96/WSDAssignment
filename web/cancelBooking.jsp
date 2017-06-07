@@ -67,13 +67,13 @@
                 if (request.getParameter("Cancel") != null) {
                     
                     booking.removeBooking(userBooking);
-                    getBooking.updateXML(booking, filePath);
+                    getBooking.updateXML(booking);
                     Flights flight = getFlights.getFlights(); //get flights list
                     Flight updateFlight = flight.getFlightID(flightID); //get flight using the flightID
                     int numOfSeats = updateFlight.getNumofSeats();
                     int newnumofSeats = numOfSeats + 1;
                     updateFlight.setNumofSeats(newnumofSeats);
-                    getFlights.updateXML(flight, filePath1);
+                    getFlights.updateXML(flight);
                     response.sendRedirect("cancelBooking.jsp");
                 }
         %>

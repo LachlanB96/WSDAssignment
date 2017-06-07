@@ -84,7 +84,7 @@
                 userBooking.setDepartureDate(newDepartureDate);
                 userBooking.setReturnDate(newReturnDate);
                 userBooking.setDescription(newDescription);
-                getBooking.updateXML(booking, filePath);
+                getBooking.updateXML(booking);
                 response.sendRedirect("adminEditBookings.jsp");
             }
         %>
