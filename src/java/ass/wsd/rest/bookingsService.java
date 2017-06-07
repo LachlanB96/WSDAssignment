@@ -145,7 +145,7 @@ public class bookingsService {
         return getFlightsApp().getFlights().getFlightID(id);
     }
     
-    @Path("getFlightWithDestination")
+    @Path("getFlightsWithDestination")
     @GET
     @Produces(MediaType.APPLICATION_XML)
     public ArrayList<Flight> getFlight(@QueryParam("destination") String destination) throws IOException, Exception {
@@ -157,6 +157,20 @@ public class bookingsService {
     @Produces(MediaType.TEXT_PLAIN)
     public String getFlightsAmount() throws IOException, Exception {
         return "Amount of flights: " + getFlightsApp().getFlights().getListSize();
+    }
+    
+    @Path("getFlightsStatus")
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getFlightsStatus(@QueryParam("id") int id) throws IOException, Exception {
+        int max = getFlightsApp().getFlights().getMax(id);
+        int amount = getBookingsApp().getBookings().isFull(id);
+        return generateString(max, amount);
+    }
+    
+    private String generateString(int max, int amount) {
+        if (amount < max) return "There are currently " + amount + " out of " + max + " bookings taken on this flight" ;
+        return "There are no more seats avaliable, all " + max + " are taken";
     }
     
     /**

@@ -55,4 +55,13 @@ public class Flights implements Serializable {
     public int getListSize() {
         return list.size();
     }
+    
+    public int getMax(int id) {
+        for (Flight flight : list) {
+            if (flight.getFlightID() == id) {
+                return flight.getNumofSeats();
+            }
+        }
+        return 0;
+    }
 }

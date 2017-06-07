@@ -52,4 +52,14 @@ public class Bookings implements Serializable {
         return bookings;
     }
     
+    public int isFull(int id) {
+        int count = 0;
+        for (Booking booking : list) {
+            if (booking.getFlightID()== id) {
+                count++;
+            }
+        }
+        return count;
+    }
+    
 }
