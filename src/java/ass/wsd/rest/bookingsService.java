@@ -97,28 +97,34 @@ public class bookingsService {
         return getBookingsApp().getBookings();
     }
     
+    // IMPLEMENT GETTING A SINGLE BOOKING!!!
+    
     @Path("getBookingsList")
     @GET
     @Produces(MediaType.APPLICATION_XML)
     public ArrayList<Booking> getBookingsList() throws IOException, Exception {
         return getBookingsApp().getBookings().getList();
     }
-    
+
+    /**
+     * only produces a single booking, WRONG!
+     * 
     @Path("getBookingdUserID")
     @GET
     @Produces(MediaType.APPLICATION_XML)
     public Booking getBookingsUserID(@QueryParam("id") int id) throws IOException, Exception {
         return getBookingsApp().getBookings().getUserID(id);
     }
+    **/
     
-    @Path("getBookingUserID")
+    @Path("getBookingsUserID")
     @GET
     @Produces(MediaType.APPLICATION_XML)
     public ArrayList<Booking> getBookingUserID(@QueryParam("id") int id) throws IOException, Exception {
         return getBookingsApp().getBookings().getBookingsUserID(id);
     }
     
-    @Path("getBookingUserEmail")
+    @Path("getBookingsUserEmail")
     @GET
     @Produces(MediaType.APPLICATION_XML)
     public ArrayList<Booking> getBookingUserID(@QueryParam("email") String email) throws IOException, Exception {
