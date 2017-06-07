@@ -1,20 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ass.wsd.soap.client;
 
-import ass.wsd.Booking;
-import ass.wsd.Flight;
-import ass.wsd.User;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import static java.lang.System.out;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  *
@@ -55,7 +46,7 @@ public class ModifyBookingAppClient {
             System.out.println("(5) View current listings");
             System.out.println("(6) Close a listing");
             System.out.println("(7) Exit application");
-            String input = userInputFormatted("==> ", "1", scan, false);
+            String input = userInputString("==> ", "1", scan, false);
 
             // LOGIN METHOD ###########################################################################
             if (input.equals("1")) {
@@ -89,33 +80,31 @@ public class ModifyBookingAppClient {
             } // Create listing METHOD ###########################################################################
             else if (input.equals("2")) {
                 System.out.println("Create a listing.");
-                int flightID = Integer.valueOf(userInputFormatted("Listing origin", "1007", scan, true));
-                String origin = userInputFormatted("Listing origin", "Sydney", scan, true);
-                String destination = userInputFormatted("Listing origin (Sydney): ", "Melbourne", scan, true);
-                int numofSeats = Integer.valueOf(userInputFormatted("Listing origin (Sydney): ", "8", scan, true));
-                String departureDate = userInputFormatted("Listing origin (Sydney): ", "2017-06-16", scan, true);
-                String flightType = userInputFormatted("Listing origin (Sydney): ", "Business", scan, true);
-                String price = userInputFormatted("Listing origin (Sydney): ", "100.00", scan, true);
-                String description = userInputFormatted("Listing origin (Sydney): ", "Business flight from Sydney to Melbourne.", scan, true);
+                int flightID = Integer.valueOf(userInputString("Listing origin", "1007", scan, true));
+                String origin = userInputString("Listing origin", "Sydney", scan, true);
+                String destination = userInputString("Listing origin (Sydney): ", "Melbourne", scan, true);
+                int numofSeats = Integer.valueOf(userInputString("Listing origin (Sydney): ", "8", scan, true));
+                String departureDate = userInputString("Listing origin (Sydney): ", "2017-06-16", scan, true);
+                String flightType = userInputString("Listing origin (Sydney): ", "Business", scan, true);
+                String price = userInputString("Listing origin (Sydney): ", "100.00", scan, true);
+                String description = userInputString("Listing origin (Sydney): ", "Business flight from Sydney to Melbourne.", scan, true);
                 port.addListing(flightID, departureDate, departureDate, price, numofSeats, origin, destination, description, flightType);
             } else if (input.equals("3")) {
                 System.out.println("Create a booking.");
-                int userID = Integer.valueOf(userInputFormatted("Listing origin", "342345", scan, true));
-                int flightID = Integer.valueOf(userInputFormatted("Listing origin", "1007", scan, true));
-                int bookingID = Integer.valueOf(userInputFormatted("Listing origin", "103", scan, true));
-                String origin = userInputFormatted("Listing origin", "Sydney", scan, true);
-                String destination = userInputFormatted("Listing origin (Sydney): ", "Melbourne", scan, true);
-                String departureDate = userInputFormatted("Listing origin (Sydney): ", "2017-06-16", scan, true);
-                String flightType = userInputFormatted("Listing origin (Sydney): ", "Business", scan, true);
-                String description = userInputFormatted("Listing origin (Sydney): ", "Business flight from Sydney to Melbourne.", scan, true);
+                int userID = Integer.valueOf(userInputString("Listing origin", "342345", scan, true));
+                int flightID = Integer.valueOf(userInputString("Listing origin", "1007", scan, true));
+                int bookingID = Integer.valueOf(userInputString("Listing origin", "103", scan, true));
+                String origin = userInputString("Listing origin", "Sydney", scan, true);
+                String destination = userInputString("Listing origin (Sydney): ", "Melbourne", scan, true);
+                String departureDate = userInputString("Listing origin (Sydney): ", "2017-06-16", scan, true);
+                String flightType = userInputString("Listing origin (Sydney): ", "Business", scan, true);
+                String description = userInputString("Listing origin (Sydney): ", "Business flight from Sydney to Melbourne.", scan, true);
                 port.addBooking(userID, flightID, bookingID, origin, destination, flightType, departureDate, departureDate, description);
             } // view listing METHOD ###########################################################################
             else if (input.equals("4")) {
                 System.out.println("PRINT BOOKINGS");
                 System.out.println("Search criteria (enter for default)");
-                String userIDFilter = userInputFormatted("Customer ID", "342345", scan, true);
-                String flightTypeFilter = userInputFormatted("(b)usiness or (e)conomical", "b", scan, true);
-                String numSeatsFilter = userInputFormatted("Number of Seats", "10", scan, true);
+                String userIDFilter = userInputString("Customer ID", "342345", scan, true);
                 System.out.println("--------------------------------------");
                 List<ass.wsd.soap.client.Booking> bookings = port.getBookingsXML();
                 for (int i = 0; i < bookings.size(); i++) {
@@ -141,11 +130,16 @@ public class ModifyBookingAppClient {
                 }
             } else if (input.equals("5")) {
                 System.out.println("PRINT LISTINGS");
+                boolean userIDEnable = userInputBoolean("Search using customer username", true, scan, false);
+                String userIDFilter = userInputString("Customer ID", "342345", scan, true);
+                String flightTypeFilter = userInputString("(b)usiness or (e)conomical", "b", scan, true);
+                String numSeatsFilter = userInputString("Number of Seats", "10", scan, true);
                 FlightsApp flightsApp = port.getFlightsApp();
                 Flights flights = flightsApp.getFlights();
                 List<ass.wsd.soap.client.Flight> flightList = flights.getFlight();
                 for (int i = 0; i < flightList.size(); i++) {
                     //if (String.valueOf(flightList.get(i).id).equals(userIDFilter)) {
+                    //Add filters here
                     out.print(flightList.get(i).flightID);
                     out.print(" | ");
                     out.print(flightList.get(i).departureDate);
@@ -167,7 +161,7 @@ public class ModifyBookingAppClient {
                 }
             } else if (input.equals("6")) {
                 System.out.println("CLOSE LISTING");
-                int listingID = Integer.valueOf(userInputFormatted("Customer ID", "342345", scan, false));
+                int listingID = Integer.valueOf(userInputString("Customer ID", "342345", scan, false));
                 port.closeListing(listingID);
             } else if (input.equals("7")) {
                 running = false;
@@ -175,7 +169,7 @@ public class ModifyBookingAppClient {
         }
     }
 
-    private static String userInputFormatted(String prompt, String defaultValue, BufferedReader scan, boolean isDebug) throws IOException {
+    private static String userInputString(String prompt, String defaultValue, BufferedReader scan, boolean isDebug) throws IOException {
         System.out.print(prompt + " (" + defaultValue + "): ");
         if (isDebug) {
             return defaultValue;
@@ -187,6 +181,42 @@ public class ModifyBookingAppClient {
                 return userInput;
             }
             return defaultValue;
+        }
+    }
+    
+    /* I'm pretty happy with this method. Prompts the user for a y or n. Allows
+    for the program to specify a default value too, so if the user leaves
+    the line empty, it will return a default. param prompt should be set to what
+    you want the program to ask the user. param defaultValue is the value if
+    user enters nothing. param scan is the buffered reader the program is using
+    param isDebug is set to true if you want the program to automatically enter 
+    the default value without a user prompt, useful for fast development and
+    debugging */
+    private static Boolean userInputBoolean(String prompt, boolean defaultValue, BufferedReader scan, boolean isDebug) throws IOException {
+        if(defaultValue){
+            System.out.print("[ y | n ] " + prompt + "? (y): ");
+        } else {
+            System.out.print("[ y | n ] " + prompt + "? (n): ");
+        }
+        if (isDebug) {
+            return defaultValue;
+        } else {
+            String userInput = scan.readLine();
+            System.out.println();
+
+            if ("y".equals(userInput.trim())) {
+                return true;
+            } 
+            else if ("n".equals(userInput.trim())) {
+                return false;
+            }
+            else if ("".equals(userInput.trim())) {
+                return defaultValue;
+            }
+            else {
+                System.out.print("ERROR: Please enter either a 'y' or 'n' to signify yes or no.");
+                return userInputBoolean(prompt, defaultValue, scan, isDebug);
+            }
         }
     }
 }
