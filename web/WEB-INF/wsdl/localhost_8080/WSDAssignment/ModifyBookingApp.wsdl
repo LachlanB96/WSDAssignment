@@ -4,17 +4,11 @@
 <xsd:import namespace="http://soap.wsd.ass/" schemaLocation="http://localhost:8080/WSDAssignment/ModifyBookingApp?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="hello">
-<part name="parameters" element="tns:hello"/>
+<message name="login">
+<part name="parameters" element="tns:login"/>
 </message>
-<message name="helloResponse">
-<part name="parameters" element="tns:helloResponse"/>
-</message>
-<message name="getFlightsApp">
-<part name="parameters" element="tns:getFlightsApp"/>
-</message>
-<message name="getFlightsAppResponse">
-<part name="parameters" element="tns:getFlightsAppResponse"/>
+<message name="loginResponse">
+<part name="parameters" element="tns:loginResponse"/>
 </message>
 <message name="getBookingsXML">
 <part name="parameters" element="tns:getBookingsXML"/>
@@ -22,23 +16,74 @@
 <message name="getBookingsXMLResponse">
 <part name="parameters" element="tns:getBookingsXMLResponse"/>
 </message>
+<message name="getFlightsApp">
+<part name="parameters" element="tns:getFlightsApp"/>
+</message>
+<message name="getFlightsAppResponse">
+<part name="parameters" element="tns:getFlightsAppResponse"/>
+</message>
+<message name="addListing">
+<part name="parameters" element="tns:addListing"/>
+</message>
+<message name="addListingResponse">
+<part name="parameters" element="tns:addListingResponse"/>
+</message>
+<message name="Exception">
+<part name="fault" element="tns:Exception"/>
+</message>
+<message name="addBooking">
+<part name="parameters" element="tns:addBooking"/>
+</message>
+<message name="addBookingResponse">
+<part name="parameters" element="tns:addBookingResponse"/>
+</message>
+<message name="closeListing">
+<part name="parameters" element="tns:closeListing"/>
+</message>
+<message name="closeListingResponse">
+<part name="parameters" element="tns:closeListingResponse"/>
+</message>
 <portType name="ModifyBookingApp">
-<operation name="hello">
-<input wsam:Action="http://soap.wsd.ass/ModifyBookingApp/helloRequest" message="tns:hello"/>
-<output wsam:Action="http://soap.wsd.ass/ModifyBookingApp/helloResponse" message="tns:helloResponse"/>
-</operation>
-<operation name="getFlightsApp">
-<input wsam:Action="http://soap.wsd.ass/ModifyBookingApp/getFlightsAppRequest" message="tns:getFlightsApp"/>
-<output wsam:Action="http://soap.wsd.ass/ModifyBookingApp/getFlightsAppResponse" message="tns:getFlightsAppResponse"/>
+<operation name="login">
+<input wsam:Action="http://soap.wsd.ass/ModifyBookingApp/loginRequest" message="tns:login"/>
+<output wsam:Action="http://soap.wsd.ass/ModifyBookingApp/loginResponse" message="tns:loginResponse"/>
 </operation>
 <operation name="getBookingsXML">
 <input wsam:Action="http://soap.wsd.ass/ModifyBookingApp/getBookingsXMLRequest" message="tns:getBookingsXML"/>
 <output wsam:Action="http://soap.wsd.ass/ModifyBookingApp/getBookingsXMLResponse" message="tns:getBookingsXMLResponse"/>
 </operation>
+<operation name="getFlightsApp">
+<input wsam:Action="http://soap.wsd.ass/ModifyBookingApp/getFlightsAppRequest" message="tns:getFlightsApp"/>
+<output wsam:Action="http://soap.wsd.ass/ModifyBookingApp/getFlightsAppResponse" message="tns:getFlightsAppResponse"/>
+</operation>
+<operation name="addListing">
+<input wsam:Action="http://soap.wsd.ass/ModifyBookingApp/addListingRequest" message="tns:addListing"/>
+<output wsam:Action="http://soap.wsd.ass/ModifyBookingApp/addListingResponse" message="tns:addListingResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.wsd.ass/ModifyBookingApp/addListing/Fault/Exception"/>
+</operation>
+<operation name="addBooking">
+<input wsam:Action="http://soap.wsd.ass/ModifyBookingApp/addBookingRequest" message="tns:addBooking"/>
+<output wsam:Action="http://soap.wsd.ass/ModifyBookingApp/addBookingResponse" message="tns:addBookingResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.wsd.ass/ModifyBookingApp/addBooking/Fault/Exception"/>
+</operation>
+<operation name="closeListing">
+<input wsam:Action="http://soap.wsd.ass/ModifyBookingApp/closeListingRequest" message="tns:closeListing"/>
+<output wsam:Action="http://soap.wsd.ass/ModifyBookingApp/closeListingResponse" message="tns:closeListingResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.wsd.ass/ModifyBookingApp/closeListing/Fault/Exception"/>
+</operation>
 </portType>
 <binding name="ModifyBookingAppPortBinding" type="tns:ModifyBookingApp">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="hello">
+<operation name="login">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getBookingsXML">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -56,7 +101,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="getBookingsXML">
+<operation name="addListing">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -64,6 +109,33 @@
 <output>
 <soap:body use="literal"/>
 </output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="addBooking">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="closeListing">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
 </operation>
 </binding>
 <service name="ModifyBookingApp">
