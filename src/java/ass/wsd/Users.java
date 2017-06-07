@@ -49,6 +49,15 @@ public class Users implements Serializable {
         }
         return null;
     }
+    
+    public int getUsersID(String email) {
+        for (User user : list) {
+            if (user.getEmail().equals(email)) {
+                return user.getID();
+            }
+        }
+        return 0;
+    }
 
     public User login(String email, String password) {
         // For each user in the list...

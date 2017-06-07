@@ -97,11 +97,34 @@ public class bookingsService {
         return getBookingsApp().getBookings();
     }
     
-    @Path("getBookingsUserID")
+    @Path("getBookingsList")
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    public ArrayList<Booking> getBookingsList() throws IOException, Exception {
+        return getBookingsApp().getBookings().getList();
+    }
+    
+    @Path("getBookingdUserID")
     @GET
     @Produces(MediaType.APPLICATION_XML)
     public Booking getBookingsUserID(@QueryParam("id") int id) throws IOException, Exception {
         return getBookingsApp().getBookings().getUserID(id);
+    }
+    
+    @Path("getBookingUserID")
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    public ArrayList<Booking> getBookingUserID(@QueryParam("id") int id) throws IOException, Exception {
+        return getBookingsApp().getBookings().getBookingsUserID(id);
+    }
+    
+    @Path("getBookingUserEmail")
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    public ArrayList<Booking> getBookingUserID(@QueryParam("email") String email) throws IOException, Exception {
+        int id = getUsersApp().getUsers().getUsersID(email);
+        if (id != 0) return getBookingsApp().getBookings().getBookingsUserID(id);
+        return null;
     }
     
     /**
@@ -120,6 +143,20 @@ public class bookingsService {
     @Produces(MediaType.APPLICATION_XML)
     public Flight getFlight(@QueryParam("id") int id) throws IOException, Exception {
         return getFlightsApp().getFlights().getFlightID(id);
+    }
+    
+    @Path("getFlightWithDestination")
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    public ArrayList<Flight> getFlight(@QueryParam("destination") String destination) throws IOException, Exception {
+        return getFlightsApp().getFlights().getFlightsTo(destination.toLowerCase());
+    }
+    
+    @Path("getFlightsAmount")
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getFlightsAmount() throws IOException, Exception {
+        return "Amount of flights: " + getFlightsApp().getFlights().getListSize();
     }
     
     /**
@@ -146,30 +183,5 @@ public class bookingsService {
     public int getUserList(@QueryParam("email") String email) throws JAXBException, IOException, Exception {
         return getUsersApp().getUsers().getUserID(email);
     }
-    
-    // Debugging methods
-    
-    @Path("working")
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String working(@QueryParam("text") String text) {
-        return text;
-    }
-    
-    @Path("printInfoStatic")
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String findUserStatic() throws JAXBException, IOException, Exception {
-        String s = "";
-        User user = getUsersApp().getUsers().getUser("a@a.com");
-        s += "Username: " + user.getEmail();
-        return s;
-    }
-    
-    @Path("getInfoStatic")
-    @GET
-    @Produces(MediaType.APPLICATION_XML)
-    public User getInfoStatic() throws JAXBException, IOException, Exception {
-        return new User("James", "james@james.com", "secretJames", "13-05-1984", 847563);
-    }
+
 }

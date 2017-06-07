@@ -40,4 +40,19 @@ public class Flights implements Serializable {
         }
         return null; // No flight can be found for Flight ID.
     }
+    
+    public ArrayList<Flight> getFlightsTo(String destination) {
+        ArrayList<Flight> flights = new ArrayList<Flight>();
+        for (Flight flight : list) {
+            if (flight.getDestination().toLowerCase().equals(destination)) {
+                flights.add(flight);
+            }
+        }
+        if (flights.isEmpty()) return null;
+        return flights;
+    }
+    
+    public int getListSize() {
+        return list.size();
+    }
 }

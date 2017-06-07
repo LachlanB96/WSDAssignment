@@ -41,4 +41,15 @@ public class Bookings implements Serializable {
         return null; // No booking can be found for User ID.
     }
     
+    public ArrayList<Booking> getBookingsUserID(int id) {
+        ArrayList<Booking> bookings = new ArrayList<>();
+        for (Booking booking : list) {
+            if (booking.getId() == id) {
+                bookings.add(booking);
+            }
+        }
+        if (bookings.isEmpty()) return null;
+        return bookings;
+    }
+    
 }
