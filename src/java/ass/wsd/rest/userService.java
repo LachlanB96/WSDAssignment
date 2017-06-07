@@ -50,18 +50,18 @@ public class userService {
         return "Hello World";
     }
     
-    @Path("getInfo")
-    @GET
-    @Produces(MediaType.APPLICATION_XML)
-    public User findUser(@QueryParam("email") String email) throws JAXBException, IOException, Exception {
-        return getUsersApp().getUsers().getUser(email);
-    }
-    
     @Path("getUsers")
     @GET
     @Produces(MediaType.APPLICATION_XML)
     public Users getUsers() throws IOException, Exception {
         return getUsersApp().getUsers();
+    }
+    
+    @Path("getInfo")
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    public User findUser(@QueryParam("email") String email) throws JAXBException, IOException, Exception {
+        return getUsersApp().getUsers().getUser(email);
     }
     
     @Path("getUserList")
