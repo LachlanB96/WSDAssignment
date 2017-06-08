@@ -17,6 +17,7 @@ import ass.wsd.UsersApp;
 import com.sun.javafx.scene.web.Debugger;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Resource;
@@ -38,8 +39,7 @@ public class ModifyBookingApp {
     private WebServiceContext context;
 
     @WebMethod
-    public User login(String username, String password
-    ) {
+    public User login(String username, String password) {
 
         ServletContext application = (ServletContext) context.getMessageContext().get(MessageContext.SERVLET_CONTEXT);
         UsersApp app = (UsersApp) application.getAttribute("UsersApp");
@@ -115,24 +115,40 @@ public class ModifyBookingApp {
     }
 
     @WebMethod
-    public void addBooking(int userID, int flightID, int bookingID, String origin, String destination, String flightType, String departureDate, String returnDate, String description) throws Exception {
+    public void addBooking(int userID, int flightID) throws Exception {
 
         ServletContext application = (ServletContext) context.getMessageContext().get(MessageContext.SERVLET_CONTEXT);
-        BookingsApp app = (BookingsApp) application.getAttribute("BookingsApp");
-        if (app == null) {
-            app = new BookingsApp();
+        BookingsApp bookingApp = (BookingsApp) application.getAttribute("BookingsApp");
+        if (bookingApp == null) {
+            bookingApp = new BookingsApp();
             try {
-                app.setFilePath(application.getRealPath("WEB-INF/bookings.xml"));
+                bookingApp.setFilePath(application.getRealPath("WEB-INF/bookings.xml"));
             } catch (Exception ex) {
                 Logger.getLogger(ModifyBookingApp.class.getName()).log(Level.SEVERE, null, ex);
             }
-            application.setAttribute("BookingsApp", app);
+            application.setAttribute("BookingsApp", bookingApp);
         }
-        Booking newBooking = new Booking(userID, flightID, bookingID, origin, destination, flightType, departureDate, returnDate, description);
-
-        Bookings existingBookings = app.getBookings();
+        FlightsApp flightApp = (FlightsApp) application.getAttribute("FlightsApp");
+        if (flightApp == null) {
+            flightApp = new FlightsApp();
+            try {
+                flightApp.setFilePath(application.getRealPath("WEB-INF/flights.xml"));
+            } catch (Exception ex) {
+                Logger.getLogger(ModifyBookingApp.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            application.setAttribute("FlightsApp", flightApp);
+        }
+        Bookings existingBookings = bookingApp.getBookings();
+        Flights existingFlights = flightApp.getFlights();
+        Flight flightToBook = existingFlights.getFlightID(flightID);
+        flightToBook.setNumofSeats(flightToBook.getNumofSeats() - 1);
+        Booking newBooking = new Booking(userID, flightID, (new Random()).nextInt(999),
+                flightToBook.getOrigin(), flightToBook.getDestination(), flightToBook.getFlightType(),
+                flightToBook.getDepartureDate(), flightToBook.getReturnDate(), flightToBook.getDescription());
         existingBookings.addBooking(newBooking);
-        app.updateXML(existingBookings);
+
+        flightApp.updateXML(existingFlights);
+        bookingApp.updateXML(existingBookings);
     }
 
     @WebMethod
@@ -153,6 +169,64 @@ public class ModifyBookingApp {
         Flight listingToRemove = existingFlights.getFlightID(listingID);
         existingFlights.removeFlight(listingToRemove);
         app.updateXML(existingFlights);
+    }
+
+    @WebMethod
+    public String cancelBooking(int bookingID, int userID, int requestersID) throws Exception {
+
+        ServletContext application = (ServletContext) context.getMessageContext().get(MessageContext.SERVLET_CONTEXT);
+        BookingsApp bookingApp = (BookingsApp) application.getAttribute("BookingsApp");
+        if (bookingApp == null) {
+            bookingApp = new BookingsApp();
+            try {
+                bookingApp.setFilePath(application.getRealPath("WEB-INF/bookings.xml"));
+            } catch (Exception ex) {
+                Logger.getLogger(ModifyBookingApp.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            application.setAttribute("BookingsApp", bookingApp);
+        }
+        FlightsApp flightApp = (FlightsApp) application.getAttribute("FlightsApp");
+        if (flightApp == null) {
+            flightApp = new FlightsApp();
+            try {
+                flightApp.setFilePath(application.getRealPath("WEB-INF/flights.xml"));
+            } catch (Exception ex) {
+                Logger.getLogger(ModifyBookingApp.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            application.setAttribute("FlightsApp", flightApp);
+        }
+        UsersApp userApp = (UsersApp) application.getAttribute("UsersApp");
+        if (userApp == null) {
+            userApp = new UsersApp();
+            try {
+                userApp.setFilePath(application.getRealPath("WEB-INF/users.xml"));
+            } catch (Exception ex) {
+                Logger.getLogger(ModifyBookingApp.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            application.setAttribute("UsersApp", userApp);
+        }
+        String returnOutput = "";
+        Users users = userApp.getUsers();
+        User user = users.getUserID(requestersID);
+        String userPrivege = user.getPrivilege();
+        if(userID != requestersID && !userPrivege.equals("admin")){
+            returnOutput = "You do not have permission to do this!";
+        } else{
+
+        Bookings existingBookings = bookingApp.getBookings();
+        ArrayList<Booking> bookingsToRemove = existingBookings.getBookingsUserID(userID);
+        Booking bookingToRemove = bookingsToRemove.get(0);
+        Flights existingFlights = flightApp.getFlights();
+        Flight flightBooked = existingFlights.getFlightID(bookingToRemove.getFlightID());
+        flightBooked.setNumofSeats(flightBooked.getNumofSeats() + 1);
+        existingBookings.removeBooking(bookingToRemove);
+
+        bookingApp.updateXML(existingBookings);
+        flightApp.updateXML(existingFlights);
+        returnOutput = "Booking removed successfully";
+        }
+        return returnOutput;
+
     }
 
 }
