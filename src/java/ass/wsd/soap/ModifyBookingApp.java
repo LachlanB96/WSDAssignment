@@ -209,21 +209,21 @@ public class ModifyBookingApp {
         Users users = userApp.getUsers();
         User user = users.getUserID(requestersID);
         String userPrivege = user.getPrivilege();
-        if(userID != requestersID && !userPrivege.equals("admin")){
+        if (userID != requestersID && !userPrivege.equals("admin")) {
             returnOutput = "You do not have permission to do this!";
-        } else{
+        } else {
 
-        Bookings existingBookings = bookingApp.getBookings();
-        ArrayList<Booking> bookingsToRemove = existingBookings.getBookingsUserID(userID);
-        Booking bookingToRemove = bookingsToRemove.get(0);
-        Flights existingFlights = flightApp.getFlights();
-        Flight flightBooked = existingFlights.getFlightID(bookingToRemove.getFlightID());
-        flightBooked.setNumofSeats(flightBooked.getNumofSeats() + 1);
-        existingBookings.removeBooking(bookingToRemove);
+            Bookings existingBookings = bookingApp.getBookings();
+            ArrayList<Booking> bookingsToRemove = existingBookings.getBookingsUserID(userID);
+            Booking bookingToRemove = bookingsToRemove.get(0);
+            Flights existingFlights = flightApp.getFlights();
+            Flight flightBooked = existingFlights.getFlightID(bookingToRemove.getFlightID());
+            flightBooked.setNumofSeats(flightBooked.getNumofSeats() + 1);
+            existingBookings.removeBooking(bookingToRemove);
 
-        bookingApp.updateXML(existingBookings);
-        flightApp.updateXML(existingFlights);
-        returnOutput = "Booking removed successfully";
+            bookingApp.updateXML(existingBookings);
+            flightApp.updateXML(existingFlights);
+            returnOutput = "Booking removed successfully";
         }
         return returnOutput;
 

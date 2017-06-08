@@ -27,23 +27,23 @@
                 Users deleteUser = logIn.getUsers();
                 deleteUser.removeUser(user);
                 logIn.updateXML(deleteUser);
-                //Cancel booking if user has it.
-                Bookings booking = getBooking.getBookings();
-                int userID = user.getID();
-                Booking userBooking = booking.getUserID(userID);
-                if (userBooking != null) {
-                    booking.removeBooking(userBooking);
-                    getBooking.updateXML(booking);
-                    //Now update numOfSeats
-                    int flightID = userBooking.getFlightID();
-                    Flights flight = getFlights.getFlights(); //get flights list
-                    Flight updateFlight = flight.getFlightID(flightID); //get flight using the flightID
-                    int numOfSeats = updateFlight.getNumofSeats();
-                    int newnumofSeats = numOfSeats + 1;
-                    updateFlight.setNumofSeats(newnumofSeats);
-                    getFlights.updateXML(flight);
-
-                }
+//                //Cancel booking if user has it.
+//                Bookings bookings = getBooking.getBookings();
+//                int userID = user.getID();
+//                Booking userBooking = bookings.getUserID(userID);
+//                if (userBooking != null) {
+//                    bookings.removeBooking(userBooking);
+//                    getBooking.updateXML(bookings);
+//                    //Now update numOfSeats
+//                    int flightID = userBooking.getFlightID();
+//                    Flights flight = getFlights.getFlights(); //get flights list
+//                    Flight updateFlight = flight.getFlightID(flightID); //get flight using the flightID
+//                    int numOfSeats = updateFlight.getNumofSeats();
+//                    int newnumofSeats = numOfSeats + 1;
+//                    updateFlight.setNumofSeats(newnumofSeats);
+//                    getFlights.updateXML(flight);
+//
+//                }
                 response.sendRedirect("logout.jsp");
             }%>
         <fieldset>

@@ -85,7 +85,7 @@ public class ModifyBookingAppClient {
                 int userID = Integer.valueOf(userInputString("userID", "342345", scan, isDebug));
                 int flightID = Integer.valueOf(userInputString("flightID", "1007", scan, isDebug));
                 port.addBooking(userID, flightID);
-            } // view listing METHOD ###########################################################################
+            } // view booking METHOD ###########################################################################
             else if (input.equals("4")) {
                 System.out.println("PRINT BOOKINGS");
                 System.out.println("Search criteria (enter for default)");
@@ -116,33 +116,75 @@ public class ModifyBookingAppClient {
             } else if (input.equals("5")) {
                 System.out.println("PRINT LISTINGS");
                 boolean userIDEnable = userInputBoolean("Search using customer username", true, scan, isDebug);
-                String userIDFilter = userInputString("Customer ID", "342345", scan, isDebug);
-                String flightTypeFilter = userInputString("(b)usiness or (e)conomical", "b", scan, isDebug);
-                String numSeatsFilter = userInputString("Number of Seats", "10", scan, isDebug);
+                boolean flightTypeEnable = userInputBoolean("Search using flight type", true, scan, isDebug);
+                boolean numSeatsEnable = userInputBoolean("Search using number of seats available", true, scan, isDebug);
+                int flightIDFilter = 0;
+                String flightTypeFilter = "";
+                boolean numSeatsFilter = true;
+                if (userIDEnable) {
+                    flightIDFilter = userInputInt("Flight ID", 1004, scan, isDebug);
+                }
+                if (flightTypeEnable) {
+                    flightTypeFilter = userInputString("(b)usiness or (e)conomical", "b", scan, isDebug);
+                    flightTypeFilter = flightTypeFilter.toUpperCase();
+                }
+                if (numSeatsEnable) {
+                    numSeatsFilter = userInputBoolean("Flight Available", true, scan, isDebug);
+                }
                 FlightsApp flightsApp = port.getFlightsApp();
                 Flights flights = flightsApp.getFlights();
                 List<ass.wsd.soap.client.Flight> flightList = flights.getFlight();
+                String flightOutput;
+                boolean validFlight;
                 for (int i = 0; i < flightList.size(); i++) {
+                    flightOutput = "";
+                    validFlight = true;
+                    if (userIDEnable) {
+                        if (flightList.get(i).flightID != flightIDFilter) {
+                            validFlight = false;
+                        }
+                    }
+                    if (flightTypeEnable){
+                        if (!(flightList.get(i).flightType.substring(0, 1).equals(flightTypeFilter))) {
+                            validFlight = false;
+                        }
+                    }
+                    if (numSeatsEnable){
+                        if(numSeatsFilter){
+                            if (flightList.get(i).numofSeats < 1) {
+                                validFlight = false;
+                            }
+                        }
+                        else {
+                            if (flightList.get(i).numofSeats > 0) {
+                                validFlight = false;
+                            }
+                        }
+                    }
+
                     //if (String.valueOf(flightList.get(i).id).equals(userIDFilter)) {
                     //Add filters here
-                    out.print(flightList.get(i).flightID);
-                    out.print(" | ");
-                    out.print(flightList.get(i).departureDate);
-                    out.print(" | ");
-                    out.print(flightList.get(i).returnDate);
-                    out.print(" | ");
-                    out.print(flightList.get(i).price);
-                    out.print(" | ");
-                    out.print(flightList.get(i).numofSeats);
-                    out.print(" | ");
-                    out.print(flightList.get(i).origin);
-                    out.print(" | ");
-                    out.print(flightList.get(i).destination);
-                    out.print(" | ");
-                    out.print(flightList.get(i).description);
-                    out.print(" | ");
-                    out.println(flightList.get(i).flightType);
+                    flightOutput += (flightList.get(i).flightID);
+                    flightOutput += (" | ");
+                    flightOutput += (flightList.get(i).departureDate);
+                    flightOutput += (" | ");
+                    flightOutput += (flightList.get(i).returnDate);
+                    flightOutput += (" | ");
+                    flightOutput += (flightList.get(i).price);
+                    flightOutput += (" | ");
+                    flightOutput += (flightList.get(i).numofSeats);
+                    flightOutput += (" | ");
+                    flightOutput += (flightList.get(i).origin);
+                    flightOutput += (" | ");
+                    flightOutput += (flightList.get(i).destination);
+                    flightOutput += (" | ");
+                    flightOutput += (flightList.get(i).description);
+                    flightOutput += (" | ");
+                    flightOutput += (flightList.get(i).flightType);
                     //}
+                    if (validFlight) {
+                        System.out.println(flightOutput);
+                    }
                 }
             } else if (input.equals("6")) {
                 System.out.println("CANCEL BOOKING");
@@ -173,6 +215,27 @@ public class ModifyBookingAppClient {
 
             if (!"".equals(userInput.trim())) {
                 return userInput;
+            }
+            return defaultValue;
+        }
+    }
+    
+    private static int userInputInt(String prompt, int defaultValue, BufferedReader scan, boolean isDebug) throws IOException {
+        System.out.print(prompt + " (" + String.valueOf(defaultValue) + "): ");
+        if (isDebug) {
+            return defaultValue;
+        } else {
+            String userInput = scan.readLine();
+            System.out.println();
+
+            if (!"".equals(userInput.trim())) {
+                if (userInput.matches("\\d+")){
+                    return Integer.valueOf(userInput);
+                }
+                else{
+                    System.out.print("ERROR: Please enter a valid integer!");
+                    return userInputInt(prompt, defaultValue, scan, isDebug);
+                }
             }
             return defaultValue;
         }
