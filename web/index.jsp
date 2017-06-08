@@ -43,11 +43,11 @@
                     </tr>
                     <tr>
                         <td><label class="field" for="departureDate">Departure date: </label></td>
-                        <td><input type="date" name="departureDate" id="departureDate"  required pattern="[0-9]{4}-[0-1]{1}[0-9]{1}-[0-3]{1}[0-9]{1}"></td>
+                        <td><input type="date" name="departureDate" id="departureDate" placeholder="2017-05-30" required pattern="[0-9]{4}-[0-1]{1}[0-9]{1}-[0-3]{1}[0-9]{1}"></td>
                     </tr>
                     <tr>
                         <td><label class="field" for="returnDate">Return date: </label></td>
-                        <td><input type="date" name="returnDate"  required pattern="[0-9]{4}-[0-1]{1}[0-9]{1}-[0-3]{1}[0-9]{1}"></td>
+                        <td><input type="date" name="returnDate" placeholder="2017-01-02" required pattern="[0-9]{4}-[0-1]{1}[0-9]{1}-[0-3]{1}[0-9]{1}"></td>
                     </tr>
                     <tr>
                         <td></td>
